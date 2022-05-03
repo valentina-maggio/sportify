@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Exercise = require("./exercise");
 
-// const mongoDb = process.env.MONGODB_TARGET || "acebook";
-// const mongoDbUrl = process.env.MONGODB_URI || `mongodb://127.0.0.1/${mongoDb}`;
+const mongoDb = process.env.MONGODB_TARGET || "Sportify";
+const mongoDbUrl = process.env.MONGODB_URI || `mongodb://127.0.0.1/${mongoDb}`;
 
 // mongoose.connect(mongoDbUrl, {
 //   useNewUrlParser: true,
