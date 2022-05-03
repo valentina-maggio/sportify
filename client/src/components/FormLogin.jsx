@@ -16,6 +16,10 @@ function FormLogin() {
         name="password"
         placeholder="password"
       />
+      <input 
+        type="submit" 
+        value="Login"
+      />
     </form>
   </div>
   );
