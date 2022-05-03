@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 
 const app = require('./app');
 
-const MONGO_URL = "mongodb+srv://Jazzer:p@ssw0rd'9'!@cluster0.mgq9v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const PORT = process.env.PORT || 3000;
+
+const MONGO_URL = "mongodb+srv://Jazzer:p%40ssw0rd%279%27%21@cluster0.mgq9v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 const server = http.createServer(app);
 
