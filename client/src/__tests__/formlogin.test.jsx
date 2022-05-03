@@ -10,3 +10,10 @@ import FormLogin from '../components/FormLogin';
     expect(emailElement.value).toBe('');
     expect(passwordElement.value).toBe('');
   });
+
+  test('displays a submit button for the Login', () => {
+    render(<FormLogin />);
+    const submitInput = screen.getByDisplayValue(/login/i);
+
+    expect(submitInput.value).toBe('Login');
+  });
