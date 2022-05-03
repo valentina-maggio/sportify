@@ -2,14 +2,12 @@ import { Link } from 'react-router-dom';
 
 function NavBarLogin() {
   return (
-    <header>
+    <header id="navbar">
       <div>
         <h1>Sportify</h1>
       </div>
-      <div>
-        <ul>
-          <Link to="/">Register</Link>
-        </ul>
+      <div id="register-link">
+        <Link to="/">Register</Link>
       </div>
     </header>
   );
