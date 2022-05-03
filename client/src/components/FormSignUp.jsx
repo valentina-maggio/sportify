@@ -24,7 +24,7 @@ function FormSignUp() {
       />
       <input 
         type="submit" 
-        value="Login"
+        value="Register"
       />
     </form>
   </div>
