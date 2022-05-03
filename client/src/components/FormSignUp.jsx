@@ -1,9 +1,15 @@
 import React from 'react';
 
-function FormLogin() {
+function FormSignUp() {
   return (
     <div>
     <form>
+      <input
+        type="username"
+        id="username"
+        name="username"
+        placeholder="Username"
+      />
       <input
         type="email"
         id="email"
@@ -14,7 +20,7 @@ function FormLogin() {
         type="password"
         id="password"
         name="password"
-        placeholder="Password"
+        placeholder="password"
       />
       <input 
         type="submit" 
@@ -25,4 +31,4 @@ function FormLogin() {
   );
 }
 
-export default FormLogin;
+export default FormSignUp;
