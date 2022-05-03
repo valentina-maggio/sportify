@@ -9,6 +9,7 @@
     "object-assign": "^4.1.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-router-dom": "^6.3.0",
     "scheduler": "^0.20.2"
   },
   "scripts": {
@@ -23,6 +24,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/valentina-maggio/sportify/issues"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "verbose": true
   },
   "homepage": "https://github.com/valentina-maggio/sportify#readme"
 }

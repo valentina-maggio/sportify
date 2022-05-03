@@ -17,6 +17,10 @@
     "mongoose": "^6.3.2",
     "nodemon": "^2.0.16"
   },
+  "jest": {
+    "collectCoverage": true,
+    "verbose": true
+  },
   "devDependencies": {
     "eslint": "^8.14.0",
     "eslint-config-airbnb-base": "^15.0.0",
