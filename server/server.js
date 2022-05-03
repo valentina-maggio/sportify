@@ -1,9 +1,10 @@
 const http = require('http');
 const mongoose = require('mongoose');
+const env = require('./.env');
 
 const app = require('./app');
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 
 const MONGO_URL = "mongodb+srv://Jazzer:p%40ssw0rd%279%27%21@cluster0.mgq9v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
