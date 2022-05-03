@@ -17,8 +17,6 @@ const usersSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    
-
 });
 
 // connects usersSchema with the user collection

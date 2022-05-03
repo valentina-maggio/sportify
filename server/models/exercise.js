@@ -1,0 +1,25 @@
+const mongoose = require("mongoose");
+
+const exerciseSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  duration: {
+    type: Number,
+    required: true,
+  },
+  intensity: {
+    type: String,
+    required: true,
+  },
+  url: {
+    type: String,
+  },
+});
+
+module.exports = mongoose.model("Exercise", exerciseSchema);
