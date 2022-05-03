@@ -3,6 +3,7 @@ import NavBarLogin from './components/NavBarLogin';
 import FormLogin from './components/FormLogin';
 import SubBar from './components/SubBar';
 import FormSignUp from './components/FormSignUp';
+import SignInRedirection from './components/SignInRedirection';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <SubBar />
       <FormLogin />
       <FormSignUp />
+      <SignInRedirection />
     </BrowserRouter>
   );
 }
