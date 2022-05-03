@@ -1,8 +1,8 @@
-const Users = require("../models/user");
+const User = require("../models/user");
 
 const UsersController = {
   Create: async (req, res) => {
-    const user = new Users(req.body);
+    const user = new User(req.body);
 
     const userExists = await Users.exists({email: user.email})
 
