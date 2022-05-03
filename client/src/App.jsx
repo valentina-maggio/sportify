@@ -1,8 +1,11 @@
+import { BrowserRouter } from 'react-router-dom';
 import NavBarLogin from './components/NavBarLogin';
 
 function App() {
   return (
-    <NavBarLogin />
+    <BrowserRouter>
+      <NavBarLogin />
+    </BrowserRouter>
   );
 }
 

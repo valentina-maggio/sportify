@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function NavBarLogin() {
   return (
     <header>
@@ -6,7 +8,7 @@ function NavBarLogin() {
       </div>
       <div>
         <ul>
-          <li>Register</li>
+          <Link to="/">Register</Link>
         </ul>
       </div>
     </header>
