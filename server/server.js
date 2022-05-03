@@ -1,0 +1,26 @@
+const http = require('http');
+const mongoose = require('mongoose');
+
+const app = require('./app');
+
+const MONGO_URL = "mongodb+srv://Jazzer:p@ssw0rd'9'!@cluster0.mgq9v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+const server = http.createServer(app);
+
+mongoose.connection.once('open', () => {
+    console.log('MongoDB connection Ready');
+})
+
+mongoose.connection.on('error', (err) => {
+    console.log(`MongoDB connection Error: ${err}`)
+})
+
+async function startServer () {
+    await mongoose.connect(MONGO_URL)
+
+    server.listen(PORT, () => {
+        console.log(`Listening on port ${PORT}...`)
+    })
+}
+
+startServer();
