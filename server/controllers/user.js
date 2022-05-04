@@ -19,8 +19,21 @@ const UsersController = {
     }
   },
 
-  getOneUser: async (req, res) => {
-    return res.status(200).json(`hello world`)
+  userProfile: async (req, res) => {
+
+    const username = req.params.username;
+    Users.findOne({username: username}, (err, data) => {
+      if (err) {
+        const error = {
+          status: `The user "${username}" has not been found`,
+        }
+        res.render("error", { error: error });
+        res.redirect(`/user`);
+      } else {
+        res.status(201).json(data);
+      }
+    })
+    
   }
 
 }

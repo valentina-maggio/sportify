@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const logger = require("morgan");
+const bodyParser = require('body-parser');
 
 
 //require routes
@@ -9,6 +10,12 @@ const usersRouter = require('./routes/user')
 
 
 const app = express();
+
+
+//body parser middleware setup
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
 
 app.use(cors({
     origin: 'http://localhost:3001',
