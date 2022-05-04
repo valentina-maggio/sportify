@@ -26,12 +26,8 @@ const usersSchema = new mongoose.Schema({
     },
     registerDate: {
         type: Date,
-        required: true,
     },
-    {
-        timestamps: true,
-    }
-    
+       
 
 });
 
