@@ -4,7 +4,7 @@ const UsersController = {
   Create: async (req, res) => {
     const user = new User(req.body);
 
-    const userExists = await Users.exists({email: user.email})
+    const userExists = await User.exists({email: user.email})
 
     if (userExists == false) {
       user.save((err) => {
@@ -15,6 +15,5 @@ const UsersController = {
     }
   }
 }
-
 
 module.exports = UsersController;

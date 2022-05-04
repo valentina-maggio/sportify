@@ -25,12 +25,12 @@ const usersSchema = new mongoose.Schema({
         required: true,
     },
     registerDate: {
-        type: Date,
-        required: true,
+      type: Date,
+      default: Date.now,
     },
-    
 
 });
 
+const User = mongoose.model('User', usersSchema);
 
-module.exports = mongoose.model('User', usersSchema);
+module.exports = User;
