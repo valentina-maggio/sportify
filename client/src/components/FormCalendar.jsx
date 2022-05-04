@@ -34,7 +34,7 @@ function FormCalendar() {
           placeholder="URL"
         />
       </form>
-      <button type="submit">Save workout</button>
+      <input type="submit" value="Save workout" />
     </div>
   );
 }
