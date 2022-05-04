@@ -1,7 +1,13 @@
 import FormCalendar from "./FormCalendar";
+import NavbarCalendarPage from "./NavbarCalendarPage";
 
 function CalendarDetails() {
-  return <FormCalendar />;
+  return (
+    <>
+      <NavbarCalendarPage />
+      <FormCalendar />
+    </>
+  );
 }
 
 export default CalendarDetails;
