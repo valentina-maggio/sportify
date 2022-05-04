@@ -1,28 +1,16 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import NavBarLogin from "./components/NavBarLogin";
-import FormLogin from "./components/FormLogin";
-import SubBar from "./components/SubBar";
-import FormSignUp from "./components/FormSignUp";
-import SignInRedirection from "./components/SignInRedirection";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPageDetails from './components/LoginPageDetails';
+import SignUpPageDetails from './components/SignUpPageDetails';
+import MoodPageDetails from './components/MoodPageDetails';
 import CalendarDetails from "./components/CalendarDetails";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={[<NavBarLogin />, <SubBar />, <FormLogin />]}
-        />
-        <Route
-          path="/signup"
-          element={[
-            <NavBarLogin />,
-            <SubBar />,
-            <FormSignUp />,
-            <SignInRedirection />,
-          ]}
-        />
+        <Route path='/' element={<LoginPageDetails />} />
+        <Route path='/signup' element={<SignUpPageDetails />}/>
+        <Route path='/dashboard' element={<MoodPageDetails />} />
         <Route path="username/calendar" element={<CalendarDetails />} />
       </Routes>
     </Router>
