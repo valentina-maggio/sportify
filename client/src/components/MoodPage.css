@@ -1,0 +1,10 @@
+.mood-links {
+  display: flex;
+}
+
+.mood-links img {
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  border-radius: 50px;
+}
