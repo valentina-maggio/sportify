@@ -2,7 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const logger = require("morgan");
 
-const userRouter = require('./routes/user')
+
+//require routes
+const usersRouter = require('./routes/user')
+
+
 
 const app = express();
 
@@ -15,7 +19,9 @@ app.use(logger("dev"));
 app.use(express.json());
 
 //routes go here
-app.use('/user', userRouter);
+app.use('/user', usersRouter);
+
+//error handling on unexpected user input 
 app.use('/*', async (req, res) => {
     return res.status(404).json({
         error: 'Page not found'

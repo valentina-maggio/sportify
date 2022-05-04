@@ -1,9 +1,9 @@
-const User = require("../models/user");
+const Users = require("../models/user");
 const bcrypt = require("bcrypt");
 
-const UserController = {
+const UsersController = {
   Create: async (req, res) => {
-    const user = new User(req.body);
+    const user = new Users(req.body);
     //added bycrypt into password parsing
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
@@ -26,4 +26,4 @@ const UserController = {
 }
 
 
-module.exports = UserController;
+module.exports = UsersController;
