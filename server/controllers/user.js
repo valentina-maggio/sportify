@@ -15,6 +15,7 @@ const UsersController = {
         if (err) {
           throw err;
         }
+    res.redirect('/:username')
       });
     }
   },
