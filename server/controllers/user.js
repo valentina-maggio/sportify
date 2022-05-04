@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const UsersController = {
   Create: async (req, res) => {
-    const user = new Users(req.body);
+    const user = new User(req.body);
     //added bycrypt into password parsing
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);

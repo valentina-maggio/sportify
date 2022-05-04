@@ -26,7 +26,7 @@ app.use(logger("dev"));
 app.use(express.json());
 
 //routes go here
-app.use('/user', usersRouter);
+app.use('/users', usersRouter);
 
 //error handling on unexpected user input 
 app.use('/*', async (req, res) => {
