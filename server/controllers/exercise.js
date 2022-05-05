@@ -16,10 +16,10 @@ const ExerciseController = {
           throw err;
         }
         // where am i redirecting to? not really familiar with how the website works
-        res.status(201).redirect("/");
+        res.status(201).redirect("/workout");
       });
     } else {
-      res.status(201).redirect("/");
+      res.status(201).redirect("/workout");
     }
   },
 };
