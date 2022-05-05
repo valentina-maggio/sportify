@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import FormCalendar from "../components/FormCalendar";
+import FormWorkout from "../components/FormWorkout";
 
 test("inputs should be initially empty", () => {
-  render(<FormCalendar />);
+  render(<FormWorkout />);
   const inputNamePlaceholder = screen.getByPlaceholderText(/name/i);
   const inputTypePlaceholder = screen.getByPlaceholderText(/type/i);
   const inputDurationPlaceholder = screen.getByPlaceholderText(/duration/i);
@@ -18,7 +18,7 @@ test("inputs should be initially empty", () => {
 });
 
 test("should display a submit workout button", () => {
-  render(<FormCalendar />);
+  render(<FormWorkout />);
   const buttonSubmitWorkout = screen.getByDisplayValue(/save workout/i);
 
   expect(buttonSubmitWorkout.value).toBe("Save workout");

@@ -1,11 +1,11 @@
-import FormCalendar from "./FormCalendar";
+import FormWorkout from "./FormWorkout";
 import NavbarCalendarPage from "./NavbarCalendarPage";
 
 function CalendarDetails() {
   return (
     <>
       <NavbarCalendarPage />
-      <FormCalendar />
+      <FormWorkout />
     </>
   );
 }
