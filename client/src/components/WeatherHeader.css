@@ -1,5 +1,5 @@
 .Header {
-  padding: 2rem 3rem;
+  /* padding: 2rem 3rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,11 +9,4 @@
 .Header__title {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-@media (max-width: 375px) {
-  .Header {
-    padding: 2rem;
-  }
 }

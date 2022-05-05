@@ -16,9 +16,9 @@ function Weather() {
   const [locationInfo, setLocationInfo] = useState({});
   const [contentState, setContentState] = useState("blank");
 
-  function searchCity(target) {
-    setAddress(target);
-  }
+  // function searchCity(target) {
+  //   setAddress(target);
+  // }
 
   function showWarning() {
     setContentState("warning");
@@ -110,10 +110,11 @@ function Weather() {
   };
 
   return (
-    <div className="App">
-      <div className="App__container">
+    <div className="weather">
+      <div className="weather-container">
         <>
-          <WeatherHeader searchCity={searchCity} />
+          {/* <WeatherHeader searchCity={searchCity} /> */}
+          <WeatherHeader />
           {Main[contentState]()}
         </>
       </div>

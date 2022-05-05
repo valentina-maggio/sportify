@@ -1,8 +1,11 @@
 .WeatherAndForecast {
   display: flex;
   flex-direction: column;
-  color: #f2f2f2;
+  color: #0e0f10;
   padding: 2rem 3rem;
+  border: 1px solid;
+  max-width: 400px;
+  text-align: center;
 }
 
 .WeatherAndForecast__container {

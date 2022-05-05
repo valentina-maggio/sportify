@@ -1,11 +1,11 @@
-import WeatherSearch from "./WeatherSearch";
+// import WeatherSearch from "./WeatherSearch";
 import "./WeatherHeader.css";
 
-function WeatherHeader({ searchCity }) {
+function WeatherHeader() {
     return ( 
       <header className = "Header">
         <h1 className = "Header__title" > Weather </h1> 
-        <WeatherSearch searchCity = { searchCity }/> 
+        {/* <WeatherSearch searchCity = { searchCity }/>  */}
       </header>
     );
 }
