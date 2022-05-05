@@ -7,7 +7,7 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 
 function Calendar() {
 
-  const [value, setValue] = React.useState(new Date('2022-05-05T11:11:54'));
+  const [value, setValue] = React.useState(new Date());
  
   const handleChange = (newValue) => {
     setValue(newValue);}
@@ -17,7 +17,7 @@ function Calendar() {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Stack spacing={3}>
           <DateTimePicker
-            label="Date & Time picker"
+            label="Select Workout Date & Time"
             value={value}
             onChange={handleChange}
             // eslint-disable-next-line react/jsx-props-no-spreading
