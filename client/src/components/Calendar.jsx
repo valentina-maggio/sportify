@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -13,7 +13,7 @@ function Calendar() {
     setValue(newValue);}
 
   return (
-<div style={{margin: "5% 40%"}}>
+    <div className="calendar" style={{margin: "5% 40%"}}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Stack spacing={3}>
           <DateTimePicker
