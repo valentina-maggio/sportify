@@ -11,15 +11,16 @@ const usersRouter = require('./routes/user')
 
 const app = express();
 
+app.use(cors({
+    origin: 'http://localhost:3000',
+}));
 
 //body parser middleware setup
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 
-app.use(cors({
-    origin: 'http://localhost:3001',
-}));
+
 
 
 app.use(logger("dev"));

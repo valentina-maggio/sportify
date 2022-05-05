@@ -7,27 +7,22 @@ const UsersController = {
   Create: async (req, res) => {
     const user = new User(req.body);
     console.log(user)
+    user.save()
+        .then(i => res.send('user saved to database'))
+        .catch(err => res.status(400).send('unable to save use to database'));
 
     
     // //added bycrypt into password parsing
     // const salt = await bcrypt.genSalt(10);
     // user.password = await bcrypt.hash(user.password, salt);
 
-    const userExists = await User.exists({email: user.email}, function (err, doc) {
-      if (err){
-          console.log(err)
-      }else{
-          console.log("Result :", doc) // true
-      }
-    });
-    console.log(`userExists or not${userExists}`);
+    // const userExists = await User.exists({email: user.email});
+    // console.log(`userExists or not${userExists}`);
 
-    //check if user exits
-    if (!userExists) {
-      user.save()
-        .then(i => res.send('user saved to database'))
-        .catch(err => res.status(400).send('unable to save use to database'));
-    };
+    // //check if user exits
+    // if (!userExists) {
+      
+    // };
   },
 
   userProfile: async (req, res) => {

@@ -43,7 +43,7 @@ function FormSignUp() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3001"
+        "Access-Control-Allow-Origin": '*',
       },
       body: JSON.stringify(userData),
     });
