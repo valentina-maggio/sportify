@@ -2,38 +2,14 @@ import React, {useState} from 'react';
 
 function FormSignUp() {
   const [username, setUsername] = useState("");
-  const [age, setAge] = useState("");
-  const [sex, setSex] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handleAge = (e) => {
-    setAge(e.target.value);
-  };
-
-  const handleSex = (e) => {
-    setSex(e.target.value);
-  };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     alert("User Added")
     const userData = {
       username: username,
-      age: age,
-      sex: sex,
       email: email,
       password: password,
     };
@@ -61,35 +37,21 @@ function FormSignUp() {
         id="username"
         name="username"
         placeholder="Username"
-        onChange={ handleUsername }
-      />
-      <input
-        type="age"
-        id="age"
-        name="age"
-        placeholder="Age"
-        onChange={ handleAge }
-      />
-      <input
-        type="sex"
-        id="sex"
-        name="sex"
-        placeholder="sex"
-        onChange={ handleSex }
+        onChange={ (e) => { setUsername(e.target.value); } }
       />
       <input
         type="email"
         id="email"
         name="email"
         placeholder="Email"
-        onChange={ handleEmail }
+        onChange={ (e) => {setEmail(e.target.value);} }
       />
       <input
         type="password"
         id="password"
         name="password"
         placeholder="password"
-        onChange = { handlePassword }
+        onChange = { (e) => { setPassword(e.target.value);} }
       />
       <input 
         type="submit" 

@@ -23,6 +23,20 @@ const UsersController = {
     // if (!userExists) {
       
     // };
+
+    // let user = await User.findOne({email: req.body.email});
+    // console.log(`userExists or not${user}`);
+    
+
+    // user = new User({
+      
+    // });
+    // console.log(user)
+    // user.save({
+    //   username: req.body.username,
+    //   email: req.body.email,
+    //   password: req.body.password
+    // })
   },
 
   userProfile: async (req, res) => {
