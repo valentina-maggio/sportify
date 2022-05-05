@@ -2,7 +2,7 @@ import React from "react";
 
 import "./WeatherCurrent.css";
 
- function Current({ weatherInfo, location, date }) {
+ function WeatherCurrent({ weatherInfo, location, date }) {
   return (
     <div className="Weather">
       <div className="Weather__info">
@@ -41,4 +41,4 @@ import "./WeatherCurrent.css";
   );
 }
 
-export default WeatherInfo
+export default WeatherCurrent;

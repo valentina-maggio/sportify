@@ -7,9 +7,7 @@ function WeatherForecast({ weatherInfo, date }) {
       <img
         className="Forecast__weather-icon"
         src={
-          "https://openweathermap.org/img/wn/" +
-          weatherInfo.weather[0].icon +
-          ".png"
+          "https://openweathermap.org/img/wn/" + weatherInfo.weather[0].icon + ".png"
         }
         alt={weatherInfo.weather[0].main}
       />

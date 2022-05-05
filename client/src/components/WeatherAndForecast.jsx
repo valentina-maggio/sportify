@@ -1,3 +1,4 @@
+
 import WeatherCurrent from "./WeatherCurrent";
 import WeatherForecast from "./WeatherForecast";
 
@@ -8,13 +9,13 @@ function WeatherAndForecast({ weatherInfo, location }) {
 
   function dateBuilder(d) {
     const days = [
+      "Sunday",
       "Monday",
       "Tuesday",
       "Wednesday",
       "Thursday",
       "Friday",
-      "Saturday",
-      "Sunday"
+      "Saturday"
     ];
 
   const date = [];

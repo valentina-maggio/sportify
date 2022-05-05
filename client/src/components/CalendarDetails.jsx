@@ -1,6 +1,7 @@
 import FormCalendar from "./FormCalendar";
 import NavbarCalendarPage from "./NavbarCalendarPage";
 import Calendar from "./Calendar";
+import Weather from "./Weather";
 
 function CalendarDetails() {
   return (
@@ -8,6 +9,7 @@ function CalendarDetails() {
       <NavbarCalendarPage />
       <FormCalendar />
       <Calendar />
+      <Weather />
     </>
   );
 }

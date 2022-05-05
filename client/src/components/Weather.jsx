@@ -5,9 +5,9 @@ import WeatherAndForecast from "./WeatherAndForecast";
 import WeatherLoader from "./WeatherLoader";
 import WeatherWarning from "./WeatherWarning";
 
-import getAddressOfCoordinates from "./api/reverseGeocoding";
-import getCoordinatesOfAddress from "./api/forwardGeocoding";
-import getWeatherAndForecast from "./api/weatherAndForecast";
+import getAddressOfCoordinates from "../api/reverseGeocoding";
+import getCoordinatesOfAddress from "../api/forwardGeocoding";
+import getWeatherAndForecast from "../api/weatherAndForecastAPI";
 
 function Weather() {
   const [address, setAddress] = useState("");

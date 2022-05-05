@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./WeatherSearch.css"
 
-function WeatherSearch({ searchCity }) {
+function WeatherSearch( {searchCity}) {
   const [currentCity, setCurrentCity] = useState("");
 
   function handleInputChange(event) {
@@ -27,7 +27,7 @@ function WeatherSearch({ searchCity }) {
           onKeyPress={handleKeyPress}
         />
       </label>
-      <button className="Search__button" onClick={handleButtonClick}>
+      <button type="button" className="Search__button" onClick={handleButtonClick}>
         Search
       </button>
     </div>
