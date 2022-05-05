@@ -15,13 +15,11 @@ console.log(db.name);
 
 const users = [
   {
-    // _id: "62596c9539f4ca6d024cee07",
     username: "Lobster",
     email: "Lobster@gmail.com",
     password: "12341234",
   },
   {
-    // _id: "62596cc70b90a16ceeaf66f1",
     username: "Ben",
     email: "ben@gamil.com",
     password: "56678",
@@ -36,7 +34,6 @@ const users = [
 users.forEach((user) => {
   try {
     User.create({
-      // _id: user._id,
       username: user.username,
       email: user.email,
       password: user.password,
