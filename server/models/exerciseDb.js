@@ -1,14 +1,11 @@
 const mongoose = require("mongoose");
 const Exercise = require("./exercise");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const mongoDb = process.env.MONGODB_TARGET || "Sportify";
-const mongoDbUrl = process.env.MONGODB_URI || `mongodb://127.0.0.1/${mongoDb}`;
+const MONGO_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`;
 
-// mongoose.connect(mongoDbUrl, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useCreateIndex: true,
-// });
+mongoose.connect(MONGO_URL);
 
 const db = mongoose.connection;
 
