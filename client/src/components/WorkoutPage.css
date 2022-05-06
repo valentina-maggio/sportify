@@ -20,12 +20,12 @@
 }
 
 .left-panel-box {
-  background: #f3ecec;
+  /* background: #f3ecec; */
   overflow: scroll;
 }
 
 .right-panel-box {
-  background: #f3ecec;
+  /* background: #f3ecec; */
   overflow: scroll;
 }
 
@@ -33,7 +33,7 @@
   margin: 30px;
   height: 100px;
   width: 400px;
-  background-color: #e4adad;
+  background-color: #f3ecec;
   overflow-wrap: break-word;
 }
 

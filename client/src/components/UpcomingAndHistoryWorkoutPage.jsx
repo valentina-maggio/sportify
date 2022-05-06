@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import "./WorkoutPage.css"
 
-function UpcomingWorkoutsWorkoutPage() {
+function UpcomingAndHistoryWorkoutPage() {
   return (
     <header className='center'>
       <div className='content-container'>
         <div className='left-panel-box'>
-          <h1>Upcoming Workouts</h1>
+          <h2>Upcoming Workouts</h2>
           <div className='left-panel-box'>
             <div className="box">
               <p className="p">HITT</p>
@@ -34,8 +34,8 @@ function UpcomingWorkoutsWorkoutPage() {
             </div>
           </div>
         </div>
-        <div className='left-panel-box'>
-          <h1>Workout History</h1>
+        <div className='right-panel-box'>
+          <h2>Workout History</h2>
           <div className='right-panel-box'>
             <div className="box">
               <p className="p">Yoga</p>
@@ -69,4 +69,4 @@ function UpcomingWorkoutsWorkoutPage() {
   );
 }
 
-export default UpcomingWorkoutsWorkoutPage;
+export default UpcomingAndHistoryWorkoutPage;

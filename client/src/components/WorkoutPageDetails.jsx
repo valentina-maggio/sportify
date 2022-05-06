@@ -1,12 +1,12 @@
 import NavBarWorkoutPage from './NavBarWorkoutPage';
-import UpcomingWorkoutsWorkoutPage from './UpcomingWorkoutsWorkoutPage';
+import UpcomingAndHistoryWorkoutPage from './UpcomingAndHistoryWorkoutPage';
 // import MoodPage from './MoodPage';
 
 function WorkoutPageDetails() {
   return (
     <>
       <NavBarWorkoutPage />
-      <UpcomingWorkoutsWorkoutPage />
+      <UpcomingAndHistoryWorkoutPage />
     </>
       
   );
