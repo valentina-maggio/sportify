@@ -57,6 +57,7 @@ const UsersController = {
       console.log(validPassword)
       if (validPassword) {
         res.status(200).json({ message: 'Valid password'});
+        console.log('User logged in successfully')
       } else {
         res.status(400).json({ error: "Invalid Password" });
       }
