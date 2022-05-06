@@ -1,12 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from "axios";
+import { GEO_KEY  } from "../env";
 
 async function getAddressOfCoordinates(lat, lng) {
   const response = await axios.get(
     "https://api.opencagedata.com/geocode/v1/json? ",
     {
       params: {
-        key: "dd14f3d1d9cc48e694b7f68aaec30f1c",
+        key: GEO_KEY,
         q: `${lat}+${lng}`,
         language: "en"
       }

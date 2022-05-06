@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from "axios";
+import { OPENWEATHER_KEY  } from "../env";
 
 async function getWeatherAndForecast(coordinates) {
   const response = await axios.get(
@@ -9,12 +10,13 @@ async function getWeatherAndForecast(coordinates) {
         lat: coordinates.lat,
         lon: coordinates.lng,
         exclude: "minutely,hourly,alerts",
-        appid: "22e565d180d5e7214a43cac596cd4ce9",
+        appid: OPENWEATHER_KEY,
         units: "metric"
       }
     }
   );
 
+ 
   return response;
 }
 
