@@ -3,6 +3,6 @@ const ExerciseController = require("../controllers/exercise");
 
 const exerciseRouter = express.Router();
 
-exerciseRouter.post("/exercises", ExerciseController.Create);
+exerciseRouter.post("/", ExerciseController.Create);
 
 module.exports = exerciseRouter;

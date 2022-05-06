@@ -1,22 +1,22 @@
 const Exercise = require("../models/exercise");
 
 const ExerciseController = {
-  Create: (req, res) => {
+  Create: async (req, res) => {
     const mongooseObject = {
       name: req.body.name,
       category: req.body.category,
-      type: req.body.type,
       duration: req.body.duration,
+      intensity: req.body.intensity,
       link: req.body.link,
     };
     const exercise = new Exercise(mongooseObject);
 
     try {
-      exercise.save();
-      res.status(201).redirect("/exercises");
+      await exercise.save();
+      res.status(201).redirect("/");
     } catch (error) {
-      res.redirect("/");
-      console.log(`Exercise could not be saved! Try again. ${error.message}`);
+      res.redirect("/calendar");
+      res.send(`Exercise could not be saved! Try again. ${error.message}`);
     }
     // if (req.body.name) {
     //   exercise.save((err) => {
