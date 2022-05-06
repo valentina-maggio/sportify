@@ -1,38 +1,43 @@
-// import React, { useState } from "react";
-// import "./WeatherSearch.css"
+import React, { useState } from 'react';
 
-// function WeatherSearch( {searchCity}) {
-//   const [currentCity, setCurrentCity] = useState("");
+import './WeatherSearch.css';
 
-//   function handleInputChange(event) {
-//     setCurrentCity(event.target.value);
-//   }
+function WeatherSearch({ searchCity }) {
+  const [currentCity, setCurrentCity] = useState('');
 
-//   function handleButtonClick() {
-//     if (currentCity.trim() === "") return;
-//     searchCity(currentCity);
-//   }
+  function handleInputChange(event) {
+    setCurrentCity(event.target.value);
+  }
 
-//   function handleKeyPress(e) {
-//     if (e.key === "Enter") handleButtonClick();
-//   }
+  function handleButtonClick() {
+    if (currentCity.trim() === '') return;
+    searchCity(currentCity);
+  }
 
-//   return (
-//     <div className="Search">
-//       <label className="Search__label">
-//         <input
-//           type="text"
-//           className="Search__input"
-//           value={currentCity}
-//           onChange={handleInputChange}
-//           onKeyPress={handleKeyPress}
-//         />
-//       </label>
-//       <button type="button" className="Search__button" onClick={handleButtonClick}>
-//         Search
-//       </button>
-//     </div>
-//   );
-// }
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') handleButtonClick();
+  }
 
-// export default WeatherSearch;
+  return (
+    <div className='Search'>
+      <label className='Search__label'>
+        <input
+          type='text'
+          className='Search__input'
+          value={currentCity}
+          onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
+        />
+      </label>
+      <button
+        type='button'
+        className='Search__button'
+        onClick={handleButtonClick}
+      >
+        Search
+      </button>
+    </div>
+  );
+}
+
+export default WeatherSearch;

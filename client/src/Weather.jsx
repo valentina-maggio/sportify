@@ -1,33 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import WeatherHeader from "./WeatherHeader";
-import WeatherAndForecast from "./WeatherAndForecast";
-import WeatherLoader from "./WeatherLoader";
-import WeatherWarning from "./WeatherWarning";
+import WeatherHeader from './components/WeatherHeader';
+import WeatherAndForecast from './components/WeatherAndForecast';
+import WeatherLoader from './components/WeatherLoader';
+import WeatherWarning from './components/WeatherWarning';
 
-import getAddressOfCoordinates from "../api/reverseGeocoding";
-import getCoordinatesOfAddress from "../api/forwardGeocoding";
-import getWeatherAndForecast from "../api/weatherAndForecastAPI";
+import getAddressOfCoordinates from './api/reverseGeocoding';
+import getCoordinatesOfAddress from './api/forwardGeocoding';
+import getWeatherAndForecast from './api/weatherAndForecastAPI';
+
+import './Weather.css';
 
 function Weather() {
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState('');
   const [coordinates, setCoordinates] = useState({});
   const [weatherAndForecastInfo, setWeatherAndForecastInfo] = useState({});
   const [locationInfo, setLocationInfo] = useState({});
-  const [contentState, setContentState] = useState("blank");
+  const [contentState, setContentState] = useState('blank');
 
-  // function searchCity(target) {
-  //   setAddress(target);
-  // }
+  function searchCity(target) {
+    setAddress(target);
+  }
 
   function showWarning() {
-    setContentState("warning");
-    setTimeout(() => setContentState("blank"), 3000);
+    setContentState('warning');
+    setTimeout(() => setContentState('blank'), 3000);
   }
 
   useEffect(() => {
     function makeRequest(position) {
-      setContentState("loading");
+      setContentState('loading');
       getAddressOfCoordinates(
         position.coords.latitude,
         position.coords.longitude
@@ -37,33 +39,33 @@ function Weather() {
             city: res.data.results[0].components.city_district,
             town: res.data.results[0].components.town,
             state: res.data.results[0].components.state_code,
-            country: res.data.results[0].components.country_code
+            country: res.data.results[0].components.country_code,
           });
         })
         .then(() =>
           setCoordinates({
             lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lng: position.coords.longitude,
           })
         )
         .catch((error) => showWarning());
     }
 
     function catchError(err) {
-      alert("ERROR(" + err.code + "): " + err.message);
+      alert('ERROR(' + err.code + '): ' + err.message);
     }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(makeRequest, catchError);
     } else {
-      alert("Geolocation is not supported by this browser.");
+      alert('Geolocation is not supported by this browser.');
     }
   }, []);
 
   useEffect(() => {
-    if (address === "") return;
+    if (address === '') return;
 
-    setContentState("loading");
+    setContentState('loading');
     getCoordinatesOfAddress(address)
       .then((res) => {
         if (
@@ -80,7 +82,7 @@ function Weather() {
           city: res.data.results[0].components.city,
           town: res.data.results[0].components.town,
           state: res.data.results[0].components.state_code,
-          country: res.data.results[0].components.country_code
+          country: res.data.results[0].components.country_code,
         });
       })
       .catch((error) => showWarning());
@@ -92,7 +94,7 @@ function Weather() {
     getWeatherAndForecast(coordinates)
       .then((res) => {
         setWeatherAndForecastInfo(res.data);
-        setContentState("weatherAndForecast");
+        setContentState('weatherAndForecast');
       })
       .catch((error) => showWarning());
   }, [coordinates]);
@@ -106,15 +108,15 @@ function Weather() {
         weatherInfo={weatherAndForecastInfo}
         location={locationInfo}
       />
-    )
+    ),
   };
 
   return (
-    <div className="weather">
-      <div className="weather-container">
+    <div className='weather'>
+      <div className='weather-container'>
         <>
-          {/* <WeatherHeader searchCity={searchCity} /> */}
-          <WeatherHeader />
+          <WeatherHeader searchCity={searchCity} />
+          {/* <WeatherHeader /> */}
           {Main[contentState]()}
         </>
       </div>
