@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import WeatherHeader from './components/WeatherHeader';
-import WeatherAndForecast from './components/WeatherAndForecast';
-import WeatherLoader from './components/WeatherLoader';
-import WeatherWarning from './components/WeatherWarning';
+import WeatherHeader from './WeatherHeader';
+import WeatherAndForecast from './WeatherAndForecast';
+import WeatherLoader from './WeatherLoader';
+import WeatherWarning from './WeatherWarning';
 
-import getAddressOfCoordinates from './api/reverseGeocoding';
-import getCoordinatesOfAddress from './api/forwardGeocoding';
-import getWeatherAndForecast from './api/weatherAndForecastAPI';
+import getAddressOfCoordinates from '../api/reverseGeocoding';
+import getCoordinatesOfAddress from '../api/forwardGeocoding';
+import getWeatherAndForecast from '../api/weatherAndForecastAPI';
 
 import './Weather.css';
 
@@ -48,11 +48,12 @@ function Weather() {
             lng: position.coords.longitude,
           })
         )
+        // eslint-disable-next-line no-unused-vars
         .catch((error) => showWarning());
     }
 
     function catchError(err) {
-      alert('ERROR(' + err.code + '): ' + err.message);
+      alert(`ERROR(${  err.code  }): ${  err.message}`);
     }
 
     if (navigator.geolocation) {
@@ -85,6 +86,7 @@ function Weather() {
           country: res.data.results[0].components.country_code,
         });
       })
+      // eslint-disable-next-line no-unused-vars
       .catch((error) => showWarning());
   }, [address]);
 
@@ -96,13 +98,17 @@ function Weather() {
         setWeatherAndForecastInfo(res.data);
         setContentState('weatherAndForecast');
       })
+      // eslint-disable-next-line no-unused-vars
       .catch((error) => showWarning());
   }, [coordinates]);
 
   const Main = {
     blank: () => null,
+    // eslint-disable-next-line react/no-unstable-nested-components
     loading: () => <WeatherLoader />,
+    // eslint-disable-next-line react/no-unstable-nested-components
     warning: () => <WeatherWarning />,
+    // eslint-disable-next-line react/no-unstable-nested-components
     weatherAndForecast: () => (
       <WeatherAndForecast
         weatherInfo={weatherAndForecastInfo}
@@ -114,11 +120,10 @@ function Weather() {
   return (
     <div className='weather'>
       <div className='weather-container'>
-        <>
-          <WeatherHeader searchCity={searchCity} />
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <WeatherHeader searchCity={searchCity} />
           {/* <WeatherHeader /> */}
           {Main[contentState]()}
-        </>
       </div>
     </div>
   );

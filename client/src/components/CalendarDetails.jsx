@@ -1,7 +1,7 @@
 import FormCalendar from './FormCalendar';
 import NavbarCalendarPage from './NavbarCalendarPage';
 import Calendar from './Calendar';
-import Weather from '../Weather';
+import Weather from './Weather';
 
 function CalendarDetails() {
   return (

@@ -9,8 +9,8 @@ function FormLogin() {
     e.preventDefault();
     alert("User Logged in");
     const userData = {
-      email: email,
-      password: password,
+      email,
+      password,
     };
 
     try{
