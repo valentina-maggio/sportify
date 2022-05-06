@@ -1,19 +1,71 @@
 const User = require("../models/user");
+const bcrypt = require("bcrypt");
+const e = require("express");
 
 const UsersController = {
+  
+  
   Create: async (req, res) => {
-    const user = new User(req.body);
+    
+    //checking user exists or not
+    let user = await User.findOne({email: req.body.email});
+    
+    if (!user) {
+      const user = new User(req.body)
 
-    const userExists = await User.exists({email: user.email})
+      // generate salt to hash password
+      const salt = await bcrypt.genSalt(10);
+      // set user passwork to hased password
+      user.password = await bcrypt.hash(user.password, salt);
 
-    if (userExists == false) {
-      user.save((err) => {
-        if (err) {
-          throw err;
+      return user.save({
+          username: user.username,
+          email: user.email,
+          password: user.password
+        })
+        .then(i => res.send('user saved to database'))
+        .catch(err => res.status(400).send('unable to save use to database'));
+    } else {
+      res.end('user already exists') 
+    }
+
+    
+  },
+
+  userProfile: async (req, res) => {
+
+    const username = req.params.username;
+    User.findOne({username: username}, (err, data) => {
+      if (err) {
+        const error = {
+          status: `The user "${username}" has not been found`,
         }
-      });
+        res.status(400).json({ error: error });
+      } else {
+        res.status(201).json(data);
+      }
+    })
+    
+  },
+
+  login: async (req, res) => {
+    const body = req.body;
+    const user = await User.findOne({email:body.email});
+    if(user) {
+      //check user password with hashed password stored in the database
+      const validPassword = await bcrypt.compare(body.password, user.password);
+      console.log(validPassword)
+      if (validPassword) {
+        res.status(200).json({ message: 'Valid password'});
+        console.log('User logged in successfully')
+      } else {
+        res.status(400).json({ error: "Invalid Password" });
+      }
+    } else {
+      res.status(400).json({ error: "User does not exit"});
     }
   }
+
 }
 
 module.exports = UsersController;
