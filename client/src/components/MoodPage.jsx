@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import VideoFiles from './VideoFiles';
 import './MoodPage.css';
 
 function MoodPage() {
@@ -15,6 +16,7 @@ function MoodPage() {
         <a href={Link}>
           <img src='/images/high-impact.jpg' alt='high-impact' />
         </a>
+        <VideoFiles />
       </div>
     </div>
   );
