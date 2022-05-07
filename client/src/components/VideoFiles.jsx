@@ -7,93 +7,105 @@ function VideoFiles() {
     <div className='video-container'>
       <div className='video'>
         <h3>Full Body HIIT</h3>
-        <h4>Duration: 20 minutes</h4>
+        <h4>Category: HIIT</h4>
         <VideoFilesEmbed embedId='ByGi92AC95M' />
-      </div>
-      <div className='video'>
-        <h3>Full Body HIIT</h3>
-        <h4>Duration: 30 minutes</h4>
-        <VideoFilesEmbed embedId='tXOZS3AKKOw' />
-      </div>
-      <div className='video'>
-        <h3>Leg Burner HIIT</h3>
-        <h4>Duration: 15 minutes</h4>
-        <VideoFilesEmbed embedId='Txindp8nosc' />
-      </div>
-      <div className='video'>
-        <h3>Full Body Tabata</h3>
-        <h4>Duration: 10 minutes</h4>
-        <VideoFilesEmbed embedId='DDXBoIIecok' />
-      </div>
-      <div className='video'>
-        <h3>Kickboxing</h3>
         <h4>Duration: 20 minutes</h4>
-        <VideoFilesEmbed embedId='OfZFdwW322E' />
-      </div>
-      <div className='video'>
-        <h3>Full Body Strength</h3>
-        <h4>Duration: 20 minutes</h4>
-        <VideoFilesEmbed embedId='mcVbdRS5_pY' />
-      </div>
-      <div className='video'>
-        <h3>Core Strength</h3>
-        <h4>Duration: 10 minutes</h4>
-        <VideoFilesEmbed embedId='bhvU464BMbU' />
-      </div>
-      <div className='video'>
-        <h3>Boots & Legs Strength</h3>
-        <h4>Duration: 25 minutes</h4>
-        <VideoFilesEmbed embedId='mrNQ7xHdlvo' />
-      </div>
-      <div className='video'>
-        <h3>Tones Arms Strength</h3>
-        <h4>Duration: 10 minutes</h4>
-        <VideoFilesEmbed embedId='l0CwCvJbGZI' />
       </div>
       <div className='video'>
         <h3>Yoga for Beginners</h3>
-        <h4>Duration: 20 minutes</h4>
+        <h4>Category: Low Impact</h4>
         <VideoFilesEmbed embedId='vNyJuQuuMC8' />
+        <h4>Duration: 20 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Leg Burner HIIT</h3>
+        <h4>Category: HIIT</h4>
+        <VideoFilesEmbed embedId='Txindp8nosc' />
+        <h4>Duration: 15 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Kickboxing</h3>
+        <h4>Category: Cardio / HIIT</h4>
+        <VideoFilesEmbed embedId='OfZFdwW322E' />
+        <h4>Duration: 20 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Full Body Strength</h3>
+        <h4>Category: Strength Training</h4>
+        <VideoFilesEmbed embedId='mcVbdRS5_pY' />
+        <h4>Duration: 20 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Core Strength</h3>
+        <h4>Category: Strength Training</h4>
+        <VideoFilesEmbed embedId='bhvU464BMbU' />
+        <h4>Duration: 10 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Tones Arms Strength</h3>
+        <h4>Category: Strength Training</h4>
+        <VideoFilesEmbed embedId='l0CwCvJbGZI' />
+        <h4>Duration: 10 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Full Body HIIT</h3>
+        <h4>Category: HIIT</h4>
+        <VideoFilesEmbed embedId='tXOZS3AKKOw' />
+        <h4>Duration: 30 minutes</h4>
       </div>
       <div className='video'>
         <h3>Yoga for Stress Management</h3>
-        <h4>Duration: 30 minutes</h4>
+        <h4>Category: Low Impact</h4>
         <VideoFilesEmbed embedId='_zbtKeeAa-Y' />
+        <h4>Duration: 30 minutes</h4>
       </div>
       <div className='video'>
         <h3>Full Body Pilates</h3>
-        <h4>Duration: 20 minutes</h4>
+        <h4>Category: Low Impact</h4>
         <VideoFilesEmbed embedId='jHQnb7RfI58' />
-      </div>
-      <div className='video'>
-        <h3>Full Body Pilates</h3>
         <h4>Duration: 20 minutes</h4>
-        <VideoFilesEmbed embedId='jHQnb7RfI58' />
       </div>
       <div className='video'>
         <h3>Total Body Pilates</h3>
-        <h4>Duration: 30 minutes</h4>
+        <h4>Category: Low Impact</h4>
         <VideoFilesEmbed embedId='JLM3MKut7nE' />
+        <h4>Duration: 30 minutes</h4>
       </div>
       <div className='video'>
         <h3>Cardio Full Body</h3>
-        <h4>Duration: 15 minutes</h4>
+        <h4>Category: Cardio</h4>
         <VideoFilesEmbed embedId='IvmaekQfKiw' />
+        <h4>Duration: 15 minutes</h4>
       </div>
       <div className='video'>
         <h3>Cardio Boxing</h3>
-        <h4>Duration: 30 minutes</h4>
+        <h4>Category: Cardio</h4>
         <VideoFilesEmbed embedId='MqXMEhy43H0' />
+        <h4>Duration: 30 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Full Body Tabata</h3>
+        <h4>Category: HIIT</h4>
+        <VideoFilesEmbed embedId='DDXBoIIecok' />
+        <h4>Duration: 10 minutes</h4>
       </div>
       <div className='video'>
         <h3>Full Body Low Impact</h3>
-        <h4>Duration: 20 minutes</h4>
+        <h4>Category: Low Impact</h4>
         <VideoFilesEmbed embedId='gV-6ZySOq04' />
+        <h4>Duration: 20 minutes</h4>
       </div>
       <div className='video'>
         <h3>Full Body Low Impact</h3>
-        <h4>Duration: 15 minutes</h4>
+        <h4>Category: Low Impact</h4>
         <VideoFilesEmbed embedId='93bUXdhGI9k' />
+        <h4>Duration: 15 minutes</h4>
+      </div>
+      <div className='video'>
+        <h3>Boots & Legs Strength</h3>
+        <h4>Category: Strength Training</h4>
+        <VideoFilesEmbed embedId='mrNQ7xHdlvo' />
+        <h4>Duration: 25 minutes</h4>
       </div>
     </div>
   );
