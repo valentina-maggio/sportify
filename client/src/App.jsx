@@ -11,7 +11,7 @@ function App() {
         <Route path='/' element={<LoginPageDetails />} />
         <Route path='/signup' element={<SignUpPageDetails />}/>
         <Route path='/dashboard' element={<MoodPageDetails />} />
-        <Route path='username/calendar' element={<CalendarDetails />} />
+        <Route path='/exercises' element={<CalendarDetails />} />
       </Routes>
     </Router>
   );
