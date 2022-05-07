@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Valentina",
+      "email": "v@v.com",
+      "password": "vale"
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "name": "hiit",
+      "duration": 15,
+      "category": "hiit"
+    }
+  ]
+}
