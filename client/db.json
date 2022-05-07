@@ -5,6 +5,12 @@
       "username": "Valentina",
       "email": "v@v.com",
       "password": "vale"
+    },
+    {
+      "username": "Gaya",
+      "email": "g@g.com",
+      "password": "gaya",
+      "id": 2
     }
   ],
   "exercises": [
