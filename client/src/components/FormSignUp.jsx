@@ -8,8 +8,7 @@ function FormSignUp() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // alert("User Added")
+    e.preventDefault();    
     const userData = {
       username,
       email,
@@ -17,7 +16,7 @@ function FormSignUp() {
     };
 
    try{
-    await fetch("http://localhost:3001/users", {
+    const response = await fetch("http://localhost:3001/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +25,13 @@ function FormSignUp() {
       },
       body: JSON.stringify(userData),
     });
-  navigate("/exercises");
+
+    if(response.status === 200) {
+      navigate("/exercises");
+    } else {
+      alert("User already exists");
+    }
+
    }catch(err){
      console.error()
    }

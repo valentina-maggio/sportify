@@ -55,10 +55,10 @@ const UsersController = {
           email: user.email,
           password: user.password
         })
-        .then(i => res.redirect('/exercises'))
+        .then(i => res.status(200).json(user.username))
         .catch(err => res.status(400).send('unable to save use to database'));
     } else {
-      res.end('user already exists') 
+      res.status(400).end('user already exists') 
     }
 
   },
