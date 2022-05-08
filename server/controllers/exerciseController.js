@@ -25,14 +25,19 @@ const createExercise = async (req, res) => {
 };
 
 const getExercises = async (req, res) => {
-  console.log('get exercises was called');
-  // const exercises = Exercise.find();
-  const exercises = JSON.stringify([{name: "Full Body", duration: "20"},
-  {name: "Yoga", duration: "40"},
-  {name: "Pilates", duration: "30"}])
-  console.log(exercises)
-  res.send(exercises);
-  // res.redirect('/exercises')
+
+  const exercisesFromMongo = await Exercise.find();
+  console.log(`this is mongoose shit ${exercisesFromMongo}`);
+
+  const exercisesArray = [];
+
+  exercisesFromMongo.forEach((element) => {
+    exercisesArray.push({name: element.name, duration: element.duration});
+  });
+
+  console.log(exercisesArray);
+
+  res.send(exercisesArray);
 };
 
 module.exports = {
