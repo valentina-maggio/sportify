@@ -27,7 +27,11 @@ const createExercise = async (req, res) => {
 const getExercises = async (req, res) => {
   console.log('get exercises was called');
   // const exercises = Exercise.find();
-  res.send("Your exercises will show up here");
+  const exercises = JSON.stringify([{name: "Full Body", duration: "20"},
+  {name: "Yoga", duration: "40"},
+  {name: "Pilates", duration: "30"}])
+  console.log(exercises)
+  res.send(exercises);
   // res.redirect('/exercises')
 };
 

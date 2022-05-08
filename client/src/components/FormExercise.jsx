@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+// import Dropdown from './Dropdown';
 
 function FormExercise() {
 
@@ -33,22 +34,22 @@ function FormExercise() {
 
 
   return (
-    <div>
-      <h2>Exercise</h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit();
-        }}
-      >
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={exercise.name}
-          placeholder="Name"
-          onChange={handleChange}
-        />
+      <div>
+        <h2>Exercise</h2>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={exercise.name}
+            placeholder="Name"
+            onChange={handleChange}
+          />
         <input
           type="text"
           id="category"
@@ -87,4 +88,45 @@ function FormExercise() {
   );
 }
 
+
+function WorkoutDropdown()  {
+  const [listOfExercises, setExercise] = useState([])
+  useEffect(() => {
+    const handleSubmit = async () => {
+      try {
+        console.log("list of exercises");
+        const response = await axios.get("http://localhost:3001/exercises");      
+        return setExercise(response.data);
+      } catch (error) {
+        return console.log("Could not get list of exercises.", error.message);
+      }    
+    };  
+    handleSubmit();
+  }, []);
+
+  const exerciseName = listOfExercises.map((el, index) => (<option key={index + 1} value={el.name}>{el.name}</option>)); // eslint-disable-line
+
+  const exerciseDuration = listOfExercises.map((el, index) => (<option key={index + 1} value={el.duration}>{el.duration}</option>)); // eslint-disable-line
+  
+  console.log(exerciseName);
+
+  return(
+    <div>      
+      <h2>Select Exercise</h2>
+      <form>
+        <option>Name</option>             
+        <select label="Name">
+          {exerciseName}
+        </select>
+        <option>Duration</option> 
+        <select label="Duration">
+          {exerciseDuration}
+        </select>
+        <input type="submit" value="Schedule workout"/>
+      </form>
+    </div>
+  ); 
+}
+
 export default FormExercise;
+export{ WorkoutDropdown };
