@@ -3,6 +3,7 @@ import LoginPageDetails from './components/LoginPageDetails';
 import SignUpPageDetails from './components/SignUpPageDetails';
 import MoodPageDetails from './components/MoodPageDetails';
 import CalendarDetails from './components/CalendarDetails';
+import WorkoutPageDetails from './components/WorkoutPageDetails';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/signup' element={<SignUpPageDetails />}/>
         <Route path='/dashboard' element={<MoodPageDetails />} />
         <Route path='/exercises' element={<CalendarDetails />} />
+        <Route path='/workout' element={<WorkoutPageDetails />} />
       </Routes>
     </Router>
   );
