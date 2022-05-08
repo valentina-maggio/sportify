@@ -1,8 +1,12 @@
+import Calendar from './Calendar';
+
 function WorkoutForm() {
   return (
     <div>
       <h2>Workout</h2>
+    
       <form>
+      <Calendar />
         <input
           type="text"
           id="workout-name"
