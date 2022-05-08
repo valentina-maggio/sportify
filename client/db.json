@@ -7,10 +7,10 @@
       "password": "vale"
     },
     {
+      "id": 2,
       "username": "Gaya",
       "email": "g@g.com",
-      "password": "gaya",
-      "id": 2
+      "password": "gaya"
     }
   ],
   "exercises": [
