@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
+import './NavBar.css'
 
 function NavBarLogin() {
   return (
-    <header id="navbar">
-      <div className="navbar">
-        <h1>Sportify</h1>
+    <div className="navbar">
+      <div className="logo">
+       <img src='images/logo-and-name-copy.png' alt="Logo" />
       </div>
-      <div id="register-link">
-        <Link to="/">Register</Link>
+      <div>
+        <Link to="/" className="register-link">Register</Link>
       </div>
-    </header>
+    </div>
   );
 }
 
 export default NavBarLogin;
+

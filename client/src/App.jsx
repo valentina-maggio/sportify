@@ -4,6 +4,7 @@ import SignUpPageDetails from './components/SignUpPageDetails';
 import MoodPageDetails from './components/MoodPageDetails';
 import CalendarDetails from "./components/CalendarDetails";
 import WorkoutPageDetails from "./components/WorkoutPageDetails";
+import './App.css';
 
 function App() {
   return (

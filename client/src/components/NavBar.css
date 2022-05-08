@@ -1,0 +1,26 @@
+.navbar {
+  background-color: rgba(33,33,33);
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navbar img {
+  height: 62px;
+  padding-left: 10px;
+}
+
+.register-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  padding-right: 10px;
+}
+
+.register-link:hover {
+  color: rgba(64,154,159);
+}
