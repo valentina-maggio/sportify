@@ -11,13 +11,12 @@ const exerciseSchema = new mongoose.Schema({
   },
   duration: {
     type: Number,
-    required: true,
   },
   intensity: {
     type: String,
     required: true,
   },
-  url: {
+  link: {
     type: String,
   },
 });

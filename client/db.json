@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Valentina",
+      "email": "v@v.com",
+      "password": "vale"
+    },
+    {
+      "username": "Gaya",
+      "email": "g@g.com",
+      "password": "gaya",
+      "id": 2
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "name": "Full body HIIT",
+      "category": "HIIT",
+      "duration": 15,
+      "intensity": "High",
+      "link": ""
+    },
+    {
+      "id": 2,
+      "name": "Yoga for beginners",
+      "category": "Yoga",
+      "duration": 20,
+      "intensity": "Low",
+      "link": ""
+    },
+    {
+      "id": 3,
+      "name": "Toned arms",
+      "category": "Strength",
+      "duration": 20,
+      "intensity": "Medium",
+      "link": ""
+    },
+    {
+      "id": 4,
+      "name": "5K Run",
+      "category": "Cardio",
+      "duration": "",
+      "intensity": "High",
+      "link": ""
+    },
+    {
+      "id": 5,
+      "name": "Kickboxing",
+      "category": "Cardio",
+      "duration": 30,
+      "intensity": "High",
+      "link": ""
+    }
+  ]
+}
