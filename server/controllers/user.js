@@ -6,7 +6,39 @@ const UsersController = {
   
   
   Create: async (req, res) => {
+    const user = new User(req.body);
+    console.log(user)
+    user.save()
+        .then(i => res.send('user saved to database'))
+        .catch(err => res.status(400).send('unable to save use to database'));
+
     
+    // //added bycrypt into password parsing
+    // const salt = await bcrypt.genSalt(10);
+    // user.password = await bcrypt.hash(user.password, salt);
+
+    // const userExists = await User.exists({email: user.email});
+    // console.log(`userExists or not${userExists}`);
+
+    // //check if user exits
+    // if (!userExists) {
+      
+    // };
+
+    // let user = await User.findOne({email: req.body.email});
+    // console.log(`userExists or not${user}`);
+    
+
+    // user = new User({
+      
+    // });
+    // console.log(user)
+    // user.save({
+    //   username: req.body.username,
+    //   email: req.body.email,
+    //   password: req.body.password
+    // })
+
     //checking user exists or not
     let user = await User.findOne({email: req.body.email});
     
@@ -29,7 +61,6 @@ const UsersController = {
       res.end('user already exists') 
     }
 
-    
   },
 
   userProfile: async (req, res) => {
@@ -46,6 +77,7 @@ const UsersController = {
       }
     })
     
+
   },
 
   login: async (req, res) => {
