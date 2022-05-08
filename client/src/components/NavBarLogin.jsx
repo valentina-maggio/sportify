@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function NavBarLogin() {
   return (
     <header id="navbar">
-      <div>
+      <div className="navbar">
         <h1>Sportify</h1>
       </div>
       <div id="register-link">
