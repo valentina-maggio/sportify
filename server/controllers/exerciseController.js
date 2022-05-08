@@ -25,8 +25,10 @@ const createExercise = async (req, res) => {
 };
 
 const getExercises = async (req, res) => {
-  const exercises = Exercise.find();
-  res.send(exercises);
+  console.log('get exercises was called');
+  // const exercises = Exercise.find();
+  res.send("Your exercises will show up here");
+  // res.redirect('/exercises')
 };
 
 module.exports = {

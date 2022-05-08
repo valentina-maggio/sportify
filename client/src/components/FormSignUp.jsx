@@ -1,21 +1,23 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 
 function FormSignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("User Added")
+    // alert("User Added")
     const userData = {
-      username: username,
-      email: email,
-      password: password,
+      username,
+      email,
+      password,
     };
 
    try{
-    const add = await fetch("http://localhost:3001/users", {
+    await fetch("http://localhost:3001/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +26,7 @@ function FormSignUp() {
       },
       body: JSON.stringify(userData),
     });
-  console.log(add)
+  navigate("/exercises");
    }catch(err){
      console.error()
    }

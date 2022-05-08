@@ -6,11 +6,11 @@ const UsersController = {
   
   
   Create: async (req, res) => {
-    const users = new User(req.body);
-    console.log(user)
-    users.save()
-        .then(i => res.send('user saved to database'))
-        .catch(err => res.status(400).send('unable to save use to database'));
+    // const users = new User(req.body);
+    // console.log(user)
+    // users.save()
+    //     .then(i => res.send('user saved to database'))
+    //     .catch(err => res.status(400).send('unable to save use to database'));
 
     
     // //added bycrypt into password parsing
@@ -55,7 +55,7 @@ const UsersController = {
           email: user.email,
           password: user.password
         })
-        .then(i => res.send('user saved to database'))
+        .then(i => res.redirect('/exercises'))
         .catch(err => res.status(400).send('unable to save use to database'));
     } else {
       res.end('user already exists') 
