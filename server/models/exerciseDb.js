@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const Exercise = require("./exercise");
+const Exercise = require("./exerciseModel");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const MONGO_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`;
+const MONGO_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`;
 
-mongoose.connect(MONGO_URL);
+mongoose.connect(MONGO_link);
 
 const db = mongoose.connection;
 
@@ -25,7 +25,7 @@ const exercises = [
     category: "Yoga",
     duration: 1200,
     intensity: "Low Impact",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
     _id: "62596cd10b90a16ceeaf66fa",
@@ -33,7 +33,7 @@ const exercises = [
     category: "HIIT",
     duration: 1200,
     intensity: "High Impact",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
     _id: "625979737890bb083ccb43bf",
@@ -41,7 +41,7 @@ const exercises = [
     category: "Strength Training",
     duration: 2100,
     intensity: "Medium Impact",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
     _id: "6259797f7890bb083ccb43c8",
@@ -49,7 +49,7 @@ const exercises = [
     category: "Cardio",
     duration: 3600,
     intensity: "Medium Impact",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
     _id: "62597a290f8ad516167bcd4d",
@@ -57,7 +57,7 @@ const exercises = [
     category: "Cardio",
     duration: 1800,
     intensity: "Medium Impact",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
     _id: "625acd9cc936214661cf5692",
@@ -65,7 +65,7 @@ const exercises = [
     category: "Cardio",
     duration: 2700,
     intensity: "Medium Impact",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
 ];
 
@@ -77,7 +77,7 @@ exercises.forEach((exercise) => {
       category: exercise.category,
       duration: exercise.duration,
       intensity: exercise.intensity,
-      url: exercise.url,
+      link: exercise.link,
     });
   } catch (e) {
     console.log("Caught Error:", e);

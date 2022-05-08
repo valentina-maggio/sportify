@@ -8,7 +8,7 @@ function NavBarMoodPage() {
       </div>
       <div className='nav-links'>
         <Link to='/dashboard'>Profile</Link>
-        <Link to='/dasboard'>Calendar</Link>
+        <Link to='/dashboard'>Calendar</Link>
         <Link to='/dashboard'>Workouts</Link>
         <Link to='/dashboard'>Logout</Link>
       </div>

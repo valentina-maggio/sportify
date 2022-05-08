@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const e = require("express");
 
@@ -6,9 +6,9 @@ const UsersController = {
   
   
   Create: async (req, res) => {
-    const user = new User(req.body);
+    const users = new User(req.body);
     console.log(user)
-    user.save()
+    users.save()
         .then(i => res.send('user saved to database'))
         .catch(err => res.status(400).send('unable to save use to database'));
 
