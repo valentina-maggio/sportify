@@ -1,25 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import './NavBar.css'
 
 function NavbarCalendarPage() {
   return (
-    <header>
-      <div>
-        <h3>Sportify</h3>
+    <div className='navbar'>
+      <div className='logo'>
+        <img src='images/logo-and-name-copy.png' alt='Logo' />
       </div>
       <div>
-        <ul>
-          <li>
-            <Link to="/username/calendar">Profile</Link>
-          </li>
-          <li>
-            <Link to="/username/calendar">Workouts</Link>
-          </li>
-          <li>
-            <Link to="/username/calendar">Logout</Link>
-          </li>
-        </ul>
+        <Link to='/username/calendar' className='workouts-link'>View Your Workouts</Link>
+        <Link to='/username/calendar' className='logout-link'>Logout</Link>
       </div>
-    </header>
+    </div>
   );
 }
 
