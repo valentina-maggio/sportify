@@ -86,7 +86,7 @@ function VideoFiles() {
       <div className='video'>
         <h3>Full Body Tabata</h3>
         <h4>Category: HIIT</h4>
-        <VideoFilesEmbed embedId='DDXBoIIecok' />
+        <VideoFilesEmbed embedId='kTvHJe6_h1c' />
         <h4>Duration: 10 minutes</h4>
       </div>
       <div className='video'>
@@ -102,10 +102,10 @@ function VideoFiles() {
         <h4>Duration: 15 minutes</h4>
       </div>
       <div className='video'>
-        <h3>Boots & Legs Strength</h3>
+        <h3>Upper Body Workout</h3>
         <h4>Category: Strength Training</h4>
-        <VideoFilesEmbed embedId='mrNQ7xHdlvo' />
-        <h4>Duration: 25 minutes</h4>
+        <VideoFilesEmbed embedId='NDOlPdyZLMg' />
+        <h4>Duration: 15 minutes</h4>
       </div>
     </div>
   );
