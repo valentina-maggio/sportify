@@ -27,7 +27,9 @@ function FormSignUp() {
     });
 
     if(response.status === 200) {
-      navigate("/exercises");
+      navigate("/exercises", {
+        state: email
+      });
     } else {
       alert("User already exists");
     }

@@ -6,7 +6,7 @@ const createExercise = async (req, res) => {
     category: req.body.category,
     duration: req.body.duration,
     intensity: req.body.intensity,
-    link: req.body.link,
+    link: req.body.link,    
   };
 
   console.log(`req body name ${req.body.name}`)

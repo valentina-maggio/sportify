@@ -1,8 +1,14 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-function FormWorkout() {
-  const [workout, setWorkout] = useState({
+function FormExercise() {
+
+  const { state } = useLocation();
+
+  console.log(`State passed is ${state}`);
+
+  const [exercise, setexercise] = useState({
     name: "",
     category: "",
     duration: "",
@@ -11,15 +17,15 @@ function FormWorkout() {
   });
 
   const handleChange = (e) => {
-    setWorkout({
-      ...workout,
+    setexercise({
+      ...exercise,
       [e.target.name]: e.target.value,
     });
   };
   const handleSubmit = async () => {
     try {
-      console.log(workout);
-      await axios.post("http://localhost:3001/exercises", workout);
+      console.log(exercise);
+      await axios.post("http://localhost:3001/exercises", exercise);
     } catch (error) {
       console.log("Exercise could not be saved.", error.message);
     }
@@ -28,7 +34,7 @@ function FormWorkout() {
 
   return (
     <div>
-      <h2>Workout</h2>
+      <h2>Exercise</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -39,7 +45,7 @@ function FormWorkout() {
           type="text"
           id="name"
           name="name"
-          value={workout.name}
+          value={exercise.name}
           placeholder="Name"
           onChange={handleChange}
         />
@@ -47,14 +53,14 @@ function FormWorkout() {
           type="text"
           id="category"
           name="category"
-          value={workout.category}
+          value={exercise.category}
           placeholder="Category"
           onChange={handleChange}
         />
         <input
           type="text"
           id="duration"
-          value={workout.duration}
+          value={exercise.duration}
           name="duration"
           placeholder="Duration"
           onChange={handleChange}
@@ -62,7 +68,7 @@ function FormWorkout() {
         <input
           type="text"
           id="intensity"
-          value={workout.intensity}
+          value={exercise.intensity}
           name="intensity"
           placeholder="Intensity"
           onChange={handleChange}
@@ -70,15 +76,15 @@ function FormWorkout() {
         <input
           type="text"
           id="link"
-          value={workout.link}
+          value={exercise.link}
           name="link"
           placeholder="Link"
           onChange={handleChange}
         />
       </form>
-      <input type="submit" value="Save workout" onClick={handleSubmit} />
+      <input type="submit" value="Save exercise" onClick={handleSubmit} />
     </div>
   );
 }
 
-export default FormWorkout;
+export default FormExercise;
