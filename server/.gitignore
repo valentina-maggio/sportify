@@ -2,3 +2,4 @@
 config.env
 .env
 /models/user_populator.js
+/coverage
