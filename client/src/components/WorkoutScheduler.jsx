@@ -1,17 +1,17 @@
-import FormCalendar from './FormCalendar';
 import NavbarCalendarPage from './NavbarCalendarPage';
+import WorkoutForm from './WorkoutForm';
 import Calendar from './Calendar';
 import Weather from './Weather';
 
-function CalendarDetails() {
+function WorkoutScheduler() {
   return (
     <>
       <NavbarCalendarPage />
-      <FormCalendar />
       <Calendar />
+      <WorkoutForm />
       <Weather />
     </>
   );
 }
 
-export default CalendarDetails;
+export default WorkoutScheduler;

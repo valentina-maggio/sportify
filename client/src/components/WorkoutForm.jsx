@@ -1,4 +1,4 @@
-function FormCalendar() {
+function WorkoutForm() {
   return (
     <div>
       <h2>Workout</h2>
@@ -27,16 +27,16 @@ function FormCalendar() {
           name="workout-intensity"
           placeholder="Intensity"
         />
-        <input
+        {/* <input
           type="text"
           id="workout-url"
           name="workout-url"
           placeholder="URL"
-        />
+        /> */}
       </form>
       <input type="submit" value="Save workout" />
     </div>
   );
 }
 
-export default FormCalendar;
+export default WorkoutForm;
