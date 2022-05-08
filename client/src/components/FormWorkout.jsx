@@ -1,14 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-// import { useFormControlUnstyledContext } from "@mui/base";
 
 function FormWorkout() {
-  // const [name, setName] = useState("");
-  // const [category, setCategory] = useState("");
-  // // TODO: figure out how to get duration to take numeric input
-  // const [duration, setDuration] = useState("");
-  // const [intensity, setIntensity] = useState("");
-  // const [link, setLink] = useState("");
   const [workout, setWorkout] = useState({
     name: "",
     category: "",
@@ -24,35 +17,9 @@ function FormWorkout() {
     });
   };
   const handleSubmit = async () => {
-    // const workoutData = {
-    //   name,
-    //   category,
-    //   duration,
-    //   intensity,
-    //   link,
-    // };
-    
-    // console.log(workoutData);
-
-    // try {
-    //   const data = await fetch("http://localhost:3001/api/exercises", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(workoutData),
-    //   });
-    //   console.log(data);
-    // } catch (error) {
-    //   console.log("Workout could not be created.", error.message);
-    // }
-
     try {
       console.log(workout);
       await axios.post("http://localhost:3001/exercises", workout);
-
-      // setWorkout(response.data);
-      // console.log(response);
     } catch (error) {
       console.log("Exercise could not be saved.", error.message);
     }
@@ -73,51 +40,40 @@ function FormWorkout() {
           id="name"
           name="name"
           value={workout.name}
-          // value={name}
           placeholder="Name"
           onChange={handleChange}
-          // onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
           id="category"
           name="category"
           value={workout.category}
-          // value={category}
           placeholder="Category"
           onChange={handleChange}
-          // onChange={(e) => setCategory(e.target.value)}
         />
         <input
           type="text"
           id="duration"
-          value={workout.duration} // Count in base 10
-          // value={duration}
+          value={workout.duration}
           name="duration"
           placeholder="Duration"
-          // onChange={parseInt(handleChange, 10)}
           onChange={handleChange}
-          // onChange={(e) => setDuration(e.target.value)}
         />
         <input
           type="text"
           id="intensity"
           value={workout.intensity}
-          // value={intensity}
           name="intensity"
           placeholder="Intensity"
           onChange={handleChange}
-          // onChange={(e) => setIntensity(e.target.value)}
         />
         <input
           type="text"
           id="link"
           value={workout.link}
-          // value={link}
           name="link"
           placeholder="Link"
           onChange={handleChange}
-          // onChange={(e) => setLink(e.target.value)}
         />
       </form>
       <input type="submit" value="Save workout" onClick={handleSubmit} />
