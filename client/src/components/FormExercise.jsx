@@ -17,7 +17,6 @@ function FormExercise() {
   const [exercise, setexercise] = useState({
     name: "",
     category: "",
-    duration: "",
     intensity: "",
     link: "",
   });
@@ -63,14 +62,6 @@ function FormExercise() {
           placeholder="Category"
           onChange={handleChange}
         />
-        {/* <input
-          type="text"
-          id="duration"
-          value={exercise.duration}
-          name="duration"
-          placeholder="Duration"
-          onChange={handleChange}
-        /> */}
         <input
           type="text"
           id="intensity"
@@ -115,8 +106,6 @@ function WorkoutDropdown()  {
     setValue(newValue);}
 
   const exerciseName = listOfExercises.map((el, index) => (<option key={index + 1} value={el.name}>{el.name}</option>)); // eslint-disable-line
-
- // const exerciseDuration = listOfExercises.map((el, index) => (<option key={index + 1} value={el.duration}>{el.duration}</option>)); // eslint-disable-line
 
   console.log(exerciseName);
 
