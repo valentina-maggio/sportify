@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
+import './NavBar.css'
 
 function NavBarWorkoutPage() {
   return (
-    <header className='navbar'>
+    <div className='navbar'>
+      <div className='logo'>
+        <img src='images/logo-and-name-copy.png' alt='Logo' />
+      </div>
       <div>
-        <h1>Sportify</h1>
-      </div>
-      <div className='nav-links'>
-        <Link to='/dashboard'>Profile</Link>
-        <Link to='/dasboard'>Calendar</Link>
-        <Link to='/dashboard'>Logout</Link>
-      </div>
-    </header>
+        <Link to='/dashboard' className='workouts-link'>View Your Workouts</Link>
+        <Link to='/' className='logout-link'>Logout</Link>
+        </div>
+    </div>
   );
 }
 

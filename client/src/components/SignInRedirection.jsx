@@ -8,7 +8,7 @@ function SignInRedirection() {
         <p>Already have an account?</p>
       </div>
       <div>
-        <Link to="/">Sign in</Link>
+        <Link to='/'>Sign in</Link>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ function NavbarCalendarPage() {
       </div>
       <div>
         <Link to='/username/calendar' className='workouts-link'>View Your Workouts</Link>
-        <Link to='/username/calendar' className='logout-link'>Logout</Link>
+        <Link to='/' className='logout-link'>Logout</Link>
       </div>
     </div>
   );
