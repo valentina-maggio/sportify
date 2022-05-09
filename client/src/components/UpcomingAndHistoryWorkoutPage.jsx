@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import "./WorkoutPage.css"
+import "./WorkoutPage.css";
+// import WorkoutChart from './WorkoutChart'
+
 
 function UpcomingAndHistoryWorkoutPage() {
   return (
@@ -63,8 +65,9 @@ function UpcomingAndHistoryWorkoutPage() {
             </div>
           </div>
         </div>
+
+      {/* <WorkoutChart /> */}
       </div>
-     
     </header>
   );
 }
