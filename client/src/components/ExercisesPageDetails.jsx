@@ -1,6 +1,6 @@
 import FormExercise, {WorkoutDropdown}  from './FormExercise';
 import NavBarExercisesPage from './NavBarExercisesPage';
-import Calendar from './Calendar';
+// import Calendar from './Calendar';
 import Weather from './Weather';
 
 function ExercisesPageDetails() {
@@ -9,7 +9,7 @@ function ExercisesPageDetails() {
       <NavBarExercisesPage />
       <FormExercise />
       <WorkoutDropdown />
-      <Calendar />
+      {/* <Calendar /> */}
       <Weather />
     </>
   );

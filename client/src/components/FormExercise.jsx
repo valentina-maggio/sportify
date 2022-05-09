@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from "axios";
 // import Dropdown from './Dropdown';
 
@@ -12,7 +17,6 @@ function FormExercise() {
   const [exercise, setexercise] = useState({
     name: "",
     category: "",
-    duration: "",
     intensity: "",
     link: "",
   });
@@ -60,14 +64,6 @@ function FormExercise() {
         />
         <input
           type="text"
-          id="duration"
-          value={exercise.duration}
-          name="duration"
-          placeholder="Duration"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
           id="intensity"
           value={exercise.intensity}
           name="intensity"
@@ -104,23 +100,46 @@ function WorkoutDropdown()  {
     handleSubmit();
   }, []);
 
+  const [value, setValue] = useState(new Date());
+ 
+  const handleChange = (newValue) => {
+    setValue(newValue);}
+
   const exerciseName = listOfExercises.map((el, index) => (<option key={index + 1} value={el.name}>{el.name}</option>)); // eslint-disable-line
 
-  const exerciseDuration = listOfExercises.map((el, index) => (<option key={index + 1} value={el.duration}>{el.duration}</option>)); // eslint-disable-line
-  
   console.log(exerciseName);
 
   return(
     <div>      
       <h2>Select Exercise</h2>
       <form>
+       <div className="calendar" style={{margin: "5% 40%"}}>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <Stack spacing={3}>
+            <DateTimePicker
+              label="Select Workout Date & Time"
+              value={value}
+              onChange={handleChange}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </Stack>
+        </LocalizationProvider>
+      </div>
         <option>Name</option>             
         <select label="Name">
           {exerciseName}
         </select>
         <option>Duration</option> 
         <select label="Duration">
-          {exerciseDuration}
+          <option value="5 min">5 min</option>
+          <option value="10 min">10 min</option>
+          <option value="15 min">15 min</option>
+          <option value="20 min">20 min</option>
+          <option value="30 min">30 min</option>
+          <option value="40 min">40 min</option>
+          <option value="45 min">45 min</option>
+          <option value="60 min">60 min</option>
         </select>
         <input type="submit" value="Schedule workout"/>
       </form>
