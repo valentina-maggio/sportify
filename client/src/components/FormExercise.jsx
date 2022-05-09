@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from "axios";
 // import Dropdown from './Dropdown';
 
@@ -104,6 +109,11 @@ function WorkoutDropdown()  {
     handleSubmit();
   }, []);
 
+  const [value, setValue] = useState(new Date());
+ 
+  const handleChange = (newValue) => {
+    setValue(newValue);}
+
   const exerciseName = listOfExercises.map((el, index) => (<option key={index + 1} value={el.name}>{el.name}</option>)); // eslint-disable-line
 
  // const exerciseDuration = listOfExercises.map((el, index) => (<option key={index + 1} value={el.duration}>{el.duration}</option>)); // eslint-disable-line
@@ -114,6 +124,19 @@ function WorkoutDropdown()  {
     <div>      
       <h2>Select Exercise</h2>
       <form>
+       <div className="calendar" style={{margin: "5% 40%"}}>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <Stack spacing={3}>
+            <DateTimePicker
+              label="Select Workout Date & Time"
+              value={value}
+              onChange={handleChange}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </Stack>
+        </LocalizationProvider>
+      </div>
         <option>Name</option>             
         <select label="Name">
           {exerciseName}
