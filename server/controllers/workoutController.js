@@ -15,13 +15,11 @@ const scheduleWorkouts = async (req, res) => {
   const workout = new Workout(mongooseObject);
 
   try {
-    console.log(`Saving workout ${workout}`);
     await workout.save();
-    console.log(`Saving workout ${workout}`);
     res.status(201);
   } catch (error) {
     console.log(error);
-    res.send(`Exercise could not be saved! Try again. ${error.message}`);
+    res.send(`Workout could not be scheduled! Try again. ${error.message}`);
   }
 };
 
