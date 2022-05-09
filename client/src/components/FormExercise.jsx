@@ -58,14 +58,14 @@ function FormExercise() {
           placeholder="Category"
           onChange={handleChange}
         />
-        <input
+        {/* <input
           type="text"
           id="duration"
           value={exercise.duration}
           name="duration"
           placeholder="Duration"
           onChange={handleChange}
-        />
+        /> */}
         <input
           type="text"
           id="intensity"
@@ -106,8 +106,8 @@ function WorkoutDropdown()  {
 
   const exerciseName = listOfExercises.map((el, index) => (<option key={index + 1} value={el.name}>{el.name}</option>)); // eslint-disable-line
 
-  const exerciseDuration = listOfExercises.map((el, index) => (<option key={index + 1} value={el.duration}>{el.duration}</option>)); // eslint-disable-line
-  
+ // const exerciseDuration = listOfExercises.map((el, index) => (<option key={index + 1} value={el.duration}>{el.duration}</option>)); // eslint-disable-line
+
   console.log(exerciseName);
 
   return(
@@ -120,7 +120,14 @@ function WorkoutDropdown()  {
         </select>
         <option>Duration</option> 
         <select label="Duration">
-          {exerciseDuration}
+          <option value="5 min">5 min</option>
+          <option value="10 min">10 min</option>
+          <option value="15 min">15 min</option>
+          <option value="20 min">20 min</option>
+          <option value="30 min">30 min</option>
+          <option value="40 min">40 min</option>
+          <option value="45 min">45 min</option>
+          <option value="60 min">60 min</option>
         </select>
         <input type="submit" value="Schedule workout"/>
       </form>
