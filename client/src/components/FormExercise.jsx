@@ -137,7 +137,7 @@ function WorkoutDropdown()  {
   const handleSubmitSelectExercise = async () => {
     try {
       console.log(selectExercise);
-      await axios.post("http://localhost:3001/exercises/select", selectExercise);
+      await axios.post("http://localhost:3001/workouts", selectExercise);
     } catch (error) {
       console.log("Exercise could not be saved.", error.message);
     }

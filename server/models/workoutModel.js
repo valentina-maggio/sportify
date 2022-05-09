@@ -3,24 +3,23 @@ const mongoose = require('mongoose');
 //Schema
 
 const workoutSchema = new mongoose.Schema({
-  dateOfActivity: {
+  workoutScheduledDate: {
     type: Date,
     default: Date.now,
   },
-    exercise: {
-      type: mongoose.Schema.Types.ObjectId, 
-      ref: 'Exercise',
-      required: true,
-    },
-  // exercise: {
-  //   type: String,
-  //   required: true,
-  // },
-  timeCompleted: {
-    type: Date,
-    default: Date.now,
+  user: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User',
+    required: true,
   },
-    
+  duration: {
+    type: Number,
+    required: true,
+  },
+  workoutName: {
+    type: String,
+    required: true,
+  }
 
 });
 
