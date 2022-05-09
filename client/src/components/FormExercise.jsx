@@ -110,8 +110,6 @@ function WorkoutDropdown()  {
 
   const exerciseName = uniqueNames.map((el, index) => (<option key={index + 1} value={el}>{el}</option>)); // eslint-disable-line
 
-  // const [value, setValue] = useState()
-
   const [selectExercise, setSelectExercise] = useState({
     workoutDate: "",
     exerciseName: "",
@@ -123,9 +121,7 @@ function WorkoutDropdown()  {
   console.log(selectExercise);
 
   const handleChange = (newValue) => {
-    console.log(`this bloody object ${newValue}`);
     if(typeof newValue.target === 'undefined'){
-      console.log(`this bloody object ${newValue}`);
       setSelectExercise({
         ...selectExercise,
         workoutDate: newValue,
@@ -137,10 +133,6 @@ function WorkoutDropdown()  {
       });
     }
   }
-
-  // const handleChangeDate = (e) => {
-  //   setValue(e);
-  // }
 
   const handleSubmitSelectExercise = async () => {
     try {
