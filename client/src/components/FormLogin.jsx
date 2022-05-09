@@ -1,55 +1,61 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// import { useEffect } from "react/cjs/react.production.min";
 
 function FormLogin() {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    alert("User Logged in");
-    const userData = {
-      email,
-      password,
-    };
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    try{
-      const add = await fetch("http://localhost:3001/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
-    console.log(add)
-     }catch(err){
-       console.error()
-     }
-    };
+  const handleSubmit = async () => {
+    try {
+      console.log(user);
+      await axios.post("http://localhost:3001/user/login", user);
+    } catch (error) {
+      console.log("User could not be logged in", error.message);
+    }
+
+    navigate("/dashboard");
+  };
 
   return (
     <div>
-    <form onSubmit={ handleSubmit }>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        onChange={ (e) => {setEmail(e.target.value);} }
-      />
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-        onChange = { (e) => { setPassword(e.target.value);} }
-      />
-      <input 
-        type="submit" 
-        value="Login"
-      />
-    </form>
-  </div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={user.email}
+          placeholder="Email"
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={user.password}
+          placeholder="Password"
+          onChange={handleChange}
+        />
+        <input type="submit" value="Login" onClick={handleSubmit} />
+      </form>
+    </div>
   );
 }
 
