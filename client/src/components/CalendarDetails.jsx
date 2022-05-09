@@ -1,4 +1,4 @@
-import FormCalendar from './FormCalendar';
+import FormExercise, {WorkoutDropdown}  from './FormExercise';
 import NavbarCalendarPage from './NavbarCalendarPage';
 import Calendar from './Calendar';
 import Weather from './Weather';
@@ -7,7 +7,8 @@ function CalendarDetails() {
   return (
     <>
       <NavbarCalendarPage />
-      <FormCalendar />
+      <FormExercise />
+      <WorkoutDropdown />
       <Calendar />
       <Weather />
     </>

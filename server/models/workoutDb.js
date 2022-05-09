@@ -1,11 +1,11 @@
-const Workout = require('../models/workout');
+const Workout = require('./workout');
 const mongoose = require("mongoose");
 const dotenv = require("dotenv")
 dotenv.config()
 
-const MONGO_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`
+// const MONGO_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`
 
-mongoose.connect(MONGO_URL, {
+mongoose.connect(ATLAS_URI, {
     useNewUrlParser: true,
   });
 

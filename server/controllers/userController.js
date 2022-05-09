@@ -1,45 +1,9 @@
-const User = require("../models/user");
+const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const e = require("express");
 
 const UsersController = {
-  
-  
-  Create: async (req, res) => {
-    const user = new User(req.body);
-    console.log(user)
-    user.save()
-        .then(i => res.send('user saved to database'))
-        .catch(err => res.status(400).send('unable to save use to database'));
-
-    
-    // //added bycrypt into password parsing
-    // const salt = await bcrypt.genSalt(10);
-    // user.password = await bcrypt.hash(user.password, salt);
-
-    // const userExists = await User.exists({email: user.email});
-    // console.log(`userExists or not${userExists}`);
-
-    // //check if user exits
-    // if (!userExists) {
-      
-    // };
-
-    // let user = await User.findOne({email: req.body.email});
-    // console.log(`userExists or not${user}`);
-    
-
-    // user = new User({
-      
-    // });
-    // console.log(user)
-    // user.save({
-    //   username: req.body.username,
-    //   email: req.body.email,
-    //   password: req.body.password
-    // })
-
-    //checking user exists or not
+  Create: async (req, res) => {    
     let user = await User.findOne({email: req.body.email});
     
     if (!user) {
@@ -55,10 +19,10 @@ const UsersController = {
           email: user.email,
           password: user.password
         })
-        .then(i => res.send('user saved to database'))
+        .then(i => res.status(200).json(user.username))
         .catch(err => res.status(400).send('unable to save use to database'));
     } else {
-      res.end('user already exists') 
+      res.status(400).end('user already exists') 
     }
 
   },
