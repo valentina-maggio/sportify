@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from "axios";
 // import Dropdown from './Dropdown';
 
 function FormExercise() {
 
-  const { state } = useLocation();
+  // const { state } = useLocation();
 
-  console.log(`State passed is ${state}`);
+  // console.log(`State passed is ${state}`);
 
   const [exercise, setexercise] = useState({
     name: "",
     category: "",
-    duration: "",
     intensity: "",
     link: "",
   });
@@ -60,14 +64,6 @@ function FormExercise() {
         />
         <input
           type="text"
-          id="duration"
-          value={exercise.duration}
-          name="duration"
-          placeholder="Duration"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
           id="intensity"
           value={exercise.intensity}
           name="intensity"
@@ -90,6 +86,11 @@ function FormExercise() {
 
 
 function WorkoutDropdown()  {
+
+  const { state } = useLocation();
+
+  console.log(`State passed in Workout Dropdown ${state}`);
+
   const [listOfExercises, setExercise] = useState([])
   useEffect(() => {
     const handleSubmit = async () => {
@@ -107,20 +108,103 @@ function WorkoutDropdown()  {
   const names = listOfExercises.map(x => x.name);
   const uniqueNames = [...new Set(names)];
 
-  console.log(`uniqueNames are ${uniqueNames}`);
-
   const exerciseName = uniqueNames.map((el, index) => (<option key={index + 1} value={el}>{el}</option>)); // eslint-disable-line
 
+  // const [value, setValue] = useState()
+
+  const [selectExercise, setSelectExercise] = useState({
+    workoutDate: "",
+    exerciseName: "",
+    duration: "",
+    username: state
+  });
+
+  console.log("First Value");
+  console.log(selectExercise);
+
+  const handleChange = (newValue) => {
+    console.log(`this bloody object ${newValue}`);
+    if(typeof newValue.target === 'undefined'){
+      console.log(`this bloody object ${newValue}`);
+      setSelectExercise({
+        ...selectExercise,
+        workoutDate: newValue,
+      });
+    }else{
+      setSelectExercise({
+        ...selectExercise,
+        [newValue.target.name]: newValue.target.value,
+      });
+    }
+  }
+
+  // const handleChangeDate = (e) => {
+  //   setValue(e);
+  // }
+
+  const handleSubmitSelectExercise = async () => {
+    try {
+      console.log(selectExercise);
+      await axios.post("http://localhost:3001/exercises/select", selectExercise);
+    } catch (error) {
+      console.log("Exercise could not be saved.", error.message);
+    }
+  };
+
+  console.log("Changed Value");
+  console.log(selectExercise);
+
+  console.log(exerciseName);
 
   return(
     <div>      
       <h2>Select Exercise</h2>
-      <form>
-        <option>Name</option>         
-        <select label="Name">
-          {exerciseName}
+      <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmitSelectExercise();
+      }}>
+       <div className="calendar" style={{margin: "5% 40%"}}>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <Stack spacing={3}>
+            <DateTimePicker
+              name="workoutDate" 
+              label="Select Workout Date & Time"
+              value={selectExercise.workoutDate}
+              onChange={handleChange}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </Stack>
+        </LocalizationProvider>
+      </div>
+      <div>
+        <option>Name</option>             
+        <select
+        name="exerciseName"
+        label="Name"
+        value={selectExercise.exerciseName}
+        onChange={handleChange}>
+        {exerciseName}
         </select>
+      </div>
+      <div>
         <option>Duration</option> 
+        <select
+        name="duration"
+        label="Duration"
+        value={selectExercise.name}
+        onChange={handleChange}>
+          <option value="5 min">5 min</option>
+          <option value="10 min">10 min</option>
+          <option value="15 min">15 min</option>
+          <option value="20 min">20 min</option>
+          <option value="30 min">30 min</option>
+          <option value="40 min">40 min</option>
+          <option value="45 min">45 min</option>
+          <option value="60 min">60 min</option>
+        </select>
+      </div>
         <input type="submit" value="Schedule workout"/>
       </form>
     </div>
