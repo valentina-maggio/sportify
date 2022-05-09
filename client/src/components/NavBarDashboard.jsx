@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './NavBar.css'
 
-function NavBarWorkoutPage() {
+function NavBarMoodPage() {
   return (
     <div className='navbar'>
       <div className='logo'>
@@ -9,10 +9,11 @@ function NavBarWorkoutPage() {
       </div>
       <div>
         <Link to='/exercises' className='scheduler-link'>Schedule Workout</Link>
+        <Link to='/workouts' className='workouts-link'>View Workouts</Link>
         <Link to='/' className='logout-link'>Logout</Link>
-        </div>
+      </div>
     </div>
   );
 }
 
-export default NavBarWorkoutPage;
+export default NavBarMoodPage;

@@ -1,17 +1,15 @@
-import NavBarLogin from './NavBarLogin';
+import NavBarRegister from './NavBarRegister';
 import SubBar from './SubBar';
 import FormSignUp from './FormSignUp';
-import SignInRedirection from './SignInRedirection';
 import BackgroundImageLoginSignup from './BackgroungImageLoginSignup';
 
 function SignUpPageDetails() {
   return (
     <>
-      <NavBarLogin />
+      <NavBarRegister />
       <SubBar />
       <BackgroundImageLoginSignup />
       <FormSignUp />
-      <SignInRedirection />
     </>
   );
 }

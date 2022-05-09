@@ -1,12 +1,12 @@
 import FormExercise, {WorkoutDropdown}  from './FormExercise';
-import NavbarCalendarPage from './NavbarCalendarPage';
+import NavBarExercisesPage from './NavBarExercisesPage';
 import Calendar from './Calendar';
 import Weather from './Weather';
 
-function CalendarDetails() {
+function ExercisesPageDetails() {
   return (
     <>
-      <NavbarCalendarPage />
+      <NavBarExercisesPage />
       <FormExercise />
       <WorkoutDropdown />
       <Calendar />
@@ -15,4 +15,4 @@ function CalendarDetails() {
   );
 }
 
-export default CalendarDetails;
+export default ExercisesPageDetails;

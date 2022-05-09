@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPageDetails from './components/LoginPageDetails';
-import SignUpPageDetails from './components/SignUpPageDetails';
-import MoodPageDetails from './components/MoodPageDetails';
-import CalendarDetails from './components/CalendarDetails';
+import RegisterDetails from './components/RegisterDetails';
+import DashboardDetails from './components/DashboardDetails';
+import ExercisesPageDetails from './components/ExercisesPageDetails';
 import WorkoutPageDetails from './components/WorkoutPageDetails';
 import './App.css';
 
@@ -11,10 +11,10 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<LoginPageDetails />} />
-        <Route path='/signup' element={<SignUpPageDetails />}/>
-        <Route path='/dashboard' element={<MoodPageDetails />} />
-        <Route path='/exercises' element={<CalendarDetails />} />
-        <Route path='/workout' element={<WorkoutPageDetails />} />
+        <Route path='/register' element={<RegisterDetails />}/>
+        <Route path='/dashboard' element={<DashboardDetails />} />
+        <Route path='/exercises' element={<ExercisesPageDetails />} />
+        <Route path='/workouts' element={<WorkoutPageDetails />} />
       </Routes>
     </Router>
   );

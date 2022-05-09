@@ -1,5 +1,5 @@
 import VideoFiles from './VideoFiles';
-import './MoodPage.css';
+import './Dashboard.css';
 
 function MoodPage() {
   return (

@@ -8,7 +8,7 @@ function NavBarLogin() {
         <img src='images/logo-and-name-copy.png' alt='Logo' />
       </div>
       <div>
-        <Link to='/signup' className='register-link'>Register</Link>
+        <Link to='/register' className='register-link'>Register</Link>
       </div>
     </div>
   );
