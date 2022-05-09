@@ -1,26 +1,28 @@
 const Workout = require('../models/workoutModel');
+const User = require('../models/userModel')
 
 const scheduleWorkouts = async (req, res) => {
+
+  const userId = await User.findOne({email: req.body.username});
+
   const mongooseObject = {
     workoutScheduledDate: req.body.workoutDate,
-    user: req.body.username,
-    duration: req.body.duration,
+    user: userId.id,
+    duration: parseInt(req.body.duration),
     workoutName: req.body.exerciseName,
   };
+  
+  const workout = new Workout(mongooseObject);
 
-  console.log(`req body name ${req.body}`);
-
-  // const exercise = new Exercise(mongooseObject);
-
-  // try {
-  //   console.log(`Saving workout ${exercise}`);
-  //   await exercise.save();
-  //   console.log(`Saving workout ${exercise}`);
-  //   res.status(201);
-  // } catch (error) {
-  //   console.log(error);
-  //   res.send(`Exercise could not be saved! Try again. ${error.message}`);
-  // }
+  try {
+    console.log(`Saving workout ${workout}`);
+    await workout.save();
+    console.log(`Saving workout ${workout}`);
+    res.status(201);
+  } catch (error) {
+    console.log(error);
+    res.send(`Exercise could not be saved! Try again. ${error.message}`);
+  }
 };
 
 
