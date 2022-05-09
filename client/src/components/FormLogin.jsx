@@ -21,12 +21,19 @@ function FormLogin() {
   const handleSubmit = async () => {
     try {
       console.log(user);
-      await axios.post("http://localhost:3001/user/login", user);
+      const response = await axios.post(
+        "http://localhost:3001/users/login",
+        user
+      );
+      if (response.status === 200) {
+        navigate("/dashboard");
+      } else {
+        // TODO: investigate this alert not showing up on unsuccessful login
+        alert("Incorrect email or password.");
+      }
     } catch (error) {
       console.log("User could not be logged in", error.message);
     }
-
-    navigate("/dashboard");
   };
 
   return (

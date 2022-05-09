@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json({ limit: 1024 * 1024 * 4 }));
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/user', require('./routes/userRoutes'));
+app.use('/users', require('./routes/userRoutes'));
 app.use('/exercises', require('./routes/exerciseRoutes'));
 
 app.listen(PORT, () => {
