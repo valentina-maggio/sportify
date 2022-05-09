@@ -104,24 +104,23 @@ function WorkoutDropdown()  {
     handleSubmit();
   }, []);
 
-  const exerciseName = listOfExercises.map((el, index) => (<option key={index + 1} value={el.name}>{el.name}</option>)); // eslint-disable-line
+  const names = listOfExercises.map(x => x.name);
+  const uniqueNames = [...new Set(names)];
 
-  const exerciseDuration = listOfExercises.map((el, index) => (<option key={index + 1} value={el.duration}>{el.duration}</option>)); // eslint-disable-line
-  
-  console.log(exerciseName);
+  console.log(`uniqueNames are ${uniqueNames}`);
+
+  const exerciseName = uniqueNames.map((el, index) => (<option key={index + 1} value={el}>{el}</option>)); // eslint-disable-line
+
 
   return(
     <div>      
       <h2>Select Exercise</h2>
       <form>
-        <option>Name</option>             
+        <option>Name</option>         
         <select label="Name">
           {exerciseName}
         </select>
         <option>Duration</option> 
-        <select label="Duration">
-          {exerciseDuration}
-        </select>
         <input type="submit" value="Schedule workout"/>
       </form>
     </div>

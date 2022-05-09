@@ -12,6 +12,8 @@ function Calendar() {
   const handleChange = (newValue) => {
     setValue(newValue);}
 
+    console.log(value);
+
   return (
     <div className="calendar" style={{margin: "5% 40%"}}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -27,6 +29,8 @@ function Calendar() {
       </LocalizationProvider>
     </div>
   )
+
+  
 }
 
 export default Calendar;
