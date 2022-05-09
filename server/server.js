@@ -1,30 +1,23 @@
-const http = require('http');
+
+const express = require('express');
+const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
-const dotenv = require("dotenv")
-dotenv.config()
-
-const app = require('./app');
-
+const cors = require('cors');
+const connectDB = require('./config/db');
 const PORT = process.env.PORT || 3001;
 
-const MONGO_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`
+const res = require('express/lib/response');
 
-const server = http.createServer(app);
+const app = express();
 
-mongoose.connection.once('open', () => {
-    console.log('MongoDB connection Ready');
-})
+app.use(cors());
+app.use(express.json({ limit: 1024 * 1024 * 4 }));
+app.use(express.urlencoded({ extended: false }));
 
-mongoose.connection.on('error', (err) => {
-    console.log(`MongoDB connection Error: ${err}`)
-})
+app.use('/users', require('./routes/userRoutes'));
+app.use('/exercises', require('./routes/exerciseRoutes'));
 
-async function startServer () {
-    await mongoose.connect(MONGO_URL)
-
-    server.listen(PORT, () => {
-        console.log(`Listening on port ${PORT}...`)
-    })
-}
-
-startServer();
+app.listen(PORT, () => {
+  connectDB();
+  console.log(`Server started on port ${PORT}`);
+});

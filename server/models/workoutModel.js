@@ -7,15 +7,15 @@ const workoutSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-    // exercise: {
-    //   type: mongoose.Schema.Types.ObjectId, 
-    //   ref: 'Exercise',
-    //   required: true,
-    // },
-  exercise: {
-    type: String,
-    required: true,
-  },
+    exercise: {
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'Exercise',
+      required: true,
+    },
+  // exercise: {
+  //   type: String,
+  //   required: true,
+  // },
   timeCompleted: {
     type: Date,
     default: Date.now,
