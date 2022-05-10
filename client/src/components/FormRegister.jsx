@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function FormRegister() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -16,22 +16,20 @@ function FormRegister() {
     };
 
     try {
-      const response = await fetch("http://localhost:3001/users/register", {
-        method: "POST",
+      const response = await fetch('http://localhost:3001/users/register', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
 
-          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify(userData),
       });
 
       if (response.status === 200) {
-        navigate("/", {
-          state: email,
-        });
+        navigate('/');
       } else {
-        alert("User already exists");
+        alert('User already exists');// eslint-disable-line
       }
     } catch (err) {
       console.error();
@@ -42,33 +40,33 @@ function FormRegister() {
     <div>
       <form onSubmit={handleSubmit}>
         <input
-          type="username"
-          id="username"
-          name="username"
-          placeholder="Username"
+          type='username'
+          id='username'
+          name='username'
+          placeholder='Username'
           onChange={(e) => {
             setUsername(e.target.value);
           }}
         />
         <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
+          type='email'
+          id='email'
+          name='email'
+          placeholder='Email'
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         />
         <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="password"
+          type='password'
+          id='password'
+          name='password'
+          placeholder='password'
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
-        <input type="submit" value="Register" />
+        <input type='submit' value='Register' />
       </form>
     </div>
   );

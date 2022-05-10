@@ -26,6 +26,7 @@ function FormLogin() {
         'http://localhost:3001/users/login',
         user
       );
+
       if (response.status === 200) {
         sessionStorage.setItem('item_key', user.email);
         navigate('/dashboard');

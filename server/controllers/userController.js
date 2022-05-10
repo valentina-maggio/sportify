@@ -38,14 +38,24 @@ const UsersController = {
   },
 
   Login: async (req, res) => {
+    console.log('I am here in the controller');
     const body = req.body;
     const user = await User.findOne({ email: body.email });
-    if (!user) console.log("User does not exist.");
+    
+    if (user === null) return res.status(400).send("invalid email or password");
+    console.log(user);
 
-
-    const validPassword = await bcrypt.compare(body.password, user.password);
-    if (!validPassword) res.status(400).send("invalid email or password");
-    res.status(200).send("welcome!");
+    if (user != null) {
+      const validPassword = await bcrypt.compare(body.password, user.password);
+      if (!validPassword) {
+        res.status(400).send("invalid email or password");
+      } else {
+        res.status(200).send("welcome!");
+      }
+    } else {
+      console.log("User does not exist.");
+      return res.status(400).send("invalid email or password");
+    }
   },
 };
 
