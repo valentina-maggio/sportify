@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -8,7 +8,8 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from 'axios';
 
 function WorkoutDropdown() {
-  const { state } = useLocation();
+
+  const state = sessionStorage.getItem("item_key");
 
   console.log(`State passed in Workout Dropdown ${state}`);
 
