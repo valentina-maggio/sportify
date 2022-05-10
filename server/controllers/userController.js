@@ -42,6 +42,7 @@ const UsersController = {
     const user = await User.findOne({ email: body.email });
     if (!user) console.log("User does not exist.");
 
+
     const validPassword = await bcrypt.compare(body.password, user.password);
     if (!validPassword) res.status(400).send("invalid email or password");
     res.status(200).send("welcome!");

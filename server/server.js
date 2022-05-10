@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/users', require('./routes/userRoutes'));
 app.use('/exercises', require('./routes/exerciseRoutes'));
+app.use('/workouts', require('./routes/workoutRoutes'));
 
 app.listen(PORT, () => {
   connectDB();
