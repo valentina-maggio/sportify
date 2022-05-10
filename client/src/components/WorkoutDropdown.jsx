@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -6,8 +7,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from 'axios';
 
-function FormExercise() {
-  // eslint-disable-next-line no-undef
+function WorkoutDropdown() {
   const { state } = useLocation();
 
   console.log(`State passed in Workout Dropdown ${state}`);
@@ -123,4 +123,4 @@ function FormExercise() {
   );
 }
 
-export default FormExercise;
+export default WorkoutDropdown;
