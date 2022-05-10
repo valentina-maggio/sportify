@@ -5,7 +5,15 @@ import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
+
 import axios from 'axios';
+import './WorkoutDropdown.css';
 
 function WorkoutDropdown() {
   const state = sessionStorage.getItem('item_key');
@@ -74,7 +82,7 @@ function WorkoutDropdown() {
           handleSubmitSelectExercise();
         }}
       >
-        <div className='calendar' style={{ margin: '5% 40%' }}>
+        <div className='calendar'>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Stack spacing={3}>
               <DateTimePicker
@@ -89,33 +97,41 @@ function WorkoutDropdown() {
           </LocalizationProvider>
         </div>
         <div>
-          <option>Name</option>
-          <select
+          <Select
+            className='name'
             name='exerciseName'
             label='Name'
             value={selectExercise.exerciseName}
             onChange={handleChange}
           >
-            {exerciseName}
-          </select>
+            <MenuItem value='{exerciseName}'>{exerciseName}</MenuItem>
+          </Select>
         </div>
         <div>
-          <option>Category</option>
-          <select
-            name='category'
-            label='category'
-            value={selectExercise.name}
-            onChange={handleChange}
-          >
-            <option value='Cardio'>Cardio</option>
-            <option value='HIIT'>HIIT</option>
-            <option value='Strength'>Strength</option>
-            <option value='Low Impact'>Low Impact</option>
-          </select>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id='category-label'>Category</InputLabel>
+              {/* <option>Category</option> */}
+              <Select
+                className='category'
+                labelId='category-label'
+                name='category'
+                label='category'
+                value={selectExercise.name}
+                onChange={handleChange}
+              >
+                <MenuItem value='Cardio'>Cardio</MenuItem>
+                <MenuItem value='HIIT'>HIIT</MenuItem>
+                <MenuItem value='Strength'>Strength</MenuItem>
+                <MenuItem value='Low Impact'>Low Impact</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
         </div>
         <div>
           <option>Duration</option>
-          <select
+          <Select
+            className='duration'
             name='duration'
             label='Duration'
             value={selectExercise.name}
@@ -129,9 +145,20 @@ function WorkoutDropdown() {
             <option value='40 min'>40 min</option>
             <option value='45 min'>45 min</option>
             <option value='60 min'>60 min</option>
-          </select>
+          </Select>
         </div>
-        <input type='submit' value='Schedule workout' />
+        <Button
+          className='submit'
+          variant='contained'
+          sx={{
+            '&.MuiButton-text': { color: '#yellow' },
+            // border: '2px black solid',
+          }}
+          type='submit'
+          value='Schedule workout'
+        >
+          Schedule Workout
+        </Button>
       </form>
     </div>
   );
