@@ -1,11 +1,25 @@
 import { Link } from 'react-router-dom';
 import "./WorkoutPage.css";
 import WorkoutChart from './WorkoutChart';
-import ExerciseChart from './ExerciseChart';
-// import WorkoutChart from './WorkoutChart'
-
 
 function UpcomingAndHistoryWorkoutPage() {
+
+  const [workouts, setWorkouts] = useState([]);
+
+  const requestWorkouts = async () => {
+    try {
+      const res = await axios.get('http://localhost:3001/workouts');
+      console.log(res.data);
+      setWorkouts(res.data);
+    } catch (error) {
+      console.log(`Workout.jxs Component: ${error}`);
+    }
+  };
+
+  useEffect(() => {
+    requestWorkouts();
+  }, []);
+
   return (
     <header className='center'>
       <div className='content-container'>
@@ -41,37 +55,12 @@ function UpcomingAndHistoryWorkoutPage() {
         <div className='right-panel-box'>
           <h2>Workout History</h2>
           <WorkoutChart />
-          <ExerciseChart />
           
-          {/* <div className='right-panel-box'>
-            <div className="box">
-              <p className="p">Yoga</p>
-              <p className="p">30 mins</p>
-              <p className="p"><Link to ="https://www.youtube.com/watch?v=dQw4w9WgXcQ">https://www.youtube.com/watch?v=dQw4w9WgXcQ</Link></p>
-              <p className="p">11/04/2022</p>
-            </div>
-            <div className="box">
-              <p className="p">HIIT</p>
-              <p className="p">30 mins</p>
-              <p className="p"><Link to ="https://www.youtube.com/watch?v=dQw4w9WgXcQ">https://www.youtube.com/watch?v=dQw4w9WgXcQ</Link></p>
-              <p className="p">15/04/2022</p>
-            </div>
-            <div className="box">
-              <p className="p">Yoga</p>
-              <p className="p">30 mins</p>
-              <p className="p"><Link to ="https://www.youtube.com/watch?v=dQw4w9WgXcQ">https://www.youtube.com/watch?v=dQw4w9WgXcQ</Link></p>
-              <p className="p">20/04/2022</p>
-            </div>
-            <div className="box">
-              <p className="p">HIIT</p>
-              <p className="p">30 mins</p>
-              <p className="p"><Link to ="https://www.youtube.com/watch?v=dQw4w9WgXcQ">https://www.youtube.com/watch?v=dQw4w9WgXcQ</Link></p>
-              <p className="p">22/04/2022</p>
-            </div>
-          </div> */}
+          
+        
         </div>
 
-      {/* <WorkoutChart /> */}
+      
       </div>
     </header>
   );
