@@ -1,7 +1,7 @@
-import NavBarRegister from './NavBarRegister';
-import SubBar from './SubBar';
-import FormSignUp from './FormSignUp';
-import BackgroundImageLoginSignup from './BackgroungImageLoginSignup';
+import NavBarRegister from "./NavBarRegister";
+import SubBar from "./SubBar";
+import FormRegister from "./FormRegister";
+import BackgroundImageLoginSignup from "./BackgroungImageLoginSignup";
 
 function SignUpPageDetails() {
   return (
@@ -9,7 +9,7 @@ function SignUpPageDetails() {
       <NavBarRegister />
       <SubBar />
       <BackgroundImageLoginSignup />
-      <FormSignUp />
+      <FormRegister />
     </>
   );
 }

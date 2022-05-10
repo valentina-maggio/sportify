@@ -8,11 +8,5 @@ describe("User model", () => {
     });
   });
 
-  describe("Creating a new user", () => {
-     
-  })
-
-
+  describe("Creating a new user", () => {});
 });
-
-
