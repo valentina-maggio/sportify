@@ -6,7 +6,8 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from 'axios';
 
-function WorkoutDropdown() {
+function FormExercise() {
+  // eslint-disable-next-line no-undef
   const { state } = useLocation();
 
   console.log(`State passed in Workout Dropdown ${state}`);
@@ -29,6 +30,7 @@ function WorkoutDropdown() {
   const uniqueNames = [...new Set(names)];
 
   const exerciseName = uniqueNames.map((el, index) => (
+    // eslint-disable-next-line react/no-array-index-key
     <option key={index + 1} value={el}>
       {el}
     </option>
@@ -121,4 +123,4 @@ function WorkoutDropdown() {
   );
 }
 
-export default WorkoutDropdown;
+export default FormExercise;
