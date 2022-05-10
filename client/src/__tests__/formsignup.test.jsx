@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import FormSignUp from '../components/FormSignUp';
+import FormRegister from '../components/FormRegister';
 
   test('inputs should be initially empty', () => {
-    render(<FormSignUp />);
+    render(<FormRegister />);
     const usernameElement = screen.getByPlaceholderText(/username/i);
     const emailElement = screen.getByPlaceholderText(/email/i);
     const passwordElement = screen.getByPlaceholderText(/password/i);
@@ -14,7 +14,7 @@ import FormSignUp from '../components/FormSignUp';
   });
 
   test('displays a submit button for the Login', () => {
-    render(<FormSignUp />);
+    render(<FormRegister />);
     const submitInput = screen.getByDisplayValue(/register/i);
 
     expect(submitInput.value).toBe('Register');
