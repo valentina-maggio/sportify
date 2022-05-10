@@ -3,7 +3,7 @@ import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
 
 
 const colors = ['#8884d8', '#9cacf1', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57']
-const data01 = [
+const data = [
   {name: 'Yoga', value: 500, fill: colors[0],}, 
 	{name: 'HIIT', value: 300, fill: colors[1],},
   {name: 'Cardio', value: 300, fill: colors[2]}, 
@@ -37,12 +37,12 @@ const data01 = [
         <PieChart width={800} height={400}>
             <Pie 
             isAnimationActive={false} 
-            data={data01} 
+            data={data} 
             cx={240} 
             cy={200} 
             outerRadius={180} 
             fill="#8884d8" 
-            label={data01}/>
+            label={data.name}/>
             
             
             <Tooltip/>
