@@ -8,13 +8,18 @@ function LoginPageDetails() {
   return (
     <>
       <NavBarLogin />
-      <SubBar />
+
       <div className='main-container'>
         <div>
           <BackgroundImageLoginSignup />
         </div>
-        <div className='form-login'>
-          <FormLogin />
+        <div className='right-container'>
+          <div className='heading'>
+            <SubBar />
+          </div>
+          <div className='form-login'>
+            <FormLogin />
+          </div>
         </div>
       </div>
     </>

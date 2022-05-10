@@ -5,14 +5,14 @@
   padding: 10px;
   width: 450px;
   background-color: rgba(64, 154, 159, 0.5);
-  height: 500px;
+  height: 450px;
   box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.2);
 }
 .email,
 .password,
 .submit {
   padding: 15px;
-  margin: 30px 30px 30px 60px;
+  margin: 3px 30px 25px 60px;
   width: 300px;
   align-items: center;
   font-size: 16px;
