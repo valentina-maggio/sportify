@@ -38,9 +38,11 @@ const UsersController = {
   },
 
   Login: async (req, res) => {
+    console.log('I am here in the controller');
     const body = req.body;
     const user = await User.findOne({ email: body.email });
-
+    
+    if (user === null) return res.status(400).send("invalid email or password");
     console.log(user);
 
     if (user != null) {
@@ -52,15 +54,8 @@ const UsersController = {
       }
     } else {
       console.log("User does not exist.");
-      res.status(400).send("invalid email or password");
+      return res.status(400).send("invalid email or password");
     }
-
-    
-    // if (!validPassword) {
-    //   res.status(400).send("invalid email or password");
-    // } else {
-    //   res.status(200).send("welcome!");
-    // }
   },
 };
 

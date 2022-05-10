@@ -9,6 +9,7 @@ function PopUpTest() {
   console.log(`State passed in Workout Dropdown ${state}`);
 
   const [exercise, setExercise] = useState({
+    user: state,
     name: '',
     category: '',
     intensity: '',
@@ -28,7 +29,7 @@ function PopUpTest() {
     } catch (error) {
       console.log('Exercise could not be saved.', error.message);
     }
-    setExercise('');
+    // setExercise('');
   };
 
   return (

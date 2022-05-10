@@ -18,7 +18,7 @@ function WorkoutDropdown() {
     const handleSubmit = async () => {
       try {
         console.log('list of exercises');
-        const response = await axios.get('http://localhost:3001/exercises');
+        const response = await axios.get('http://localhost:3001/exercises', { params: {user: state}});
         return setExercise(response.data);
       } catch (error) {
         return console.log('Could not get list of exercises.', error.message);
