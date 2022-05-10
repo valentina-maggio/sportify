@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import "./WorkoutPage.css";
+import WorkoutChart from './WorkoutChart';
+import ExerciseChart from './ExerciseChart';
 // import WorkoutChart from './WorkoutChart'
 
 
@@ -38,7 +40,10 @@ function UpcomingAndHistoryWorkoutPage() {
         </div>
         <div className='right-panel-box'>
           <h2>Workout History</h2>
-          <div className='right-panel-box'>
+          <WorkoutChart />
+          <ExerciseChart />
+          
+          {/* <div className='right-panel-box'>
             <div className="box">
               <p className="p">Yoga</p>
               <p className="p">30 mins</p>
@@ -63,7 +68,7 @@ function UpcomingAndHistoryWorkoutPage() {
               <p className="p"><Link to ="https://www.youtube.com/watch?v=dQw4w9WgXcQ">https://www.youtube.com/watch?v=dQw4w9WgXcQ</Link></p>
               <p className="p">22/04/2022</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
       {/* <WorkoutChart /> */}
