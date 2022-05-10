@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -29,6 +30,7 @@ function WorkoutDropdown() {
   const uniqueNames = [...new Set(names)];
 
   const exerciseName = uniqueNames.map((el, index) => (
+    // eslint-disable-next-line react/no-array-index-key
     <option key={index + 1} value={el}>
       {el}
     </option>
