@@ -1,17 +1,16 @@
 const Workout = require('../models/workoutModel');
-const User = require('../models/userModel')
+const User = require('../models/userModel');
 
 const scheduleWorkouts = async (req, res) => {
-
-  const userId = await User.findOne({email: req.body.username});
+  const userId = await User.findOne({ email: req.body.username });
 
   const mongooseObject = {
     workoutScheduledDate: req.body.workoutDate,
     user: userId.id,
-    duration: parseInt(req.body.duration),
+    duration: parseInt(req.body.duration, 10),
     workoutName: req.body.exerciseName,
   };
-  
+
   const workout = new Workout(mongooseObject);
 
   try {
@@ -23,7 +22,14 @@ const scheduleWorkouts = async (req, res) => {
   }
 };
 
+const upcomingWorkouts = async (req, res) => {
+  const workouts = await Workout.find();
+
+  console.log(workouts);
+  res.send(workouts);
+};
 
 module.exports = {
-  scheduleWorkouts
+  scheduleWorkouts,
+  upcomingWorkouts,
 };
