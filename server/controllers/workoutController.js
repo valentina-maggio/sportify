@@ -8,7 +8,7 @@ const scheduleWorkouts = async (req, res) => {
   const mongooseObject = {
     workoutScheduledDate: req.body.workoutDate,
     user: userId.id,
-    duration: parseInt(req.body.duration),
+    duration: parseInt(req.body.duration, 10),
     workoutName: req.body.exerciseName,
   };
   

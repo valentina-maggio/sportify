@@ -1,12 +1,12 @@
 import Popup from 'reactjs-popup';
 import axios from 'axios';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
-function PopUpTest() {
-  const { state } = useLocation();
+function PopUp() {
+  const state = sessionStorage.getItem('item_key');
 
-  console.log(`State passed is ${state}`);
+  console.log(`State passed in Workout Dropdown ${state}`);
 
   const [exercise, setExercise] = useState({
     name: '',
@@ -84,4 +84,4 @@ function PopUpTest() {
   );
 }
 
-export default PopUpTest;
+export default PopUp;
