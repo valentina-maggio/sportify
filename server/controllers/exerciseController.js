@@ -16,9 +16,7 @@ const createExercise = async (req, res) => {
   const exercise = new Exercise(mongooseObject);
 
   try {
-    console.log('I am before save');
     await exercise.save();
-    console.log('I am after save');
     res.status(201);
   } catch (error) {
     console.log(error);
@@ -30,19 +28,11 @@ const getExercises = async (req, res) => {
 
   const userParam = req.query.user;
 
-  console.log(userParam);
-
   const userId = await User.findOne({email: userParam});
 
-  console.log(userId.id);
-
-  const defaultExercises = await await Exercise.find({user: null});
-
-  console.log(defaultExercises);
+  const defaultExercises = await Exercise.find({user: null});
 
   const exercisesSavedByLoggedInUser = await Exercise.find({user: userId.id});
-
-  console.log(exercisesSavedByLoggedInUser);
 
   const exercisesArray = [];
 
