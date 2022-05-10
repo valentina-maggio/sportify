@@ -3,65 +3,60 @@ const bcrypt = require("bcrypt");
 const e = require("express");
 
 const UsersController = {
-  Create: async (req, res) => {    
-    let user = await User.findOne({email: req.body.email});
-    
-    if (!user) {
-      const user = new User(req.body)
+  Create: async (req, res) => {
+    let user = await User.findOne({ email: req.body.email });
+    if (user) return res.status(400).send("User already exists.");
 
-      // generate salt to hash password
-      const salt = await bcrypt.genSalt(10);
-      // set user passwork to hased password
-      user.password = await bcrypt.hash(user.password, salt);
+    user = new User({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
 
-      return user.save({
-          username: user.username,
-          email: user.email,
-          password: user.password
-        })
-        .then(i => res.status(200).json(user.username))
-        .catch(err => res.status(400).send('unable to save use to database'));
-    } else {
-      res.status(400).end('user already exists') 
-    }
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(user.password, salt);
+    await user.save();
 
+    res.status(200).send({
+      username: req.body.username,
+      email: req.body.email,
+    });
   },
 
   userProfile: async (req, res) => {
-
     const username = req.params.username;
-    User.findOne({username: username}, (err, data) => {
+    User.findOne({ username: username }, (err, data) => {
       if (err) {
         const error = {
           status: `The user "${username}" has not been found`,
-        }
+        };
         res.status(400).json({ error: error });
       } else {
         res.status(201).json(data);
       }
-    })
-    
-
+    });
   },
 
-  login: async (req, res) => {
+  Login: async (req, res) => {
+    console.log('I am here in the controller');
     const body = req.body;
-    const user = await User.findOne({email:body.email});
-    if(user) {
-      //check user password with hashed password stored in the database
+    const user = await User.findOne({ email: body.email });
+    
+    if (user === null) return res.status(400).send("invalid email or password");
+    console.log(user);
+
+    if (user != null) {
       const validPassword = await bcrypt.compare(body.password, user.password);
-      console.log(validPassword)
-      if (validPassword) {
-        res.status(200).json({ message: 'Valid password'});
-        console.log('User logged in successfully')
+      if (!validPassword) {
+        res.status(400).send("invalid email or password");
       } else {
-        res.status(400).json({ error: "Invalid Password" });
+        res.status(200).send("welcome!");
       }
     } else {
-      res.status(400).json({ error: "User does not exit"});
+      console.log("User does not exist.");
+      return res.status(400).send("invalid email or password");
     }
-  }
-
-}
+  },
+};
 
 module.exports = UsersController;
