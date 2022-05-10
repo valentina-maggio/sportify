@@ -1,15 +1,14 @@
-import FormExercise, {WorkoutDropdown}  from './FormExercise';
+import WorkoutDropdown from './FormExercise';
 import NavBarExercisesPage from './NavBarExercisesPage';
-// import Calendar from './Calendar';
+import PopUpTest from './PopUpTest';
 import Weather from './Weather';
 
 function ExercisesPageDetails() {
   return (
     <>
       <NavBarExercisesPage />
-      <FormExercise />
       <WorkoutDropdown />
-      {/* <Calendar /> */}
+      <PopUpTest />
       <Weather />
     </>
   );
