@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -72,12 +73,12 @@ function WorkoutDropdown() {
           handleSubmitSelectExercise();
         }}
       >
-        <div className='calendar' style={{ margin: '5% 40%' }}>
+        <div className="calendar" style={{ margin: '5% 40%' }}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Stack spacing={3}>
               <DateTimePicker
-                name='workoutDate'
-                label='Select Workout Date & Time'
+                name="workoutDate"
+                label="Select Workout Date & Time"
                 value={selectExercise.workoutDate}
                 onChange={handleChange}
                 // eslint-disable-next-line react/jsx-props-no-spreading
@@ -89,8 +90,8 @@ function WorkoutDropdown() {
         <div>
           <option>Name</option>
           <select
-            name='exerciseName'
-            label='Name'
+            name="exerciseName"
+            label="Name"
             value={selectExercise.exerciseName}
             onChange={handleChange}
           >
@@ -100,22 +101,22 @@ function WorkoutDropdown() {
         <div>
           <option>Duration</option>
           <select
-            name='duration'
-            label='Duration'
+            name="duration"
+            label="Duration"
             value={selectExercise.name}
             onChange={handleChange}
           >
-            <option value='5 min'>5 min</option>
-            <option value='10 min'>10 min</option>
-            <option value='15 min'>15 min</option>
-            <option value='20 min'>20 min</option>
-            <option value='30 min'>30 min</option>
-            <option value='40 min'>40 min</option>
-            <option value='45 min'>45 min</option>
-            <option value='60 min'>60 min</option>
+            <option value="5 min">5 min</option>
+            <option value="10 min">10 min</option>
+            <option value="15 min">15 min</option>
+            <option value="20 min">20 min</option>
+            <option value="30 min">30 min</option>
+            <option value="40 min">40 min</option>
+            <option value="45 min">45 min</option>
+            <option value="60 min">60 min</option>
           </select>
         </div>
-        <input type='submit' value='Schedule workout' />
+        <input type="submit" value="Schedule workout" />
       </form>
     </div>
   );

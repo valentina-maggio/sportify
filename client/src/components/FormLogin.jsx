@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 // import { useEffect } from "react/cjs/react.production.min";
 
 function FormLogin() {
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const navigate = useNavigate();
@@ -20,19 +20,18 @@ function FormLogin() {
 
   const handleSubmit = async () => {
     try {
-      console.log(user);
       const response = await axios.post(
-        "http://localhost:3001/users/login",
+        'http://localhost:3001/users/login',
         user
       );
       if (response.status === 200) {
-        navigate("/dashboard");
+        navigate('/dashboard');
       } else {
         // TODO: investigate this alert not showing up on unsuccessful login
-        alert("Incorrect email or password.");
+        alert('Incorrect email or password.');
       }
     } catch (error) {
-      console.log("User could not be logged in", error.message);
+      console.log('User could not be logged in', error.message);
     }
   };
 
