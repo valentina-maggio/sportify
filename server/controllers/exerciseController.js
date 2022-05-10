@@ -36,13 +36,21 @@ const getExercises = async (req, res) => {
 
   console.log(userId.id);
 
-  const exercisesFromMongo = await Exercise.find({user: userId.id});
+  const defaultExercises = await await Exercise.find({user: null});
 
-  console.log(exercisesFromMongo);
+  console.log(defaultExercises);
+
+  const exercisesSavedByLoggedInUser = await Exercise.find({user: userId.id});
+
+  console.log(exercisesSavedByLoggedInUser);
 
   const exercisesArray = [];
 
-  exercisesFromMongo.forEach((element) => {
+  defaultExercises.forEach((element) => {
+    exercisesArray.push({ name: element.name });
+  });
+
+  exercisesSavedByLoggedInUser.forEach((element) => {
     exercisesArray.push({ name: element.name });
   });
 
