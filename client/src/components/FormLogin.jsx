@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-// import FlashMessage from 'react-flash-message'
-
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './FormLogin.css';
 // import { useEffect } from "react/cjs/react.production.min";
 
 function FormLogin() {
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const navigate = useNavigate();
@@ -24,24 +23,24 @@ function FormLogin() {
     try {
       console.log(user);
       const response = await axios.post(
-        "http://localhost:3001/users/login",
+        'http://localhost:3001/users/login',
         user
       );
 
       if (response.status === 200) {
-        sessionStorage.setItem("item_key", user.email);
-        navigate("/dashboard");
-      } else {// eslint-disable-line
-        console.log("invalid email or password and have recieved a status code other than")// eslint-disable-line
-        alert("Invalid email or password.");// eslint-disable-line
+        sessionStorage.setItem('item_key', user.email);
+        navigate('/dashboard');
+      } else {
+        // TODO: investigate this alert not showing up on unsuccessful login
+        alert('Incorrect email or password.');
       }
     } catch (error) {
-      console.log("User could not be logged in", error.message);
+      console.log('User could not be logged in', error.message);
     }
   };
 
   return (
-    <div>
+    <div className='login-container'>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -49,22 +48,29 @@ function FormLogin() {
         }}
       >
         <input
-          type="email"
-          id="email"
-          name="email"
+          className='email'
+          type='email'
+          id='email'
+          name='email'
           value={user.email}
-          placeholder="Email"
+          placeholder='Email'
           onChange={handleChange}
         />
         <input
-          type="password"
-          id="password"
-          name="password"
+          className='password'
+          type='password'
+          id='password'
+          name='password'
           value={user.password}
-          placeholder="Password"
+          placeholder='Password'
           onChange={handleChange}
         />
-        <input type="submit" value="Login" onClick={handleSubmit} />
+        <input
+          className='submit'
+          type='submit'
+          value='Login'
+          onClick={handleSubmit}
+        />
       </form>
     </div>
   );

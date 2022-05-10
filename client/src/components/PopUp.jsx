@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useState } from 'react';
 // import { useLocation } from 'react-router-dom';
 
-function PopUpTest() {
-  const state = sessionStorage.getItem("item_key");
+function PopUp() {
+  const state = sessionStorage.getItem('item_key');
 
   console.log(`State passed in Workout Dropdown ${state}`);
 
@@ -85,4 +85,4 @@ function PopUpTest() {
   );
 }
 
-export default PopUpTest;
+export default PopUp;

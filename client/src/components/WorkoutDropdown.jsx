@@ -8,8 +8,7 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from 'axios';
 
 function WorkoutDropdown() {
-
-  const state = sessionStorage.getItem("item_key");
+  const state = sessionStorage.getItem('item_key');
 
   console.log(`State passed in Workout Dropdown ${state}`);
 
@@ -98,6 +97,20 @@ function WorkoutDropdown() {
             onChange={handleChange}
           >
             {exerciseName}
+          </select>
+        </div>
+        <div>
+          <option>Category</option>
+          <select
+            name='category'
+            label='category'
+            value={selectExercise.name}
+            onChange={handleChange}
+          >
+            <option value='Cardio'>Cardio</option>
+            <option value='HIIT'>HIIT</option>
+            <option value='Strength'>Strength</option>
+            <option value='Low Impact'>Low Impact</option>
           </select>
         </div>
         <div>
