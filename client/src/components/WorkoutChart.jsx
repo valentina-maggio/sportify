@@ -42,7 +42,7 @@ const data = [
             cy={200} 
             outerRadius={180} 
             fill="#8884d8" 
-            label={data.name}/>
+            label/>
             
             
             <Tooltip/>

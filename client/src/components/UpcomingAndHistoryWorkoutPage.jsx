@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import "./WorkoutPage.css";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import './WorkoutPage.css';
 import WorkoutChart from './WorkoutChart';
 
 function UpcomingAndHistoryWorkoutPage() {
