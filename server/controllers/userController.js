@@ -17,7 +17,7 @@ const UsersController = {
     user.password = await bcrypt.hash(user.password, salt);
     await user.save();
 
-    res.send({
+    res.status(200).send({
       username: req.body.username,
       email: req.body.email,
     });

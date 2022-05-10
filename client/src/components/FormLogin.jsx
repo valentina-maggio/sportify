@@ -26,6 +26,7 @@ function FormLogin() {
         user
       );
       if (response.status === 200) {
+        sessionStorage.setItem("item_key", user.email);
         navigate("/dashboard");
       } else {
         // TODO: investigate this alert not showing up on unsuccessful login
