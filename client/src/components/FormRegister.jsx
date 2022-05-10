@@ -27,9 +27,7 @@ function FormRegister() {
       });
 
       if (response.status === 200) {
-        navigate("/", {
-          state: email,
-        });
+        navigate("/");
       } else {
         alert("User already exists");
       }

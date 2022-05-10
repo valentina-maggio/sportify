@@ -29,7 +29,6 @@ function FormLogin() {
         sessionStorage.setItem("item_key", user.email);
         navigate("/dashboard");
       } else {
-        // TODO: investigate this alert not showing up on unsuccessful login
         alert("Incorrect email or password.");
       }
     } catch (error) {
