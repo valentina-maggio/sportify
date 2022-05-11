@@ -1,8 +1,7 @@
-// import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import WorkoutChart from './WorkoutChart';
-import './WorkoutPage.css';
+import './WorkoutPage.css'
 
 function UpcomingAndHistoryWorkoutPage() {
   const [workouts, setWorkouts] = useState([]);
