@@ -112,8 +112,8 @@ function WorkoutDropdown() {
                       value={selectExercise.exerciseName}
                       onChange={handleChange}
                     >
-                      {uniqueNames.map((ex, i) => (
-                        <MenuItem value={i}>{ex}</MenuItem>
+                      {uniqueNames.map((ex) => (
+                        <MenuItem value={ex}>{ex}</MenuItem>
                       ))}
                     </Select>
                   </FormControl>
