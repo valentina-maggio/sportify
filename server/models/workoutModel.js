@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const workoutSchema = new mongoose.Schema({
-  date: {
+  workoutScheduledDate: {
     type: Date,
     default: Date.now,
   },
