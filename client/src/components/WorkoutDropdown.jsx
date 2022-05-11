@@ -39,17 +39,13 @@ function WorkoutDropdown() {
   const uniqueNames = [...new Set(names)];
   console.log(uniqueNames);
 
-  // const exerciseName = uniqueNames.map((el, index) => (
-  //   // eslint-disable-next-line react/no-array-index-key
-  //   <option key={index + 1} value={el}>
-  //     {el}
-  //   </option>
-  // )); // eslint-disable-line
+  console.log(listOfExercises);
 
   const [selectExercise, setSelectExercise] = useState({
     workoutDate: '',
     exerciseName: '',
     duration: '',
+    category: '',
     username: state,
   });
 
@@ -116,8 +112,8 @@ function WorkoutDropdown() {
                       value={selectExercise.exerciseName}
                       onChange={handleChange}
                     >
-                      {uniqueNames.map((ex, i) => (
-                        <MenuItem value={i}>{ex}</MenuItem>
+                      {uniqueNames.map((ex) => (
+                        <MenuItem value={ex}>{ex}</MenuItem>
                       ))}
                     </Select>
                   </FormControl>
@@ -133,7 +129,7 @@ function WorkoutDropdown() {
                       labelId='category-label'
                       name='category'
                       label='category'
-                      value={selectExercise.name}
+                      value={selectExercise.category}
                       onChange={handleChange}
                     >
                       <MenuItem value='Cardio'>Cardio</MenuItem>
@@ -153,7 +149,7 @@ function WorkoutDropdown() {
                       labelId='duration-label'
                       name='duration'
                       label='Duration'
-                      value={selectExercise.name}
+                      value={selectExercise.duration}
                       onChange={handleChange}
                     >
                       <MenuItem value='5 min'>5 min</MenuItem>
