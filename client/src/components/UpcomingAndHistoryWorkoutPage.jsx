@@ -32,7 +32,9 @@ function UpcomingAndHistoryWorkoutPage() {
             <div className="box" key={workout._id}>
               <h3>{workout.name}
                 <FontAwesomeIcon
-                icon={faTimes} />
+                icon={faTimes} 
+                style={{color: 'red', cursor: 'pointer'}} 
+                />
               </h3>
               <h4>{workout.category}</h4>
               <h4>{workout.duration} mins</h4>
