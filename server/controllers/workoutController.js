@@ -25,11 +25,22 @@ const scheduleWorkouts = async (req, res) => {
 const upcomingWorkouts = async (req, res) => {
   const workouts = await Workout.find();
 
-  console.log(workouts);
   res.send(workouts);
 };
-
+const historyWorkouts = async (req, res) => {
+  const history = await Workout.find();
+  let data = []
+  let cat = history.map((w) => w.category);
+  let dur = history.map((w) => w.duration);
+  const colors = ['#8884d8', '#9cacf1', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57', '#8884d8', '#9cacf1', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57'];
+  for (let i = 0; i < cat.length; i++) {
+    data.push({name: cat[i], value: dur[i], fill: colors[i]});
+  }
+  console.log(data)
+  res.send(data);
+};
 module.exports = {
   scheduleWorkouts,
   upcomingWorkouts,
+  historyWorkouts,
 };
