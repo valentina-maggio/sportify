@@ -77,6 +77,7 @@ function WorkoutDropdown() {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Stack spacing={3}>
               <DateTimePicker
+                disablePast
                 name='workoutDate'
                 label='Select Workout Date & Time'
                 value={selectExercise.workoutDate}
