@@ -7,7 +7,7 @@
 .popup-form {
   display: flex;
   width: 450px;
-  background-color: rgba(64, 154, 159);
+  background-color: rgba(64, 154, 159, 0.8);
   height: 450px;
   padding-top: 40px;
   border-radius: 25px;
@@ -18,7 +18,6 @@
   margin-top: 15px;
   margin-left: 75px;
   background-color: white;
-  border: 1 solid rgba(64, 154, 159);
 }
 
 .popup-form .submit {
