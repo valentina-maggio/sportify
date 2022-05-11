@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import WorkoutChart from './WorkoutChart';
 import './WorkoutPage.css';
 
@@ -28,7 +30,10 @@ function UpcomingAndHistoryWorkoutPage() {
           {workouts.map((workout) => (
             // eslint-disable-next-line
             <div className="box" key={workout._id}>
-              <h3>{workout.name}</h3>
+              <h3>{workout.name}
+                <FontAwesomeIcon
+                icon={faTimes} />
+              </h3>
               <h4>{workout.category}</h4>
               <h4>{workout.duration} mins</h4>
               <span>{workout.date}</span>
