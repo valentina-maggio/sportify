@@ -32,6 +32,7 @@ const upcomingWorkouts = async (req, res) => {
 
   res.send(workouts);
 };
+
 const historyWorkouts = async (req, res) => {
   const history = await Workout.find();
   let data = []
@@ -43,8 +44,16 @@ const historyWorkouts = async (req, res) => {
   }
   res.send(data);
 };
+
+const deleteWorkouts = async (req, res) => {
+  const workout = await Workout.find();
+  console.log(workout);
+  res.send('hello');
+};
+
 module.exports = {
   scheduleWorkouts,
   upcomingWorkouts,
   historyWorkouts,
+  deleteWorkouts,
 };
