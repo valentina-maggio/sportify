@@ -1,26 +1,78 @@
-const Workout = require('./workout');
-const mongoose = require("mongoose");
-const dotenv = require("dotenv")
-dotenv.config()
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const Workout = require('./workoutModel');
 
-// const MONGO_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`
+dotenv.config();
 
-mongoose.connect(ATLAS_URI, {
-    useNewUrlParser: true,
-  });
+mongoose.connect(process.env.ATLAS_URI, {
+  useNewUrlParser: true,
+});
+
+// eslint-disable-next-line
+const db = mongoose.connection;
 
 const workouts = [
   {
-    exercise: "62596c9539f4ca6d024cee09"
-  }
-]
+    date: '2022-06-01T18:00:00',
+    user: '62793903e1c164d22a98409d',
+    duration: 10,
+    name: 'Light stretch',
+    category: 'Low Impact',
+  },
+  {
+    date: '2022-06-01T20:00:00',
+    user: '62793903e1c164d22a98409d',
+    duration: 45,
+    name: 'Summer circuits',
+    category: 'HIIT',
+  },
+  {
+    date: '2022-06-01T23:00:00',
+    user: '62793903e1c164d22a98409d',
+    duration: 60,
+    name: '10km run',
+    category: 'Cardio',
+  },
+  {
+    date: '2022-05-01T18:00:00',
+    user: '62793903e1c164d22a98409d',
+    duration: 30,
+    name: 'Yoga',
+    category: 'Low Impact',
+  },
+  {
+    date: '2022-04-01T18:00:00',
+    user: '62793903e1c164d22a98409d',
+    duration: 30,
+    name: 'Pilates',
+    category: 'Low Impact',
+  },
+  {
+    date: '2022-03-01T18:00:00',
+    user: '62793903e1c164d22a98409d',
+    duration: 30,
+    name: 'Calisthenics',
+    category: 'Medium Impact',
+  },
+  {
+    date: '2022-02-01T18:00:00',
+    user: '62793903e1c164d22a98409d',
+    duration: 45,
+    name: 'Time trial cycling',
+    category: 'Cardio',
+  },
+];
 
 workouts.forEach((workout) => {
   try {
     Workout.create({
-    exercise: workout.exercise
+      date: workout.date,
+      user: workout.user,
+      duration: workout.duration,
+      name: workout.name,
+      category: workout.category,
     });
   } catch (e) {
-    console.log("Caught Error:", e);
+    console.log('Caught Error:', e);
   }
 });

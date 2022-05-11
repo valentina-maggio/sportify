@@ -17,7 +17,7 @@ const UsersController = {
     user.password = await bcrypt.hash(user.password, salt);
     await user.save();
 
-    res.status(200).send({
+    res.send({
       username: req.body.username,
       email: req.body.email,
     });
@@ -38,23 +38,19 @@ const UsersController = {
   },
 
   Login: async (req, res) => {
-    console.log('I am here in the controller');
     const body = req.body;
     const user = await User.findOne({ email: body.email });
-    
-    if (user === null) return res.status(400).send("invalid email or password");
-    console.log(user);
 
     if (user != null) {
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (!validPassword) {
-        res.status(400).send("invalid email or password");
+        res.status(401).send("invalid email or password");
       } else {
         res.status(200).send("welcome!");
       }
     } else {
       console.log("User does not exist.");
-      return res.status(400).send("invalid email or password");
+      return res.status(401).send("invalid email or password");
     }
   },
 };

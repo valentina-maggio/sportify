@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
-//Schema
-
 const workoutSchema = new mongoose.Schema({
-  workoutScheduledDate: {
+  date: {
     type: Date,
     default: Date.now,
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId, 
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
@@ -16,11 +14,13 @@ const workoutSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  workoutName: {
+  name: {
     type: String,
     required: true,
-  }
-
+  },
+  category: {
+    type: String,
+  },
 });
 
 const Workout = mongoose.model('Workout', workoutSchema);

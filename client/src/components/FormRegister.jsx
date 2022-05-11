@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import './FormRegister.css';
 
 function FormRegister() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,20 +17,22 @@ function FormRegister() {
     };
 
     try {
-      const response = await fetch('http://localhost:3001/users/register', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3001/users/register", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
 
-          'Access-Control-Allow-Origin': '*',
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(userData),
       });
 
       if (response.status === 200) {
-        navigate('/');
+        navigate("/", {
+          state: email,
+        });
       } else {
-        alert('User already exists');// eslint-disable-line
+        alert("User already exists");
       }
     } catch (err) {
       console.error();
