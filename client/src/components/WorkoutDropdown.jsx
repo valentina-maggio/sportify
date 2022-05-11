@@ -10,7 +10,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 
 import axios from 'axios';
 import './WorkoutDropdown.css';
@@ -36,13 +36,14 @@ function WorkoutDropdown() {
 
   const names = listOfExercises.map((x) => x.name);
   const uniqueNames = [...new Set(names)];
+  console.log(uniqueNames);
 
-  const exerciseName = uniqueNames.map((el, index) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <option key={index + 1} value={el}>
-      {el}
-    </option>
-  )); // eslint-disable-line
+  // const exerciseName = uniqueNames.map((el, index) => (
+  //   // eslint-disable-next-line react/no-array-index-key
+  //   <option key={index + 1} value={el}>
+  //     {el}
+  //   </option>
+  // )); // eslint-disable-line
 
   const [selectExercise, setSelectExercise] = useState({
     workoutDate: '',
@@ -75,91 +76,101 @@ function WorkoutDropdown() {
 
   return (
     <div>
-      <h2>Select Exercise</h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmitSelectExercise();
-        }}
-      >
-        <div className='calendar'>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <Stack spacing={3}>
-              <DateTimePicker
-                name='workoutDate'
-                label='Select Workout Date & Time'
-                value={selectExercise.workoutDate}
-                onChange={handleChange}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </Stack>
-          </LocalizationProvider>
+      <div className='Select-container'>
+        <div className='heading'>
+          <h2>Select Exercise</h2>
         </div>
-        <div>
-          <Select
-            className='name'
-            name='exerciseName'
-            label='Name'
-            value={selectExercise.exerciseName}
-            onChange={handleChange}
-          >
-            <MenuItem value='{exerciseName}'>{exerciseName}</MenuItem>
-          </Select>
+        <div className='schedule-container'>
+          <div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmitSelectExercise();
+              }}
+            >
+              <div className='calendar' sx={{ minWidth: 120 }}>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <Stack spacing={3}>
+                    <DateTimePicker
+                      name='workoutDate'
+                      label='Select Date & Time'
+                      value={selectExercise.workoutDate}
+                      onChange={handleChange}
+                      // eslint-disable-next-line react/jsx-props-no-spreading
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </Stack>
+                </LocalizationProvider>
+              </div>
+              <div>
+                <Box sx={{ minWidth: 120 }}>
+                  <FormControl fullWidth>
+                    <InputLabel id='name-label'>Exercise</InputLabel>
+                    <Select
+                      className='name'
+                      labelId='name-label'
+                      name='exerciseName'
+                      label='Name'
+                      value={selectExercise.exerciseName}
+                      onChange={handleChange}
+                    >
+                      {uniqueNames.map((ex, i) => (
+                        <MenuItem value={i}>{ex}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Box>
+              </div>
+              <div>
+                <Box sx={{ minWidth: 120 }}>
+                  <FormControl fullWidth>
+                    <InputLabel id='category-label'>Category</InputLabel>
+                    {/* <option>Category</option> */}
+                    <Select
+                      className='category'
+                      labelId='category-label'
+                      name='category'
+                      label='category'
+                      value={selectExercise.name}
+                      onChange={handleChange}
+                    >
+                      <MenuItem value='Cardio'>Cardio</MenuItem>
+                      <MenuItem value='HIIT'>HIIT</MenuItem>
+                      <MenuItem value='Strength'>Strength</MenuItem>
+                      <MenuItem value='Low Impact'>Low Impact</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+              </div>
+              <div>
+                <Box sx={{ minWidth: 120 }}>
+                  <FormControl fullWidth>
+                    <InputLabel id='duration-label'>Duration</InputLabel>
+                    <Select
+                      className='duration'
+                      labelId='duration-label'
+                      name='duration'
+                      label='Duration'
+                      value={selectExercise.name}
+                      onChange={handleChange}
+                    >
+                      <MenuItem value='5 min'>5 min</MenuItem>
+                      <MenuItem value='10 min'>10 min</MenuItem>
+                      <MenuItem value='15 min'>15 min</MenuItem>
+                      <MenuItem value='20 min'>20 min</MenuItem>
+                      <MenuItem value='30 min'>30 min</MenuItem>
+                      <MenuItem value='40 min'>40 min</MenuItem>
+                      <MenuItem value='45 min'>45 min</MenuItem>
+                      <MenuItem value='60 min'>60 min</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+              </div>
+              <input className='submit' type='submit' value='Submit' />
+            </form>
+          </div>
         </div>
-        <div>
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel id='category-label'>Category</InputLabel>
-              {/* <option>Category</option> */}
-              <Select
-                className='category'
-                labelId='category-label'
-                name='category'
-                label='category'
-                value={selectExercise.name}
-                onChange={handleChange}
-              >
-                <MenuItem value='Cardio'>Cardio</MenuItem>
-                <MenuItem value='HIIT'>HIIT</MenuItem>
-                <MenuItem value='Strength'>Strength</MenuItem>
-                <MenuItem value='Low Impact'>Low Impact</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </div>
-        <div>
-          <option>Duration</option>
-          <Select
-            className='duration'
-            name='duration'
-            label='Duration'
-            value={selectExercise.name}
-            onChange={handleChange}
-          >
-            <option value='5 min'>5 min</option>
-            <option value='10 min'>10 min</option>
-            <option value='15 min'>15 min</option>
-            <option value='20 min'>20 min</option>
-            <option value='30 min'>30 min</option>
-            <option value='40 min'>40 min</option>
-            <option value='45 min'>45 min</option>
-            <option value='60 min'>60 min</option>
-          </Select>
-        </div>
-        <Button
-          className='submit'
-          variant='contained'
-          sx={{
-            '&.MuiButton-text': { color: '#yellow' },
-            // border: '2px black solid',
-          }}
-          type='submit'
-          value='Schedule workout'
-        >
-          Schedule Workout
-        </Button>
-      </form>
+      </div>
     </div>
   );
 }

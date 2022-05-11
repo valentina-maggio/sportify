@@ -1,6 +1,7 @@
 import Popup from 'reactjs-popup';
 import axios from 'axios';
 import { useState } from 'react';
+
 // import { useLocation } from 'react-router-dom';
 
 function PopUp() {
@@ -33,7 +34,6 @@ function PopUp() {
 
   return (
     <div>
-      <h4>Create a New Workout</h4>
       {/* eslint-disable-next-line react/button-has-type */}
       <Popup trigger={<button> Create </button>} position='right center'>
         <div>
