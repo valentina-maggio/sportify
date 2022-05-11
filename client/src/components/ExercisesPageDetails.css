@@ -10,7 +10,12 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-top: 145px;
+  margin-top: 140px;
   align-content: center;
   flex-wrap: wrap;
+  margin-left: 30px;
+}
+
+.right-container {
+  margin-right: 150px;
 }

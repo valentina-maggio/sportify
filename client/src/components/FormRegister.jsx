@@ -40,7 +40,7 @@ function FormRegister() {
   };
 
   return (
-    <div className='login-container'>
+    <div className='register-main'>
       <form onSubmit={handleSubmit}>
         <input
           className='username'
@@ -67,7 +67,7 @@ function FormRegister() {
           type='password'
           id='password'
           name='password'
-          placeholder='password'
+          placeholder='Password'
           onChange={(e) => {
             setPassword(e.target.value);
           }}
