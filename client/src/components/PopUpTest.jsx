@@ -1,15 +1,14 @@
 import Popup from 'reactjs-popup';
 import axios from 'axios';
 import { useState } from 'react';
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-function PopUp() {
-  const state = sessionStorage.getItem('item_key');
+function PopUpTest() {
+  const { state } = useLocation();
 
-  console.log(`State passed in Workout Dropdown ${state}`);
+  console.log(`State passed is ${state}`);
 
   const [exercise, setExercise] = useState({
-    user: state,
     name: '',
     category: '',
     intensity: '',
@@ -29,7 +28,7 @@ function PopUp() {
     } catch (error) {
       console.log('Exercise could not be saved.', error.message);
     }
-    // setExercise('');
+    setExercise('');
   };
 
   return (
@@ -85,4 +84,4 @@ function PopUp() {
   );
 }
 
-export default PopUp;
+export default PopUpTest;

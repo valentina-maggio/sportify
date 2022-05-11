@@ -1,6 +1,6 @@
 import WorkoutDropdown from './WorkoutDropdown';
 import NavBarExercisesPage from './NavBarExercisesPage';
-import PopUp from './PopUp';
+import PopUpTest from './PopUpTest';
 import Weather from './Weather';
 
 function ExercisesPageDetails() {
@@ -8,7 +8,7 @@ function ExercisesPageDetails() {
     <>
       <NavBarExercisesPage />
       <WorkoutDropdown />
-      <PopUp />
+      <PopUpTest />
       <Weather />
     </>
   );
