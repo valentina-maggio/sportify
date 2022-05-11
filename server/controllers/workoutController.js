@@ -33,7 +33,11 @@ const upcomingWorkouts = async (req, res) => {
   res.send(workouts);
 };
 const historyWorkouts = async (req, res) => {
-  const history = await Workout.find();
+  const history1 = await Workout.find();
+  const currentDate = new Date();
+  const history = history1.filter(
+    (workout) => workout.workoutScheduledDate < currentDate,
+  );
   let data = []
   let cat = history.map((w) => w.category);
   let dur = history.map((w) => w.duration);
