@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// import './FormLogin.css';
 // import { useEffect } from "react/cjs/react.production.min";
 
 function FormLogin() {
@@ -24,7 +25,9 @@ function FormLogin() {
         'http://localhost:3001/users/login',
         user
       );
+
       if (response.status === 200) {
+        sessionStorage.setItem('item_key', user.email);
         navigate('/dashboard');
       } else {
         // TODO: investigate this alert not showing up on unsuccessful login
@@ -36,7 +39,7 @@ function FormLogin() {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -44,6 +47,7 @@ function FormLogin() {
         }}
       >
         <input
+          className="email"
           type="email"
           id="email"
           name="email"
@@ -52,6 +56,7 @@ function FormLogin() {
           onChange={handleChange}
         />
         <input
+          className="password"
           type="password"
           id="password"
           name="password"
@@ -59,7 +64,12 @@ function FormLogin() {
           placeholder="Password"
           onChange={handleChange}
         />
-        <input type="submit" value="Login" onClick={handleSubmit} />
+        <input
+          className="submit"
+          type="submit"
+          value="Login"
+          onClick={handleSubmit}
+        />
       </form>
     </div>
   );

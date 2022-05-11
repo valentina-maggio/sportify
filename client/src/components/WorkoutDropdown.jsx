@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -8,7 +8,7 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import axios from 'axios';
 
 function WorkoutDropdown() {
-  const { state } = useLocation();
+  const state = sessionStorage.getItem('item_key');
 
   console.log(`State passed in Workout Dropdown ${state}`);
 
@@ -17,7 +17,9 @@ function WorkoutDropdown() {
     const handleSubmit = async () => {
       try {
         console.log('list of exercises');
-        const response = await axios.get('http://localhost:3001/exercises');
+        const response = await axios.get('http://localhost:3001/exercises', {
+          params: { user: state },
+        });
         return setExercise(response.data);
       } catch (error) {
         return console.log('Could not get list of exercises.', error.message);
@@ -30,6 +32,7 @@ function WorkoutDropdown() {
   const uniqueNames = [...new Set(names)];
 
   const exerciseName = uniqueNames.map((el, index) => (
+    // eslint-disable-next-line react/no-array-index-key
     <option key={index + 1} value={el}>
       {el}
     </option>
@@ -96,6 +99,20 @@ function WorkoutDropdown() {
             onChange={handleChange}
           >
             {exerciseName}
+          </select>
+        </div>
+        <div>
+          <option>Category</option>
+          <select
+            name="category"
+            label="category"
+            value={selectExercise.name}
+            onChange={handleChange}
+          >
+            <option value="Cardio">Cardio</option>
+            <option value="HIIT">HIIT</option>
+            <option value="Strength">Strength</option>
+            <option value="Low Impact">Low Impact</option>
           </select>
         </div>
         <div>

@@ -1,15 +1,16 @@
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const Exercise = require('./exerciseModel');
-const dotenv = require('dotenv');
+
 dotenv.config();
 
-const MONGO_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mgq9v.mongodb.net/Sportify?retryWrites=true&w=majority`;
+mongoose.connect(process.env.ATLAS_URI, {
+  useNewUrlParser: true,
+});
 
-mongoose.connect(MONGO_link);
+// const db = mongoose.connection;
 
-const db = mongoose.connection;
-
-console.log(db.name);
+// console.log(db.name);
 
 const exercises = [
   {
@@ -72,12 +73,9 @@ const exercises = [
 exercises.forEach((exercise) => {
   try {
     Exercise.create({
-      _id: exercise._id,
       name: exercise.name,
       category: exercise.category,
-      duration: exercise.duration,
       intensity: exercise.intensity,
-      link: exercise.link,
     });
   } catch (e) {
     console.log('Caught Error:', e);

@@ -1,4 +1,4 @@
-import WorkoutDropdown from './FormExercise';
+import WorkoutDropdown from './WorkoutDropdown';
 import NavBarExercisesPage from './NavBarExercisesPage';
 import PopUpTest from './PopUpTest';
 import Weather from './Weather';
