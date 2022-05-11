@@ -1,12 +1,12 @@
 import NavBarDashboard from './NavBarDashboard';
-import DashboardHeading from './DashboardHeading';
+import DashBoardHeading from './DashBoardHeading';
 import Dashboard from './Dashboard';
 
 function DashboardDetails() {
   return (
     <>
       <NavBarDashboard />
-      <DashboardHeading />
+      <DashBoardHeading />
       <Dashboard />
     </>
   );
