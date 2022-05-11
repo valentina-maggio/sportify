@@ -1,16 +1,12 @@
 import Popup from 'reactjs-popup';
 import axios from 'axios';
-import { useState } from 'react';
-
-// import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 
 function PopUp() {
   const state = sessionStorage.getItem('item_key');
 
-  console.log(`State passed in Workout Dropdown ${state}`);
-  console.log('Test');
-
   const [exercise, setExercise] = useState({
+    user: state,
     name: '',
     category: '',
     intensity: '',
@@ -26,11 +22,15 @@ function PopUp() {
   const handleSubmit = async () => {
     try {
       console.log(exercise);
-      await axios.post('http://localhost:3001/exercises', exercise);
+      const res = await axios.post('http://localhost:3001/exercises', exercise);
+      console.log(res);
+      if (res.status === 200){
+        alert('New exercise was saved.')
+      }
     } catch (error) {
       console.log('Exercise could not be saved.', error.message);
     }
-    setExercise('');
+    // setExercise('');
   };
 
   return (
