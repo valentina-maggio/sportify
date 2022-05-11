@@ -1,29 +1,25 @@
-// import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import WorkoutChart from './WorkoutChart';
-import './WorkoutPage.css';
+import './WorkoutPage.css'
 
 function UpcomingAndHistoryWorkoutPage() {
   const navigate = useNavigate();
 
   const [workouts, setWorkouts] = useState([]);
-  
 
   const requestWorkouts = async () => {
     try {
       const res = await axios.get('http://localhost:3001/workouts');
       console.log(res);
       setWorkouts(res.data);
-      
     } catch (error) {
       console.log(`Workout.jxs Component: ${error}`);
     }
   };
-
 
   useEffect(() => {
     requestWorkouts();
@@ -73,17 +69,14 @@ function UpcomingAndHistoryWorkoutPage() {
               </h3>
               <h4>{workout.category}</h4>
               <h4>{workout.duration} mins</h4>
-              <span>{workout.date}</span>
+              <span>{workout.workoutScheduledDate}</span>
             </div>
           ))}
         </div>
         <div className='right-panel-box'>
           <h2>Workout History</h2>
           <WorkoutChart />
-          
         </div>
-
-      
       </div>
     </header>
   );
