@@ -1,5 +1,5 @@
 import NavBarLogin from './NavBarLogin';
-import SubBar from './SubBar';
+import LoginHeading from './LoginHeading';
 import FormLogin from './FormLogin';
 import BackgroundImageLoginSignup from './BackgroungImageLoginSignup';
 import './LoginPageDetails.css';
@@ -15,7 +15,7 @@ function LoginPageDetails() {
         </div>
         <div className='right-container'>
           <div className='heading'>
-            <SubBar />
+            <LoginHeading />
           </div>
           <div className='form-login'>
             <FormLogin />
