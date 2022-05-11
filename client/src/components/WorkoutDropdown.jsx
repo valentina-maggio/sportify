@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -80,8 +79,9 @@ function WorkoutDropdown() {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Stack spacing={3}>
               <DateTimePicker
-                name="workoutDate"
-                label="Select Workout Date & Time"
+                disablePast
+                name='workoutDate'
+                label='Select Workout Date & Time'
                 value={selectExercise.workoutDate}
                 onChange={handleChange}
                 // eslint-disable-next-line react/jsx-props-no-spreading

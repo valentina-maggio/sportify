@@ -107,6 +107,12 @@ function VideoFiles() {
         <VideoFilesEmbed embedId='NDOlPdyZLMg' />
         <h4>Duration: 15 minutes</h4>
       </div>
+      <div className='video'>
+        <h3>Lose Top Fat</h3>
+        <h4>Category: Strength Training</h4>
+        <VideoFilesEmbed embedId='EyCNNi3jg9Q' />
+        <h4>Duration: 10 minutes</h4>
+      </div>
     </div>
   );
 }
