@@ -13,50 +13,50 @@ const db = mongoose.connection;
 
 const workouts = [
   {
-    workoutScheduledDate: new Date(2022, 01, 20, 40, 23, 59),
-    user: '62793903e1c164d22a98409d',
+    date: '2022-06-01T18:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 10,
     workoutName: 'Light stretch',
     category: 'Low Impact',
   },
   {
-    workoutScheduledDate: new Date(2022, 02, 20, 40, 23, 59),
-    user: '62793903e1c164d22a98409d',
+    date: '2022-06-01T20:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 45,
     workoutName: 'Summer circuits',
     category: 'HIIT',
   },
   {
-    workoutScheduledDate: new Date(2022, 03, 20, 40, 23, 59),
-    user: '62793903e1c164d22a98409d',
+    date: '2022-06-01T23:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 60,
     workoutName: '10km run',
     category: 'Cardio',
   },
   {
-    workoutScheduledDate: new Date(2022, 04, 20, 40, 23, 59),
-    user: '62793903e1c164d22a98409d',
+    date: '2022-05-01T18:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 30,
     workoutName: 'Yoga',
     category: 'Low Impact',
   },
   {
-    workoutScheduledDate: new Date(2022, 05, 20, 40, 23, 59),
-    user: '62793903e1c164d22a98409d',
+    date: '2022-04-01T18:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 30,
     workoutName: 'Pilates',
     category: 'Low Impact',
   },
   {
-    workoutScheduledDate: new Date(2022, 06, 20, 40, 23, 59),
-    user: '62793903e1c164d22a98409d',
+    date: '2022-03-01T18:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 30,
     workoutName: 'Calisthenics',
     category: 'Medium Impact',
   },
   {
-    workoutScheduledDate: new Date(2022, 07, 20, 40, 23, 59),
-    user: '62793903e1c164d22a98409d',
+    date: '2022-02-01T18:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 45,
     workoutName: 'Time trial cycling',
     category: 'Cardio',
@@ -66,10 +66,10 @@ const workouts = [
 workouts.forEach((workout) => {
   try {
     Workout.create({
-      workoutScheduledDate: workout.workoutScheduledDate,
+      workoutScheduledDate: workout.date,
       user: workout.user,
       duration: workout.duration,
-      workoutName: workout.workoutName,
+      workoutName: workout.name,
       category: workout.category,
     });
   } catch (e) {
