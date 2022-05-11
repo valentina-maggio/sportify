@@ -1,12 +1,15 @@
 // import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import WorkoutChart from './WorkoutChart';
 import './WorkoutPage.css';
 
 function UpcomingAndHistoryWorkoutPage() {
+  const navigate = useNavigate();
+
   const [workouts, setWorkouts] = useState([]);
   
 
@@ -27,37 +30,41 @@ function UpcomingAndHistoryWorkoutPage() {
   }, []);
 
   // Delete upcoming workout
-  const [workoutDelete, setWorkoutDelete] = useState([]);
 
-  const deleteWorkout = async () => {
-    console.log('workout deleted');
-    try {
-      console.log('I am in try');
-      console.log(workoutDelete);
-      console.log(setWorkoutDelete);
-      await axios.post('http://localhost:3001/workouts/delete', workoutDelete);
-    } catch (error) {
-      console.log(error.message);
-    }
+  const deleteWorkout = async (e) => {
+
+    const workoutToDelete = e.currentTarget.id
+    await axios.delete(`http://localhost:3001/workouts/${workoutToDelete}`
+    ).then(response => { 
+        console.log(response);
+        navigate('/workouts');
+    }).catch(error => {        
+      console.log(`error occurred ${error}`)
+      alert(`${error.message}`);
+    })
   }
 
-  const settingWorkoutId = (e) => {
-    setWorkoutDelete(e);
-  }
+  // const deleteWorkout = async (e) => {
+
+  //   const workoutToDelete = e.currentTarget.id
+
+  //   console.log(e.currentTarget.id);
+  //   try {
+  //     console.log('I am in try');
+  //     await axios.delete(`http://localhost:3001/workouts/${workoutToDelete}`);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
   return (
     <header className='center'>
       <div className='content-container'>
         <div className='left-panel-box'>
-          <form onSubmit={(e) => { 
-            e.preventDefault();
-            settingWorkoutId();
-            deleteWorkout();
-          }} >
           <h2>Upcoming Workouts</h2>
           {workouts.map((workout) => (
             // eslint-disable-next-line
-            <div className='box' key={workout._id} value={workoutDelete} name='workoutDelete' deleteItem={settingWorkoutId}>
+            <div className='box' id={workout._id} onClick={deleteWorkout}>
               <h3>{workout.name}
                 <FontAwesomeIcon
                 icon={faTimes} 
@@ -69,7 +76,6 @@ function UpcomingAndHistoryWorkoutPage() {
               <span>{workout.date}</span>
             </div>
           ))}
-          </form>
         </div>
         <div className='right-panel-box'>
           <h2>Workout History</h2>

@@ -4,8 +4,6 @@ const User = require('../models/userModel');
 const scheduleWorkouts = async (req, res) => {
   const userId = await User.findOne({ email: req.body.username });
 
-  console.log(req.body);
-
   const mongooseObject = {
     workoutScheduledDate: new Date(req.body.workoutDate),
     user: userId.id,
@@ -13,8 +11,6 @@ const scheduleWorkouts = async (req, res) => {
     workoutName: req.body.exerciseName,
     category: req.body.category,
   };
-
-  console.log(mongooseObject);
 
   const workout = new Workout(mongooseObject);
 
@@ -46,9 +42,10 @@ const historyWorkouts = async (req, res) => {
 };
 
 const deleteWorkouts = async (req, res) => {
-  const workout = await Workout.find();
-  console.log(workout);
-  res.send('hello');
+  console.log(req.params.id);
+
+  await Workout.findOneAndDelete({id: req.params.id});
+  res.status(200).send('hello');
 };
 
 module.exports = {

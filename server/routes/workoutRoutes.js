@@ -13,6 +13,6 @@ workoutRouter.post('/', scheduleWorkouts);
 workoutRouter.get('/', upcomingWorkouts);
 workoutRouter.get('/history', historyWorkouts);
 
-workoutRouter.post('/delete', deleteWorkouts);
+workoutRouter.delete('/:id', deleteWorkouts);
 
 module.exports = workoutRouter;
