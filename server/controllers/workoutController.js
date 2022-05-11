@@ -36,7 +36,6 @@ const historyWorkouts = async (req, res) => {
   for (let i = 0; i < cat.length; i++) {
     data.push({name: cat[i], value: dur[i], fill: colors[i]});
   }
-  console.log(data)
   res.send(data);
 };
 module.exports = {
