@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import WorkoutChart from './WorkoutChart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './WorkoutPage.css';
@@ -37,49 +38,10 @@ function UpcomingAndHistoryWorkoutPage() {
         </div>
         <div className="right-panel-box">
           <h2>Workout History</h2>
-          <div className="right-panel-box">
-            <div className="box">
-              <p className="p">Yoga</p>
-              <p className="p">30 mins</p>
-              <p className="p">
-                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                  https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                </Link>
-              </p>
-              <p className="p">11/04/2022</p>
-            </div>
-            <div className="box">
-              <p className="p">HIIT</p>
-              <p className="p">30 mins</p>
-              <p className="p">
-                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                  https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                </Link>
-              </p>
-              <p className="p">15/04/2022</p>
-            </div>
-            <div className="box">
-              <p className="p">Yoga</p>
-              <p className="p">30 mins</p>
-              <p className="p">
-                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                  https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                </Link>
-              </p>
-              <p className="p">20/04/2022</p>
-            </div>
-            <div className="box">
-              <p className="p">HIIT</p>
-              <p className="p">30 mins</p>
-              <p className="p">
-                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                  https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                </Link>
-              </p>
-              <p className="p">22/04/2022</p>
-            </div>
-          </div>
+          <WorkoutChart />
         </div>
+
+      
       </div>
     </header>
   );
