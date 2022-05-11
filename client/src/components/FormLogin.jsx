@@ -20,23 +20,19 @@ function FormLogin() {
   };
 
   const handleSubmit = async () => {
-    try {
-      const response = await axios.post(
+      console.log(user);
+      axios.post(
         'http://localhost:3001/users/login',
         user
-      );
-
-      if (response.status === 200) {
-        sessionStorage.setItem('item_key', user.email);
-        navigate('/dashboard');
-      } else {
-        // TODO: investigate this alert not showing up on unsuccessful login
-        alert('Incorrect email or password.');
-      }
-    } catch (error) {
-      console.log('User could not be logged in', error.message);
+      ).then(response => { 
+        console.log(response)               
+          sessionStorage.setItem('item_key', user.email);
+          navigate('/dashboard');
+      }).catch(error => {        
+        console.log(`error occurred ${error}`)
+        alert(`${error.message}`);
+      })
     }
-  };
 
   return (
     <div className="login-container">
