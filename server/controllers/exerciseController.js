@@ -17,7 +17,7 @@ const createExercise = async (req, res) => {
 
   try {
     await exercise.save();
-    res.status(201);
+    res.status(200).send('New exercise saved');
   } catch (error) {
     console.log(error);
     res.send(`Exercise could not be saved! Try again. ${error.message}`);

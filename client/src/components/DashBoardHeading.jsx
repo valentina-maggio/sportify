@@ -1,6 +1,7 @@
 import './DashboardHeading.css';
 
 function DashboardHeading() {
+
   console.log('test');
   return (
     <div className='dashboard-heading'>
