@@ -1,0 +1,13 @@
+.schedule-parent-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: stretch;
+  overflow: hidden;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

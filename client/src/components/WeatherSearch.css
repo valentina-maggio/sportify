@@ -12,14 +12,13 @@
   outline: none;
   font-size: 0.9rem;
   background-color: transparent;
-  color: #fff;
+  color: rgba(33, 33, 33);
   font-weight: 500;
 }
 
 .Search__label {
-  border: 1px solid #f2f2f2;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border: 1px solid rgba(64, 154, 159, 0.5);
+  border-radius: 8px;
   width: 75%;
   position: relative;
 }
@@ -31,17 +30,20 @@
 }
 
 .Search__input::placeholder {
-  color: #f2f2f2;
   opacity: 0.85;
 }
 
 .Search__button {
   padding: 0.75rem;
   font-weight: 700;
-  background-color: #f37928;
-  border: 1px solid #f37928;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: rgba(64, 154, 159, 0.5);
+  color: rgb(33, 33, 33);
+  border-radius: 8px;
+  margin-left: 10px;
   width: 25%;
   cursor: pointer;
+}
+
+.Search__button:hover {
+  background-color: red;
 }
