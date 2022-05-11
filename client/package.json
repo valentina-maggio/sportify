@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/recharts.recharts.bar-chart": "^1.6.2",
     "@date-io/date-fns": "^2.13.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -12,6 +13,7 @@
     "@testing-library/react": "^12.0.4",
     "@testing-library/user-event": "^12.0.4",
     "axios": "^0.27.2",
+    "chart.js": "^3.7.1",
     "date-fns": "^2.28.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.0",
@@ -19,6 +21,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "reactjs-popup": "^2.0.5",
+    "recharts": "^2.1.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

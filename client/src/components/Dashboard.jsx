@@ -1,4 +1,3 @@
-// import { useLocation } from 'react-router-dom';
 import VideoFiles from './VideoFiles';
 
 function MoodPage() {

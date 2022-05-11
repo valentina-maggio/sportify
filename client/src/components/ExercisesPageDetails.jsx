@@ -1,6 +1,6 @@
 import WorkoutDropdown from './WorkoutDropdown';
 import NavBarExercisesPage from './NavBarExercisesPage';
-import PopUp from './PopUp';
+import PopUpTest from './PopUpTest';
 import Weather from './Weather';
 import './ExercisesPageDetails.css';
 
@@ -11,7 +11,7 @@ function ExercisesPageDetails() {
       <div className='schedule-parent-container'>
         <div className='left-container'>
           <WorkoutDropdown />
-          <PopUp />
+          <PopUpTest />
         </div>
         <div className='right-container'>
           <Weather />

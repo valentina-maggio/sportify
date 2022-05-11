@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -25,7 +24,9 @@ function WorkoutDropdown() {
     const handleSubmit = async () => {
       try {
         console.log('list of exercises');
-        const response = await axios.get('http://localhost:3001/exercises');
+        const response = await axios.get('http://localhost:3001/exercises', {
+          params: { user: state },
+        });
         return setExercise(response.data);
       } catch (error) {
         return console.log('Could not get list of exercises.', error.message);
@@ -92,6 +93,7 @@ function WorkoutDropdown() {
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
                     <DateTimePicker
+                      disablePast
                       name='workoutDate'
                       label='Select Date & Time'
                       value={selectExercise.workoutDate}

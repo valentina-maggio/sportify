@@ -1,6 +1,6 @@
 import NavBarDashboard from './NavBarDashboard';
+import DashboardHeading from './DashboardHeading';
 import Dashboard from './Dashboard';
-import DashboardHeading from './DashBoardHeading';
 
 function DashboardDetails() {
   return (

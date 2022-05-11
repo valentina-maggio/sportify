@@ -17,7 +17,8 @@
 .scheduler-link,
 .workouts-link,
 .logout-link,
-.login-link
+.login-link,
+.dashboard-link
  {
   color: white;
   text-decoration: none;
@@ -27,6 +28,11 @@
   padding-right:30px;
 }
 
-.register-link:hover {
+.register-link:hover,
+.login-link:hover,
+.scheduler-link:hover,
+.workouts-link:hover,
+.logout-link:hover,
+.dashboard-link:hover {
   color: rgba(64,154,159);
 }

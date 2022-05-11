@@ -20,26 +20,22 @@ function FormLogin() {
   };
 
   const handleSubmit = async () => {
-    try {
       console.log(user);
-      const response = await axios.post(
+      axios.post(
         'http://localhost:3001/users/login',
         user
-      );
-      if (response.status === 200) {
-        sessionStorage.setItem('item_key', user.email);
-        navigate('/dashboard');
-      } else {
-        // TODO: investigate this alert not showing up on unsuccessful login
-        alert('Incorrect email or password.');
-      }
-    } catch (error) {
-      console.log('User could not be logged in', error.message);
+      ).then(response => { 
+        console.log(response)               
+          sessionStorage.setItem('item_key', user.email);
+          navigate('/dashboard');
+      }).catch(error => {        
+        console.log(`error occurred ${error}`)
+        alert(`${error.message}`);
+      })
     }
-  };
 
   return (
-    <div className='login-container'>
+    <div className="login-container">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -47,27 +43,27 @@ function FormLogin() {
         }}
       >
         <input
-          className='email'
-          type='email'
-          id='email'
-          name='email'
+          className="email"
+          type="email"
+          id="email"
+          name="email"
           value={user.email}
-          placeholder='Email'
+          placeholder="Email"
           onChange={handleChange}
         />
         <input
-          className='password'
-          type='password'
-          id='password'
-          name='password'
+          className="password"
+          type="password"
+          id="password"
+          name="password"
           value={user.password}
-          placeholder='Password'
+          placeholder="Password"
           onChange={handleChange}
         />
         <input
-          className='submit'
-          type='submit'
-          value='Login'
+          className="submit"
+          type="submit"
+          value="Login"
           onClick={handleSubmit}
         />
       </form>

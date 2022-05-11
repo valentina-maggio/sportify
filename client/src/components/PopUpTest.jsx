@@ -8,6 +8,7 @@ function PopUp() {
   const state = sessionStorage.getItem('item_key');
 
   console.log(`State passed in Workout Dropdown ${state}`);
+  console.log('Test');
 
   const [exercise, setExercise] = useState({
     name: '',
