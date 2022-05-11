@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import WorkoutChart from './WorkoutChart';
-import './WorkoutPage.css'
+import './WorkoutPage.css';
 
 function UpcomingAndHistoryWorkoutPage() {
   const navigate = useNavigate();
@@ -28,17 +28,18 @@ function UpcomingAndHistoryWorkoutPage() {
   // Delete upcoming workout
 
   const deleteWorkout = async (e) => {
-
-    const workoutToDelete = e.currentTarget.id
-    await axios.delete(`http://localhost:3001/workouts/${workoutToDelete}`
-    ).then(response => { 
+    const workoutToDelete = e.currentTarget.id;
+    await axios
+      .delete(`http://localhost:3001/workouts/${workoutToDelete}`)
+      .then((response) => {
         console.log(response);
         navigate('/workouts');
-    }).catch(error => {        
-      console.log(`error occurred ${error}`)
-      alert(`${error.message}`);
-    })
-  }
+      })
+      .catch((error) => {
+        console.log(`error occurred ${error}`);
+        alert(`${error.message}`);
+      });
+  };
 
   // const deleteWorkout = async (e) => {
 
@@ -61,15 +62,16 @@ function UpcomingAndHistoryWorkoutPage() {
           {workouts.map((workout) => (
             // eslint-disable-next-line
             <div className='box' id={workout._id} onClick={deleteWorkout}>
-              <h3>{workout.name}
+              <h3>
+                {workout.name}
                 <FontAwesomeIcon
-                icon={faTimes} 
-                style={{color: 'red', cursor: 'pointer'}} 
+                  icon={faTimes}
+                  style={{ color: 'red', cursor: 'pointer' }}
                 />
               </h3>
               <h4>{workout.category}</h4>
               <h4>{workout.duration} mins</h4>
-              <span>{workout.workoutScheduledDate}</span>
+              <span>{workout.date}</span>
             </div>
           ))}
         </div>

@@ -16,49 +16,49 @@ const workouts = [
     date: '2022-06-01T18:00:00',
     user: '62796b282c551c0a9effa8f1',
     duration: 10,
-    workoutName: 'Light stretch',
+    name: 'Light stretch',
     category: 'Low Impact',
   },
   {
     date: '2022-06-01T20:00:00',
     user: '62796b282c551c0a9effa8f1',
     duration: 45,
-    workoutName: 'Summer circuits',
+    name: 'Summer circuits',
     category: 'HIIT',
   },
   {
     date: '2022-06-01T23:00:00',
     user: '62796b282c551c0a9effa8f1',
     duration: 60,
-    workoutName: '10km run',
+    name: '10km run',
     category: 'Cardio',
   },
   {
     date: '2022-05-01T18:00:00',
     user: '62796b282c551c0a9effa8f1',
     duration: 30,
-    workoutName: 'Yoga',
+    name: 'Yoga',
     category: 'Low Impact',
   },
   {
     date: '2022-04-01T18:00:00',
     user: '62796b282c551c0a9effa8f1',
     duration: 30,
-    workoutName: 'Pilates',
+    name: 'Pilates',
     category: 'Low Impact',
   },
   {
     date: '2022-03-01T18:00:00',
     user: '62796b282c551c0a9effa8f1',
     duration: 30,
-    workoutName: 'Calisthenics',
+    name: 'Calisthenics',
     category: 'Medium Impact',
   },
   {
     date: '2022-02-01T18:00:00',
     user: '62796b282c551c0a9effa8f1',
     duration: 45,
-    workoutName: 'Time trial cycling',
+    name: 'Time trial cycling',
     category: 'Cardio',
   },
 ];
@@ -66,10 +66,10 @@ const workouts = [
 workouts.forEach((workout) => {
   try {
     Workout.create({
-      workoutScheduledDate: workout.date,
+      date: workout.date,
       user: workout.user,
       duration: workout.duration,
-      workoutName: workout.name,
+      name: workout.name,
       category: workout.category,
     });
   } catch (e) {

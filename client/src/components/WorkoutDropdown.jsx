@@ -41,8 +41,8 @@ function WorkoutDropdown() {
   console.log(listOfExercises);
 
   const [selectExercise, setSelectExercise] = useState({
-    workoutDate: '',
-    exerciseName: '',
+    date: '',
+    name: '',
     duration: '',
     category: '',
     username: state,
@@ -52,7 +52,7 @@ function WorkoutDropdown() {
     if (typeof newValue.target === 'undefined') {
       setSelectExercise({
         ...selectExercise,
-        workoutDate: newValue,
+        date: newValue,
       });
     } else {
       setSelectExercise({
@@ -89,9 +89,9 @@ function WorkoutDropdown() {
                   <Stack spacing={3}>
                     <DateTimePicker
                       disablePast
-                      name='workoutDate'
+                      name='date'
                       label='Select Date & Time'
-                      value={selectExercise.workoutDate}
+                      value={selectExercise.date}
                       onChange={handleChange}
                       // eslint-disable-next-line react/jsx-props-no-spreading
                       renderInput={(params) => <TextField {...params} />}
@@ -106,9 +106,9 @@ function WorkoutDropdown() {
                     <Select
                       className='name'
                       labelId='name-label'
-                      name='exerciseName'
+                      name='name'
                       label='Name'
-                      value={selectExercise.exerciseName}
+                      value={selectExercise.name}
                       onChange={handleChange}
                     >
                       {uniqueNames.map((ex) => (
