@@ -21,28 +21,24 @@ function UpcomingAndHistoryWorkoutPage() {
   }, []);
 
   return (
-    <header className="center">
-      <div className="content-container">
-        <div className="left-panel-box">
-          <h2>Upcoming Workouts</h2>
-          {workouts.map((workout) => (
-            // eslint-disable-next-line
-            <div className="box" key={workout._id}>
-              <h3>{workout.name}</h3>
-              <h4>{workout.category}</h4>
-              <h4>{workout.duration} mins</h4>
-              <span>{workout.date}</span>
-            </div>
-          ))}
-        </div>
-        <div className="right-panel-box">
-          <h2>Workout History</h2>
-          <WorkoutChart />
-        </div>
-
-      
+    <div className='content-container'>
+      <div className='left-panel-box'>
+        <h2>Upcoming Workouts</h2>
+        {workouts.map((workout) => (
+          // eslint-disable-next-line
+          <div className='box' key={workout._id}>
+            <h3>{workout.name}</h3>
+            <h4>{workout.category}</h4>
+            <h4>{workout.duration} mins</h4>
+            <span>{workout.date}</span>
+          </div>
+        ))}
       </div>
-    </header>
+      <div className='right-panel-box'>
+        <h2>Workout History</h2>
+        <WorkoutChart />
+      </div>
+    </div>
   );
 }
 

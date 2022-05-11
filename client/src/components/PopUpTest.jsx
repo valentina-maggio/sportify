@@ -43,65 +43,67 @@ function PopUp() {
         trigger={<input className='submit' type='submit' value='Create' />}
         position='top left'
       >
-        <div className='popup-form'>
-          <Box component='form'>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-            >
-              <div className='create-form'>
-                <TextField
-                  type='text'
-                  id='exercise-name'
-                  label='Exercise'
-                  name='name'
-                  value={exercise.name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className='create-form'>
-                <TextField
-                  className='create-form'
-                  type='text'
-                  id='category'
-                  label='Category'
-                  name='category'
-                  value={exercise.category}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className='create-form'>
-                <TextField
-                  className='create-form'
-                  type='text'
-                  id='intensity'
-                  label='Intensity'
-                  value={exercise.intensity}
-                  name='intensity'
-                  onChange={handleChange}
-                />
-              </div>
-              <div className='create-form'>
-                <TextField
-                  className='create-form'
-                  type='text'
-                  id='link'
-                  label='URL'
-                  value={exercise.link}
-                  name='link'
-                  onChange={handleChange}
-                />
-              </div>
-            </form>
-            <input
-              className='submit'
-              type='submit'
-              value='Save Exercise'
-              onClick={handleSubmit}
-            />
-          </Box>
+        <div className='parent-popup'>
+          <div className='popup-form'>
+            <Box component='form'>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit();
+                }}
+              >
+                <div className='create-form'>
+                  <TextField
+                    type='text'
+                    id='exercise-name'
+                    label='Exercise'
+                    name='name'
+                    value={exercise.name}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className='create-form'>
+                  <TextField
+                    className='create-form'
+                    type='text'
+                    id='category'
+                    label='Category'
+                    name='category'
+                    value={exercise.category}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className='create-form'>
+                  <TextField
+                    className='create-form'
+                    type='text'
+                    id='intensity'
+                    label='Intensity'
+                    value={exercise.intensity}
+                    name='intensity'
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className='create-form'>
+                  <TextField
+                    className='create-form'
+                    type='text'
+                    id='link'
+                    label='URL'
+                    value={exercise.link}
+                    name='link'
+                    onChange={handleChange}
+                  />
+                </div>
+              </form>
+              <input
+                className='submit'
+                type='submit'
+                value='Save Exercise'
+                onClick={handleSubmit}
+              />
+            </Box>
+          </div>
         </div>
       </Popup>
     </div>

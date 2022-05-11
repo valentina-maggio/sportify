@@ -74,7 +74,7 @@ function WorkoutDropdown() {
       console.log('Exercise could not be saved.', error.message);
     }
   };
-
+  // const color = 'rgba(64, 154, 159, 0.5)';
   return (
     <div>
       <div className='Select-container'>
@@ -98,7 +98,6 @@ function WorkoutDropdown() {
                       onChange={handleChange}
                       // eslint-disable-next-line react/jsx-props-no-spreading
                       renderInput={(params) => <TextField {...params} />}
-                      borderColor='rgba(64, 154, 159, 0.5)'
                     />
                   </Stack>
                 </LocalizationProvider>
@@ -133,6 +132,9 @@ function WorkoutDropdown() {
                       label='category'
                       value={selectExercise.name}
                       onChange={handleChange}
+                      // sx={{
+                      //   '& .MuiOutlinedInput-notchedOutline': { color },
+                      // }}
                     >
                       <MenuItem value='Cardio'>Cardio</MenuItem>
                       <MenuItem value='HIIT'>HIIT</MenuItem>
