@@ -98,6 +98,7 @@ function WorkoutDropdown() {
                       onChange={handleChange}
                       // eslint-disable-next-line react/jsx-props-no-spreading
                       renderInput={(params) => <TextField {...params} />}
+                      borderColor='rgba(64, 154, 159, 0.5)'
                     />
                   </Stack>
                 </LocalizationProvider>

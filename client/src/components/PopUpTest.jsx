@@ -40,56 +40,60 @@ function PopUp() {
     <div className='popup-container'>
       {/* eslint-disable-next-line react/button-has-type */}
       <Popup
-        trigger={
-          <input
-            className='submit'
-            type='submit'
-            value='Create'
-            sx={{ px: 2 }}
-          />
-        }
+        trigger={<input className='submit' type='submit' value='Create' />}
+        position='top left'
       >
         <div className='popup-form'>
           <Box component='form'>
-            <h2>Exercise</h2>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
               }}
             >
-              <TextField
-                type='text'
-                id='exercise-name'
-                label='Exercise'
-                name='name'
-                value={exercise.name}
-                onChange={handleChange}
-              />
-              <TextField
-                type='text'
-                id='category'
-                label='Category'
-                name='category'
-                value={exercise.category}
-                onChange={handleChange}
-              />
-              <TextField
-                type='text'
-                id='intensity'
-                label='Intensity'
-                value={exercise.intensity}
-                name='intensity'
-                onChange={handleChange}
-              />
-              <TextField
-                type='text'
-                id='link'
-                label='URL'
-                value={exercise.link}
-                name='link'
-                onChange={handleChange}
-              />
+              <div className='create-form'>
+                <TextField
+                  type='text'
+                  id='exercise-name'
+                  label='Exercise'
+                  name='name'
+                  value={exercise.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className='create-form'>
+                <TextField
+                  className='create-form'
+                  type='text'
+                  id='category'
+                  label='Category'
+                  name='category'
+                  value={exercise.category}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className='create-form'>
+                <TextField
+                  className='create-form'
+                  type='text'
+                  id='intensity'
+                  label='Intensity'
+                  value={exercise.intensity}
+                  name='intensity'
+                  onChange={handleChange}
+                />
+              </div>
+              <div className='create-form'>
+                <TextField
+                  className='create-form'
+                  type='text'
+                  id='link'
+                  label='URL'
+                  value={exercise.link}
+                  name='link'
+                  onChange={handleChange}
+                />
+              </div>
             </form>
             <input
               className='submit'
