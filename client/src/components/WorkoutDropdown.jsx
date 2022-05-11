@@ -72,7 +72,8 @@ function WorkoutDropdown() {
     }
   };
 
-  // Change the colour for the date and time selection ball
+  // Change the colour for the date and time selection ball 
+  // Not yet able to override the red defaulted for 'error'
 
   const theme = createTheme({
     palette: {
