@@ -17,7 +17,6 @@ function App() {
         <Route path='/dashboard' element={<DashboardDetails />} />
         <Route path='/exercises' element={<ExercisesPageDetails />} />
         <Route path='/workouts' element={<WorkoutPageDetails />} />
-        <Route path='/workouts/chart' element={<WorkoutChart />} />
       </Routes>
     </Router>
   );
