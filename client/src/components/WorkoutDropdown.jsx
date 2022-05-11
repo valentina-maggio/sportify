@@ -17,7 +17,9 @@ function WorkoutDropdown() {
     const handleSubmit = async () => {
       try {
         console.log('list of exercises');
-        const response = await axios.get('http://localhost:3001/exercises', { params: {user: state}});
+        const response = await axios.get('http://localhost:3001/exercises', {
+          params: { user: state },
+        });
         return setExercise(response.data);
       } catch (error) {
         return console.log('Could not get list of exercises.', error.message);
@@ -74,12 +76,12 @@ function WorkoutDropdown() {
           handleSubmitSelectExercise();
         }}
       >
-        <div className='calendar' style={{ margin: '5% 40%' }}>
+        <div className="calendar" style={{ margin: '5% 40%' }}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Stack spacing={3}>
               <DateTimePicker
-                name='workoutDate'
-                label='Select Workout Date & Time'
+                name="workoutDate"
+                label="Select Workout Date & Time"
                 value={selectExercise.workoutDate}
                 onChange={handleChange}
                 // eslint-disable-next-line react/jsx-props-no-spreading
@@ -91,8 +93,8 @@ function WorkoutDropdown() {
         <div>
           <option>Name</option>
           <select
-            name='exerciseName'
-            label='Name'
+            name="exerciseName"
+            label="Name"
             value={selectExercise.exerciseName}
             onChange={handleChange}
           >
@@ -102,36 +104,36 @@ function WorkoutDropdown() {
         <div>
           <option>Category</option>
           <select
-            name='category'
-            label='category'
+            name="category"
+            label="category"
             value={selectExercise.name}
             onChange={handleChange}
           >
-            <option value='Cardio'>Cardio</option>
-            <option value='HIIT'>HIIT</option>
-            <option value='Strength'>Strength</option>
-            <option value='Low Impact'>Low Impact</option>
+            <option value="Cardio">Cardio</option>
+            <option value="HIIT">HIIT</option>
+            <option value="Strength">Strength</option>
+            <option value="Low Impact">Low Impact</option>
           </select>
         </div>
         <div>
           <option>Duration</option>
           <select
-            name='duration'
-            label='Duration'
+            name="duration"
+            label="Duration"
             value={selectExercise.name}
             onChange={handleChange}
           >
-            <option value='5 min'>5 min</option>
-            <option value='10 min'>10 min</option>
-            <option value='15 min'>15 min</option>
-            <option value='20 min'>20 min</option>
-            <option value='30 min'>30 min</option>
-            <option value='40 min'>40 min</option>
-            <option value='45 min'>45 min</option>
-            <option value='60 min'>60 min</option>
+            <option value="5 min">5 min</option>
+            <option value="10 min">10 min</option>
+            <option value="15 min">15 min</option>
+            <option value="20 min">20 min</option>
+            <option value="30 min">30 min</option>
+            <option value="40 min">40 min</option>
+            <option value="45 min">45 min</option>
+            <option value="60 min">60 min</option>
           </select>
         </div>
-        <input type='submit' value='Schedule workout' />
+        <input type="submit" value="Schedule workout" />
       </form>
     </div>
   );

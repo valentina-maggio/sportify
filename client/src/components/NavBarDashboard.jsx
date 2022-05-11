@@ -1,9 +1,7 @@
-// import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './NavBar.css'
 
 function NavBarMoodPage() {
-
   return (
     <div className='navbar'>
       <div className='logo'>
