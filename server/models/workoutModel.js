@@ -20,6 +20,7 @@ const workoutSchema = new mongoose.Schema({
   },
   category: {
     type: String,
+    required: true,
   },
 });
 
