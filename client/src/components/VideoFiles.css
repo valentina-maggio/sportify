@@ -6,6 +6,7 @@
   justify-content: space-evenly;
   padding: 10px;
   color: #444444;
+  padding-top: 50px;
 }
 
 .video {
@@ -13,6 +14,7 @@
   background-color: rgba(64, 154, 159, 0.5);
   margin: 15px 10px;
   box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.2);
+  border-radius: 25px;
 }
 
 .video h4 {

@@ -1,12 +1,14 @@
 import Popup from 'reactjs-popup';
 import axios from 'axios';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
-function PopUpTest() {
-  const { state } = useLocation();
+// import { useLocation } from 'react-router-dom';
 
-  console.log(`State passed is ${state}`);
+function PopUp() {
+  const state = sessionStorage.getItem('item_key');
+
+  console.log(`State passed in Workout Dropdown ${state}`);
+  console.log('Test');
 
   const [exercise, setExercise] = useState({
     name: '',
@@ -33,7 +35,6 @@ function PopUpTest() {
 
   return (
     <div>
-      <h4>Create a New Workout</h4>
       {/* eslint-disable-next-line react/button-has-type */}
       <Popup trigger={<button> Create </button>} position='right center'>
         <div>
@@ -84,4 +85,4 @@ function PopUpTest() {
   );
 }
 
-export default PopUpTest;
+export default PopUp;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import './WeatherSearch.css';
 
+// eslint-disable-next-line react/prop-types
 function WeatherSearch({ searchCity }) {
   const [currentCity, setCurrentCity] = useState('');
 
@@ -23,6 +24,7 @@ function WeatherSearch({ searchCity }) {
       <label className='Search__label'>
         <input
           type='text'
+          placeholder='city'
           className='Search__input'
           value={currentCity}
           onChange={handleInputChange}

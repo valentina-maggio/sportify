@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './FormRegister.css';
 
 function FormRegister() {
   const [username, setUsername] = useState("");
@@ -39,36 +40,42 @@ function FormRegister() {
   };
 
   return (
-    <div>
+    <div className='login-container'>
       <form onSubmit={handleSubmit}>
         <input
-          type="username"
-          id="username"
-          name="username"
-          placeholder="Username"
+          className='username'
+          type='username'
+          id='username'
+          name='username'
+          placeholder='Username'
           onChange={(e) => {
             setUsername(e.target.value);
           }}
         />
         <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
+          className='email'
+          type='email'
+          id='email'
+          name='email'
+          placeholder='Email'
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         />
         <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="password"
+          className='password'
+          type='password'
+          id='password'
+          name='password'
+          placeholder='password'
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
-        <input type="submit" value="Register" />
+        <input 
+          className='submit'
+          type='submit' 
+          value='Register' />
       </form>
     </div>
   );
