@@ -9,6 +9,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { cyan } from '@mui/material/colors';
 
 import axios from 'axios';
 import './WorkoutDropdown.css';
@@ -70,6 +72,20 @@ function WorkoutDropdown() {
     }
   };
 
+  // Change the colour for the date and time selection ball
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: cyan[200],
+      },
+      secondary: {
+        main: '#9fcccf',
+      },
+    },
+  });
+
+
   return (
     <div>
       <div className='Select-container'>
@@ -84,6 +100,7 @@ function WorkoutDropdown() {
                 handleSubmitSelectExercise();
               }}
             >
+            <ThemeProvider theme={theme}>
               <div className='calendar' sx={{ minWidth: 120 }}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
@@ -98,7 +115,8 @@ function WorkoutDropdown() {
                     />
                   </Stack>
                 </LocalizationProvider>
-              </div>
+                </div>
+              </ThemeProvider>
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
