@@ -3,17 +3,23 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { format } from 'date-fns';
 import WorkoutChart from './WorkoutChart';
+
 import './WorkoutPage.css';
 
 function UpcomingAndHistoryWorkoutPage() {
+  const state = sessionStorage.getItem('item_key');
+  console.log(`State passed in Workout Dropdown ${state}`);
   const navigate = useNavigate();
 
   const [workouts, setWorkouts] = useState([]);
 
   const requestWorkouts = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/workouts');
+      const res = await axios.get('http://localhost:3001/workouts', {
+        params: { user: state },
+      });
       console.log(res);
       setWorkouts(res.data);
     } catch (error) {
@@ -71,7 +77,7 @@ function UpcomingAndHistoryWorkoutPage() {
               </h3>
               <h4>{workout.category}</h4>
               <h4>{workout.duration} mins</h4>
-              <span>{workout.date}</span>
+              <span>{format(new Date(workout.date), 'Pp')}</span>
             </div>
           ))}
         </div>
