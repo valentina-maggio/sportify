@@ -1,26 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+// import { useEffect, useState } from 'react';
+// import axios from 'axios';
 import './WorkoutPage.css';
 import WorkoutChart from './WorkoutChart';
 
 function UpcomingAndHistoryWorkoutPage() {
 
-  const [workouts, setWorkouts] = useState([]);
-
-  const requestWorkouts = async () => {
-    try {
-      const res = await axios.get('http://localhost:3001/workouts');
-      console.log(res.data);
-      setWorkouts(res.data);
-    } catch (error) {
-      console.log(`Workout.jxs Component: ${error}`);
-    }
-  };
-
-  useEffect(() => {
-    requestWorkouts();
-  }, []);
+  
 
   return (
     <header className='center'>

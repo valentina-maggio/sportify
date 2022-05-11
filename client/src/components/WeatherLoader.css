@@ -1,4 +1,4 @@
-/* .Loader {
+.Loader {
   margin: 5rem auto;
   border: 8px solid #f2f2f2;
   border-top: 8px solid #f37928;
@@ -15,4 +15,4 @@
   100% {
     transform: rotate(360deg);
   }
-} */
+}

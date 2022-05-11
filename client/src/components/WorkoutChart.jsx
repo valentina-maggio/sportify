@@ -1,23 +1,10 @@
 import React from "react";
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+// import { useEffect, useState } from 'react';
+// import axios from 'axios';
 import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
 
 
 
-// const RADIAN = Math.PI / 180;
-
-// const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius }) => {
-  //   const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
-  //   const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  //   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  //   return (
-    
-    //     <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'}  dominantBaseline="central">
-    //       {data01.map(i=> i.name)}
-    //     </text>
-    //   );
-    // };
     const colors = ['#8884d8', '#9cacf1', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57']
     
     const data = [
@@ -32,38 +19,37 @@ import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
     
     
 
-    //
   
     function WorkoutChart() {
 
-      const [workouts, setWorkouts] = useState([]);
+      // const [workouts, setWorkouts] = useState([]);
 
       
-      const requestWorkouts = async () => {
-        try {
-          const res = await axios.get('http://localhost:3001/workouts')
-          .then((response) => console.log(res.data));
-          setWorkouts(res.data);
-        } catch (error) {
-          console.log(`Workout.jxs Component: ${error}`);
-        }
-      };
+      // const requestWorkouts = async () => {
+      //   try {
+      //     const res = await axios.get('http://localhost:3001/workouts')
+      //     .then((response) => console.log(res.data));
+      //     setWorkouts(res.data);
+      //   } catch (error) {
+      //     console.log(`Workout.jxs Component: ${error}`);
+      //   }
+      // };
       
-      useEffect(() => {
-        requestWorkouts();
-      }, []);
+      // useEffect(() => {
+      //   requestWorkouts();
+      // }, []);
       
-      console.log(workouts)
+      // console.log(workouts)
       
-      const data01 = []
-       for (let i = 0; i < workouts.length; i++) {
-          data01.push({
-            name: workouts.category,
-            value: workouts.duration,
-            fill: colors[i]
-          })
-        }
-        console.log(data01)
+      // const data01 = []
+      //  for (let i = 0; i < workouts.length; i++) {
+      //     data01.push({
+      //       name: workouts.category,
+      //       value: workouts.duration,
+      //       fill: colors[i]
+      //     })
+      //   }
+      //   console.log(data01)
 
 
       return (
@@ -71,7 +57,7 @@ import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
 
         <PieChart width={800} height={400} >
             <Pie 
-            dataKey={data}
+            
             isAnimationActive={false} 
             data={data} 
             cx={240} 

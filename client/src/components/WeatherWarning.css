@@ -1,4 +1,4 @@
-  /* .Warning {
+  .Warning {
   display: flex;
   flex-direction: column;
   padding: 2rem 3rem;
@@ -7,4 +7,4 @@
 
 .Warning > * {
   padding: 0.15rem 0;
-} */
+}
