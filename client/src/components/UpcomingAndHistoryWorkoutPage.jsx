@@ -27,11 +27,11 @@ function UpcomingAndHistoryWorkoutPage() {
           <h2>Upcoming Workouts</h2>
           {workouts.map((workout) => (
             // eslint-disable-next-line
-            <div key={workout._id}>
-              <span>{workout.date}</span>
+            <div className="box" key={workout._id}>
               <h3>{workout.name}</h3>
               <h4>{workout.category}</h4>
-              <h4>{workout.duration}</h4>
+              <h4>{workout.duration} mins</h4>
+              <span>{workout.date}</span>
             </div>
           ))}
         </div>
