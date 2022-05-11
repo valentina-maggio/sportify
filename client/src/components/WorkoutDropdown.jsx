@@ -78,11 +78,9 @@ function WorkoutDropdown() {
   return (
     <div>
       <div className='Select-container'>
-        <div className='heading'>
-          <h2>Select Exercise</h2>
-        </div>
         <div className='schedule-container'>
           <div>
+            <h2>Select Exercise</h2>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -131,7 +129,6 @@ function WorkoutDropdown() {
                     <Select
                       className='category'
                       labelId='category-label'
-                      name='category'
                       label='category'
                       value={selectExercise.name}
                       onChange={handleChange}
@@ -151,7 +148,6 @@ function WorkoutDropdown() {
                     <Select
                       className='duration'
                       labelId='duration-label'
-                      name='duration'
                       label='Duration'
                       value={selectExercise.name}
                       onChange={handleChange}
