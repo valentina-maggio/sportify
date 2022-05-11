@@ -29,7 +29,14 @@ const upcomingWorkouts = async (req, res) => {
   res.send(workouts);
 };
 
+const deleteWorkouts = async (req, res) => {
+  const workout = await Workout.find();
+  console.log(workout);
+  res.send('hello');
+};
+
 module.exports = {
   scheduleWorkouts,
   upcomingWorkouts,
+  deleteWorkouts,
 };

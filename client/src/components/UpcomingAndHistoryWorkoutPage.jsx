@@ -22,14 +22,38 @@ function UpcomingAndHistoryWorkoutPage() {
     requestWorkouts();
   }, []);
 
+  // Delete upcoming workout
+  const [workoutDelete, setWorkoutDelete] = useState([]);
+
+  const deleteWorkout = async () => {
+    console.log('workout deleted');
+    try {
+      console.log('I am in try');
+      console.log(workoutDelete);
+      console.log(setWorkoutDelete);
+      await axios.post('http://localhost:3001/workouts/delete', workoutDelete);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  const settingWorkoutId = (e) => {
+    setWorkoutDelete(e);
+  }
+
   return (
-    <header className="center">
-      <div className="content-container">
-        <div className="left-panel-box">
+    <header className='center'>
+      <div className='content-container'>
+        <div className='left-panel-box'>
+          <form onSubmit={(e) => { 
+            e.preventDefault();
+            settingWorkoutId();
+            deleteWorkout();
+          }} >
           <h2>Upcoming Workouts</h2>
           {workouts.map((workout) => (
             // eslint-disable-next-line
-            <div className="box" key={workout._id}>
+            <div className='box' key={workout._id} value={workoutDelete} name='workoutDelete' deleteItem={settingWorkoutId}>
               <h3>{workout.name}
                 <FontAwesomeIcon
                 icon={faTimes} 
@@ -41,8 +65,9 @@ function UpcomingAndHistoryWorkoutPage() {
               <span>{workout.date}</span>
             </div>
           ))}
+          </form>
         </div>
-        <div className="right-panel-box">
+        <div className='right-panel-box'>
           <h2>Workout History</h2>
           <WorkoutChart />
         </div>
