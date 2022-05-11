@@ -1,7 +1,12 @@
 const Exercise = require('../models/exerciseModel');
+const User = require('../models/userModel')
 
 const createExercise = async (req, res) => {
+
+  const userId = await User.findOne({email: req.body.user});
+
   const mongooseObject = {
+    user: userId.id,
     name: req.body.name,
     category: req.body.category,
     intensity: req.body.intensity,
@@ -20,11 +25,22 @@ const createExercise = async (req, res) => {
 };
 
 const getExercises = async (req, res) => {
-  const exercisesFromMongo = await Exercise.find();
+
+  const userParam = req.query.user;
+
+  const userId = await User.findOne({email: userParam});
+
+  const defaultExercises = await Exercise.find({user: null});
+
+  const exercisesSavedByLoggedInUser = await Exercise.find({user: userId.id});
 
   const exercisesArray = [];
 
-  exercisesFromMongo.forEach((element) => {
+  defaultExercises.forEach((element) => {
+    exercisesArray.push({ name: element.name });
+  });
+
+  exercisesSavedByLoggedInUser.forEach((element) => {
     exercisesArray.push({ name: element.name });
   });
 
