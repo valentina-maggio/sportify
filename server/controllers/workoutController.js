@@ -30,7 +30,11 @@ const scheduleWorkouts = async (req, res) => {
 const upcomingWorkouts = async (req, res) => {
   const workouts = await Workout.find();
 
-  res.send(workouts);
+  const currentDate = new Date();
+  const results = workouts.filter(
+    (workout) => workout.workoutScheduledDate > currentDate,
+  );
+  res.send(results);
 };
 const historyWorkouts = async (req, res) => {
   const history1 = await Workout.find();
@@ -41,9 +45,22 @@ const historyWorkouts = async (req, res) => {
   let data = []
   let cat = history.map((w) => w.category);
   let dur = history.map((w) => w.duration);
-  const colors = ['#8884d8', '#9cacf1', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57', '#8884d8', '#9cacf1', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57'];
+  const colors = [
+    '#8884d8',
+    '#9cacf1',
+    '#8dd1e1',
+    '#82ca9d',
+    '#a4de6c',
+    '#d0ed57',
+    '#8884d8',
+    '#9cacf1',
+    '#8dd1e1',
+    '#82ca9d',
+    '#a4de6c',
+    '#d0ed57',
+  ];
   for (let i = 0; i < cat.length; i++) {
-    data.push({name: cat[i], value: dur[i], fill: colors[i]});
+    data.push({ name: cat[i], value: dur[i], fill: colors[i] });
   }
   let data01 = []
   data.reduce(function(res, value) {

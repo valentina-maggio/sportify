@@ -13,52 +13,52 @@ const db = mongoose.connection;
 
 const workouts = [
   {
-    date: '2022-06-01T18:00:00',
+    workoutScheduledDate: new Date(2022, 01, 20, 40, 23, 59),
     user: '62793903e1c164d22a98409d',
     duration: 10,
-    name: 'Light stretch',
+    workoutName: 'Light stretch',
     category: 'Low Impact',
   },
   {
-    date: '2022-06-01T20:00:00',
+    workoutScheduledDate: new Date(2022, 02, 20, 40, 23, 59),
     user: '62793903e1c164d22a98409d',
     duration: 45,
-    name: 'Summer circuits',
+    workoutName: 'Summer circuits',
     category: 'HIIT',
   },
   {
-    date: '2022-06-01T23:00:00',
+    workoutScheduledDate: new Date(2022, 03, 20, 40, 23, 59),
     user: '62793903e1c164d22a98409d',
     duration: 60,
-    name: '10km run',
+    workoutName: '10km run',
     category: 'Cardio',
   },
   {
-    date: '2022-05-01T18:00:00',
+    workoutScheduledDate: new Date(2022, 04, 20, 40, 23, 59),
     user: '62793903e1c164d22a98409d',
     duration: 30,
-    name: 'Yoga',
+    workoutName: 'Yoga',
     category: 'Low Impact',
   },
   {
-    date: '2022-04-01T18:00:00',
+    workoutScheduledDate: new Date(2022, 05, 20, 40, 23, 59),
     user: '62793903e1c164d22a98409d',
     duration: 30,
-    name: 'Pilates',
+    workoutName: 'Pilates',
     category: 'Low Impact',
   },
   {
-    date: '2022-03-01T18:00:00',
+    workoutScheduledDate: new Date(2022, 06, 20, 40, 23, 59),
     user: '62793903e1c164d22a98409d',
     duration: 30,
-    name: 'Calisthenics',
+    workoutName: 'Calisthenics',
     category: 'Medium Impact',
   },
   {
-    date: '2022-02-01T18:00:00',
+    workoutScheduledDate: new Date(2022, 07, 20, 40, 23, 59),
     user: '62793903e1c164d22a98409d',
     duration: 45,
-    name: 'Time trial cycling',
+    workoutName: 'Time trial cycling',
     category: 'Cardio',
   },
 ];
@@ -66,10 +66,10 @@ const workouts = [
 workouts.forEach((workout) => {
   try {
     Workout.create({
-      date: workout.date,
+      workoutScheduledDate: workout.workoutScheduledDate,
       user: workout.user,
       duration: workout.duration,
-      name: workout.name,
+      workoutName: workout.workoutName,
       category: workout.category,
     });
   } catch (e) {
