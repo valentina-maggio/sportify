@@ -1,0 +1,30 @@
+.login-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  width: 450px;
+  background-color: rgba(64, 154, 159, 0.5);
+  height: 450px;
+  box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.2);
+  border-radius: 25px;
+}
+.email,
+.password,
+.submit,
+.username {
+  padding: 15px;
+  margin: 3px 30px 25px 60px;
+  width: 300px;
+  align-items: center;
+  font-size: 16px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.2);
+  border-radius: 5px;
+}
+
+.submit:hover {
+  background-color: rgba(255, 96, 40);
+  cursor: pointer;
+}
