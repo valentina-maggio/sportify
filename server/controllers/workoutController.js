@@ -41,7 +41,18 @@ const historyWorkouts = async (req, res) => {
   for (let i = 0; i < cat.length; i++) {
     data.push({name: cat[i], value: dur[i], fill: colors[i]});
   }
-  res.send(data);
+  let data01 = []
+  data.reduce(function(res, value) {
+    if(!res[value.name]) {
+      res[value.name] = { name: value.name, value: value.value, fill: value.fill};
+      data01.push(res[value.name])
+    }
+    res[value.name].value += value.value;
+    return res;
+  }, {});
+
+  console.log(data01)
+  res.send(data01);
 };
 module.exports = {
   scheduleWorkouts,
