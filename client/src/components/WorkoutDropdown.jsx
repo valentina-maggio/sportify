@@ -11,6 +11,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { deepOrange } from '@mui/material/colors';
 import './WorkoutDropdown.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './Toast.css';
@@ -86,6 +88,19 @@ function WorkoutDropdown() {
       });
     }
 
+  // Change the colour for the date and time selection ball 
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: deepOrange[500],
+      },
+      secondary: {
+        main: '#e65100',
+      },
+    },
+  });
+
   return (
     <div>
       <div className='Select-container'>
@@ -101,6 +116,7 @@ function WorkoutDropdown() {
                 notify();
               }}
             >
+            <ThemeProvider theme={theme}>
               <div className='calendar' sx={{ minWidth: 120 }}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
@@ -116,6 +132,7 @@ function WorkoutDropdown() {
                   </Stack>
                 </LocalizationProvider>
               </div>
+            </ThemeProvider>
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
