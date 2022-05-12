@@ -43,7 +43,7 @@ function WorkoutDropdown() {
   console.log(listOfExercises);
 
   const [selectExercise, setSelectExercise] = useState({
-    date: '',
+    date: new Date(),
     name: '',
     duration: '',
     category: '',
