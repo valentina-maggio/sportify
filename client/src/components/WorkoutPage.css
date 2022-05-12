@@ -8,10 +8,10 @@
 .left-panel-box {
   background: rgba(64, 154, 159, 0.5);
   overflow: scroll;
-  margin: 25px 50px 50px 50px;
+  margin: 15px 50px 50px 50px;
   border-radius: 25px;
-  height: 600px;
-  padding-top: 10px;
+  height: 635px;
+  padding-top: 5px;
 }
 
 .box {
@@ -30,6 +30,9 @@
   margin-top: 3px;
 }
 
+.box h3 {
+  color: rgba(255, 96, 40);
+}
 .delete-icon {
   margin-right: 5px;
 }
