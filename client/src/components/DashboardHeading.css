@@ -1,6 +1,7 @@
 .dashboard-heading {
   color: rgba(33, 33, 33, 0.8);
   text-align: center;
-  padding-top: 10px;
+  padding-top: 20px;
   font-size: 22px;
+  margin-top: 10px;
 }

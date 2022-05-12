@@ -33,8 +33,8 @@ function WorkoutChart() {
         <Pie
           isAnimationActive={false}
           data={chartData}
-          cx={240}
-          cy={300}
+          cx={320}
+          cy={335}
           outerRadius={180}
           fill='#8884d8'
           label={({
@@ -56,6 +56,7 @@ function WorkoutChart() {
             const y = cy + radius * Math.sin(-midAngle * RADIAN);
             const values = chartData.map(i => i.value)
             
+            // eslint-disable-next-line prefer-arrow-callback
             const sum = values.reduce(function (pre, cur) { return pre + cur})
             
             return (
@@ -63,7 +64,7 @@ function WorkoutChart() {
               <text
                 x={x}
                 y={y}
-                fill='rgba (33, 33, 33, .8)'
+                fill='rgba(33, 33, 33, .8)'
                 textAnchor={x > cx ? 'start' : 'end'}
                 dominantBaseline='central'
               >  

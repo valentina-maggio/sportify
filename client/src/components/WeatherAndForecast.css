@@ -1,7 +1,7 @@
 .weatherandforecast {
   display: flex;
   flex-direction: column;
-  color: rgb(33, 33, 33);
+  color: rgb(33, 33, 33, 0.8);
   padding: 2rem 3rem;
 
   max-width: 600px;
