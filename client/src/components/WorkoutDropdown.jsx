@@ -132,9 +132,9 @@ function WorkoutDropdown() {
                       onChange={handleChange}
                     >
                       <MenuItem value='Cardio'>Cardio</MenuItem>
-                      <MenuItem value='HIIT'>HIIT</MenuItem>
+                      <MenuItem value='Interval'>Interval</MenuItem>
                       <MenuItem value='Strength'>Strength</MenuItem>
-                      <MenuItem value='Low Impact'>Low Impact</MenuItem>
+                      <MenuItem value='Stretching'>Stretching</MenuItem>
                     </Select>
                   </FormControl>
                 </Box>
