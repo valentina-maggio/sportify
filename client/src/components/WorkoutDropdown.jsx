@@ -77,7 +77,7 @@ function WorkoutDropdown() {
   };
 
   const notify = () => {
-    toast.success('Workout scheduled!', {
+    toast.success('Workout successfully scheduled!', {
       // position: 'top-left',
       position: toast.POSITION.TOP_CENTER,
       autoClose: 2000,
