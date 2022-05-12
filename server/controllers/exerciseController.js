@@ -3,6 +3,8 @@ const User = require('../models/userModel')
 
 const createExercise = async (req, res) => {
 
+  console.log(req.body);
+  
   const userId = await User.findOne({email: req.body.user});
 
   const mongooseObject = {
@@ -37,13 +39,14 @@ const getExercises = async (req, res) => {
   const exercisesArray = [];
 
   defaultExercises.forEach((element) => {
-    exercisesArray.push({ name: element.name });
+    exercisesArray.push({ name: element.name, category: element.category });
   });
 
   exercisesSavedByLoggedInUser.forEach((element) => {
-    exercisesArray.push({ name: element.name });
+    exercisesArray.push({ name: element.name, category: element.category  });
   });
 
+  console.log(exercisesArray);
   res.send(exercisesArray);
 };
 

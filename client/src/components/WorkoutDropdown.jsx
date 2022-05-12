@@ -40,6 +40,8 @@ function WorkoutDropdown() {
 
   const names = listOfExercises.map((x) => x.name);
   const uniqueNames = [...new Set(names)];
+  const category = listOfExercises.map((x) => x.category);
+  const uniqueCategory = [...new Set(category)];
   console.log(uniqueNames);
 
   console.log(listOfExercises);
@@ -163,10 +165,13 @@ function WorkoutDropdown() {
                       value={selectExercise.category}
                       onChange={handleChange}
                     >
-                      <MenuItem value='Cardio'>Cardio</MenuItem>
+                      {uniqueCategory.map((ex) => (
+                        <MenuItem value={ex}>{ex}</MenuItem>
+                      ))}
+                      {/* <MenuItem value='Cardio'>Cardio</MenuItem>
                       <MenuItem value='Interval'>Interval</MenuItem>
                       <MenuItem value='Strength'>Strength</MenuItem>
-                      <MenuItem value='Stretching'>Stretching</MenuItem>
+                      <MenuItem value='Stretching'>Stretching</MenuItem> */}
                     </Select>
                   </FormControl>
                 </Box>
