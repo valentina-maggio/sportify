@@ -75,7 +75,7 @@ function WorkoutDropdown() {
   };
 
   const notify = () => {
-    toast.success('Workout scheduled!', {
+    toast.success('Workout successfully scheduled!', {
       // position: 'top-left',
       position: toast.POSITION.TOP_CENTER,
       autoClose: 2000,
@@ -84,11 +84,11 @@ function WorkoutDropdown() {
       draggable: true,
       progress: undefined,
       padding: 10,
-      icon: '🔥'
-      });
-    }
+      icon: '🔥',
+    });
+  };
 
-  // Change the colour for the date and time selection ball 
+  // Change the colour for the date and time selection ball
 
   const theme = createTheme({
     palette: {
@@ -114,23 +114,23 @@ function WorkoutDropdown() {
                 notify();
               }}
             >
-            <ThemeProvider theme={theme}>
-              <div className='calendar' sx={{ minWidth: 120 }}>
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <Stack spacing={3}>
-                    <DateTimePicker
-                      disablePast
-                      name='date'
-                      label='Select Date & Time'
-                      value={selectExercise.date}
-                      onChange={handleChange}
-                      // eslint-disable-next-line react/jsx-props-no-spreading
-                      renderInput={(params) => <TextField {...params} />}
-                    />
-                  </Stack>
-                </LocalizationProvider>
-              </div>
-            </ThemeProvider>
+              <ThemeProvider theme={theme}>
+                <div className='calendar' sx={{ minWidth: 120 }}>
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Stack spacing={3}>
+                      <DateTimePicker
+                        disablePast
+                        name='date'
+                        label='Select Date & Time'
+                        value={selectExercise.date}
+                        onChange={handleChange}
+                        // eslint-disable-next-line react/jsx-props-no-spreading
+                        renderInput={(params) => <TextField {...params} />}
+                      />
+                    </Stack>
+                  </LocalizationProvider>
+                </div>
+              </ThemeProvider>
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
