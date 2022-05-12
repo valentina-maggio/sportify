@@ -88,7 +88,11 @@ const historyWorkouts = async (req, res) => {
 const deleteWorkouts = async (req, res) => {
   console.log(req.params.id);
 
-  await Workout.findOneAndDelete({ id: req.params.id });
+  const one = await Workout.findOne({ _id: req.params.id });
+
+  console.log(one);
+
+  await Workout.findOneAndDelete({ _id: req.params.id });
   res.status(200).send('hello');
 };
 
