@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ResponsiveContainer, PieChart, Pie, Tooltip } from 'recharts';
 
+
+
 function WorkoutChart() {
   const state = sessionStorage.getItem('item_key');
   console.log(`State passed in Workout Dropdown ${state}`);
@@ -32,8 +34,8 @@ function WorkoutChart() {
           isAnimationActive={false}
           data={chartData}
           cx={240}
-          cy={200}
-          outerRadius={160}
+          cy={300}
+          outerRadius={180}
           fill='#8884d8'
           label={({
             cx,
@@ -52,17 +54,22 @@ function WorkoutChart() {
             const x = cx + radius * Math.cos(-midAngle * RADIAN);
             // eslint-disable-next-line
             const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
+            const values = chartData.map(i => i.value)
+            
+            const sum = values.reduce(function (pre, cur) { return pre + cur})
+            
             return (
+              
               <text
                 x={x}
                 y={y}
-                fill='#8884d8'
+                fill='rgba (33, 33, 33, .8)'
                 textAnchor={x > cx ? 'start' : 'end'}
                 dominantBaseline='central'
-              >
-                {chartData[index].name}
-              </text>
+              >  
+                {`${chartData[index].name}\n`}
+                {parseFloat(chartData[index].value/sum*100).toFixed(0)}%
+              </text> 
             );
           }}
         />

@@ -40,12 +40,14 @@ function WorkoutDropdown() {
 
   const names = listOfExercises.map((x) => x.name);
   const uniqueNames = [...new Set(names)];
+  const category = listOfExercises.map((x) => x.category);
+  const uniqueCategory = [...new Set(category)];
   console.log(uniqueNames);
 
   console.log(listOfExercises);
 
   const [selectExercise, setSelectExercise] = useState({
-    date: new Date(),
+    date: '',
     name: '',
     duration: '',
     category: '',
@@ -103,8 +105,8 @@ function WorkoutDropdown() {
 
   return (
     <div>
-      <div className='Select-container'>
-        <div className='schedule-container'>
+      <div className="Select-container">
+        <div className="schedule-container">
           <div>
             <h2>Select Exercise</h2>
             <form
@@ -115,13 +117,13 @@ function WorkoutDropdown() {
               }}
             >
               <ThemeProvider theme={theme}>
-                <div className='calendar' sx={{ minWidth: 120 }}>
+                <div className="calendar" sx={{ minWidth: 120 }}>
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <Stack spacing={3}>
                       <DateTimePicker
                         disablePast
-                        name='date'
-                        label='Select Date & Time'
+                        name="date"
+                        label="Select Date & Time"
                         value={selectExercise.date}
                         onChange={handleChange}
                         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -134,12 +136,12 @@ function WorkoutDropdown() {
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
-                    <InputLabel id='name-label'>Exercise</InputLabel>
+                    <InputLabel id="name-label">Exercise</InputLabel>
                     <Select
-                      className='name'
-                      labelId='name-label'
-                      name='name'
-                      label='Name'
+                      className="name"
+                      labelId="name-label"
+                      name="name"
+                      label="Name"
                       value={selectExercise.name}
                       onChange={handleChange}
                     >
@@ -153,22 +155,23 @@ function WorkoutDropdown() {
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
-                    <InputLabel id='category-label'>Category</InputLabel>
+                    <InputLabel id="category-label">Category</InputLabel>
                     {/* <option>Category</option> */}
                     <Select
-                      className='category'
-                      labelId='category-label'
-                      label='category'
+                      className="category"
+                      labelId="category-label"
+                      name="category"
+                      label="category"
                       value={selectExercise.category}
                       onChange={handleChange}
-                      // sx={{
-                      //   '& .MuiOutlinedInput-notchedOutline': { color },
-                      // }}
                     >
-                      <MenuItem value='Cardio'>Cardio</MenuItem>
+                      {uniqueCategory.map((ex) => (
+                        <MenuItem value={ex}>{ex}</MenuItem>
+                      ))}
+                      {/* <MenuItem value='Cardio'>Cardio</MenuItem>
                       <MenuItem value='Interval'>Interval</MenuItem>
                       <MenuItem value='Strength'>Strength</MenuItem>
-                      <MenuItem value='Stretching'>Stretching</MenuItem>
+                      <MenuItem value='Stretching'>Stretching</MenuItem> */}
                     </Select>
                   </FormControl>
                 </Box>
@@ -176,28 +179,29 @@ function WorkoutDropdown() {
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
-                    <InputLabel id='duration-label'>Duration</InputLabel>
+                    <InputLabel id="duration-label">Duration</InputLabel>
                     <Select
-                      className='duration'
-                      labelId='duration-label'
-                      label='Duration'
+                      className="duration"
+                      labelId="duration-label"
+                      name="duration"
+                      label="Duration"
                       value={selectExercise.duration}
                       onChange={handleChange}
                     >
-                      <MenuItem value='5 min'>5 min</MenuItem>
-                      <MenuItem value='10 min'>10 min</MenuItem>
-                      <MenuItem value='15 min'>15 min</MenuItem>
-                      <MenuItem value='20 min'>20 min</MenuItem>
-                      <MenuItem value='30 min'>30 min</MenuItem>
-                      <MenuItem value='40 min'>40 min</MenuItem>
-                      <MenuItem value='45 min'>45 min</MenuItem>
-                      <MenuItem value='60 min'>60 min</MenuItem>
+                      <MenuItem value="5 min">5 min</MenuItem>
+                      <MenuItem value="10 min">10 min</MenuItem>
+                      <MenuItem value="15 min">15 min</MenuItem>
+                      <MenuItem value="20 min">20 min</MenuItem>
+                      <MenuItem value="30 min">30 min</MenuItem>
+                      <MenuItem value="40 min">40 min</MenuItem>
+                      <MenuItem value="45 min">45 min</MenuItem>
+                      <MenuItem value="60 min">60 min</MenuItem>
                     </Select>
                   </FormControl>
                 </Box>
                 <ToastContainer />
               </div>
-              <input className='submit' type='submit' value='Submit' />
+              <input className="submit" type="submit" value="Submit" />
             </form>
           </div>
         </div>

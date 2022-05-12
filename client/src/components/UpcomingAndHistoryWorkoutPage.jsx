@@ -57,7 +57,7 @@ function UpcomingAndHistoryWorkoutPage() {
         <div className='left-panel-box'>
           {workouts.map((workout) => (
             // eslint-disable-next-line
-            <div className='box' id={workout._id} onClick={deleteWorkout}>
+            <div className='box' id={workout._id} onClick={deleteWorkout} key={workout._id}>
               <div className='ex-container'>
                 <div className='delete-icon'>
                   <FontAwesomeIcon
