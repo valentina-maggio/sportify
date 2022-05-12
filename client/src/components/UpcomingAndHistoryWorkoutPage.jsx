@@ -50,24 +50,35 @@ function UpcomingAndHistoryWorkoutPage() {
 
   return (
     <div className='content-container'>
-      <div className='left-panel-box'>
-        <h2>Upcoming Workouts</h2>
-        {workouts.map((workout) => (
-          // eslint-disable-next-line
-          <div className='box' id={workout._id} onClick={deleteWorkout}>
-            <FontAwesomeIcon
-              icon={faTimes}
-              style={{ color: 'red', cursor: 'pointer' }}
-            />
-            <h3>{workout.name}</h3>
-            <h4>{workout.category}</h4>
-            <h4>{workout.duration} mins</h4>
-            <span className='upcoming-date'>
-              {format(new Date(workout.date), 'Pp')}
-            </span>
-          </div>
-        ))}
+      <div className='upcoming-data'>
+        <div className='upcoming-heading'>
+          <h2>Upcoming Workouts</h2>
+        </div>
+        <div className='left-panel-box'>
+          {workouts.map((workout) => (
+            // eslint-disable-next-line
+            <div className='box' id={workout._id} onClick={deleteWorkout}>
+              <div className='ex-container'>
+                <div className='delete-icon'>
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    style={{ color: 'red', cursor: 'pointer' }}
+                  />
+                </div>
+                <div className='upcoming-ex'>
+                  <h3>{workout.name}</h3>
+                  <h4>{workout.category}</h4>
+                  <h4>{workout.duration} mins</h4>
+                  <h4 className='upcoming-date'>
+                    {format(new Date(workout.date), 'Pp')}
+                  </h4>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
       <div className='right-panel-box'>
         <h2>Workout History</h2>
         <WorkoutChart />
