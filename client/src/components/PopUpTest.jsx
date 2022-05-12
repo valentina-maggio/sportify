@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './Toast.css';
 
 function PopUp() {
   const state = sessionStorage.getItem('item_key');
@@ -39,14 +40,17 @@ function PopUp() {
 
   const notify = () => {
     toast.success('New exercise successfully saved!', {
-      position: 'top-left',
-      autoClose: 3000,
+      // position: 'top-left',
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
       hideProgressBar: true,
       closeOnClick: true,
       draggable: true,
       progress: undefined,
-    });
-  }
+      padding: 10,
+      icon: '🚀'
+      });
+    }
 
   return (
     <div>
