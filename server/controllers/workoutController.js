@@ -44,9 +44,13 @@ const historyWorkouts = async (req, res) => {
 
   // const userWorkouts = await Workout.find({ user: userId._id });
 
-  const workouts = await Workout.find();
+  const workouts = await Workout.find({ user: userId.id });
   const currentDate = new Date();
   const history = workouts.filter((workout) => workout.date < currentDate);
+
+  console.log('history data');
+  console.log(history);
+
   let data = [];
   let cat = history.map((w) => w.category);
   let dur = history.map((w) => w.duration);
@@ -68,17 +72,17 @@ const historyWorkouts = async (req, res) => {
     data.push({ name: cat[i], value: dur[i], fill: colors[i] });
   }
   let data01 = [];
-  data.reduce(function (res, value) {
-    if (!res[value.name]) {
-      res[value.name] = {
+  data.reduce(function (result, value) {
+    if (!result[value.name]) {
+      result[value.name] = {
         name: value.name,
         value: value.value,
         fill: value.fill,
       };
-      data01.push(res[value.name]);
+      data01.push(result[value.name]);
     }
-    res[value.name].value += value.value;
-    return res;
+    result[value.name].value += value.value;
+    return result;
   }, {});
 
   console.log(data01);

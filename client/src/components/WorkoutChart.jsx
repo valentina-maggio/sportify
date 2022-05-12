@@ -3,17 +3,18 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
 
-
-
-    
-
-  
     function WorkoutChart() {
+
+      const state = sessionStorage.getItem('item_key');
+      console.log(`State passed in Workout Dropdown ${state}`);
+
       const [chartData, setChartData] = useState([]);
 
       const requestChartData = async () => {
         try {
-          const res = await axios.get('http://localhost:3001/workouts/history');
+          const res = await axios.get('http://localhost:3001/workouts/history', {
+        params: { user: state },
+        });
           console.log(res);
           setChartData(res.data);
           
