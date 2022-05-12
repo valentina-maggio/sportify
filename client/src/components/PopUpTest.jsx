@@ -1,6 +1,8 @@
 import Popup from 'reactjs-popup';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function PopUp() {
   const state = sessionStorage.getItem('item_key');
@@ -19,19 +21,32 @@ function PopUp() {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = async () => {
     try {
       console.log(exercise);
       const res = await axios.post('http://localhost:3001/exercises', exercise);
       console.log(res);
       if (res.status === 200){
-        alert('New exercise was saved.')
+        // alert('New exercise was saved.')
+        console.log('New exercise was saved.');
       }
     } catch (error) {
       console.log('Exercise could not be saved.', error.message);
     }
     // setExercise('');
   };
+
+  const notify = () => {
+    toast.success('New exercise successfully saved!', {
+      position: 'top-left',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   return (
     <div>
@@ -78,7 +93,11 @@ function PopUp() {
               onChange={handleChange}
             />
           </form>
-          <input type='submit' value='Save exercise' onClick={handleSubmit} />
+          <input type='submit' value='Save exercise' onClick={ () => {
+            handleSubmit();
+            notify();
+            }} />
+            <ToastContainer />
         </div>
       </Popup>
     </div>
