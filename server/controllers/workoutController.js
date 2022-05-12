@@ -28,7 +28,7 @@ const upcomingWorkouts = async (req, res) => {
 
   const userId = await User.findOne({ email: userParam });
 
-  const userWorkouts = await Workout.find({ user: userId._id });
+  const userWorkouts = await Workout.find({ user: userId._id }).sort({ date: 1 });
 
   // const workouts = await Workout.find();
 
