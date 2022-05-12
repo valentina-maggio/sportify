@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import './FormRegister.css';
 
 function FormRegister() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,22 +17,22 @@ function FormRegister() {
     };
 
     try {
-      const response = await fetch("http://localhost:3001/users/register", {
-        method: "POST",
+      const response = await fetch('http://localhost:3001/users/register', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
 
-          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify(userData),
       });
 
       if (response.status === 200) {
-        navigate("/", {
+        navigate('/', {
           state: email,
         });
       } else {
-        alert("User already exists");
+        alert('User already exists');
       }
     } catch (err) {
       console.error();
@@ -40,7 +40,7 @@ function FormRegister() {
   };
 
   return (
-    <div className='login-container'>
+    <div className='register-main'>
       <form onSubmit={handleSubmit}>
         <input
           className='username'
@@ -67,15 +67,12 @@ function FormRegister() {
           type='password'
           id='password'
           name='password'
-          placeholder='password'
+          placeholder='Password'
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
-        <input 
-          className='submit'
-          type='submit' 
-          value='Register' />
+        <input className='submit' type='submit' value='Register' />
       </form>
     </div>
   );

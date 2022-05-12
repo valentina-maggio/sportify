@@ -49,7 +49,6 @@ function UpcomingAndHistoryWorkoutPage() {
   };
 
   return (
-    <header className='center'>
       <div className='content-container'>
         <div className='left-panel-box'>
           <h2>Upcoming Workouts</h2>
@@ -72,7 +71,7 @@ function UpcomingAndHistoryWorkoutPage() {
           <WorkoutChart />
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 

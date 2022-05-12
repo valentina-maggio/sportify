@@ -6,12 +6,12 @@
   box-sizing: border-box;
 }
 
-html,
+/* html,
 body {
   font-size: 16px;
   font-family: Be Vietnam Pro, sans-serif;
   color: #589cd4;
-}
+} */
 
 .weather {
   min-height: 100vh;

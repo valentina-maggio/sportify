@@ -1,5 +1,9 @@
 import Popup from 'reactjs-popup';
 import axios from 'axios';
+// import { useState } from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import './PopUp.css';
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -53,55 +57,76 @@ function PopUp() {
     }
 
   return (
-    <div>
+    <div className='popup-container'>
       {/* eslint-disable-next-line react/button-has-type */}
-      <Popup trigger={<button> Create </button>} position='right center'>
-        <div>
-          <h2>Exercise</h2>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
-          >
-            <input
-              type='text'
-              id='name'
-              name='name'
-              value={exercise.name}
-              placeholder='Name'
-              onChange={handleChange}
-            />
-            <input
-              type='text'
-              id='category'
-              name='category'
-              value={exercise.category}
-              placeholder='Category'
-              onChange={handleChange}
-            />
-            <input
-              type='text'
-              id='intensity'
-              value={exercise.intensity}
-              name='intensity'
-              placeholder='Intensity'
-              onChange={handleChange}
-            />
-            <input
-              type='text'
-              id='link'
-              value={exercise.link}
-              name='link'
-              placeholder='Link'
-              onChange={handleChange}
-            />
-          </form>
-          <input type='submit' value='Save exercise' onClick={ () => {
-            handleSubmit();
-            notify();
-            }} />
-            <ToastContainer />
+      <Popup
+        trigger={<input className='submit' type='submit' value='Create' />}
+        position='top left'
+      >
+        <div className='parent-popup'>
+          <div className='popup-form'>
+            <Box component='form'>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit();
+                }}
+              >
+                <div className='create-form'>
+                  <TextField
+                    type='text'
+                    id='exercise-name'
+                    label='Exercise'
+                    name='name'
+                    value={exercise.name}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className='create-form'>
+                  <TextField
+                    className='create-form'
+                    type='text'
+                    id='category'
+                    label='Category'
+                    name='category'
+                    value={exercise.category}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className='create-form'>
+                  <TextField
+                    className='create-form'
+                    type='text'
+                    id='intensity'
+                    label='Intensity'
+                    value={exercise.intensity}
+                    name='intensity'
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className='create-form'>
+                  <TextField
+                    className='create-form'
+                    type='text'
+                    id='link'
+                    label='URL'
+                    value={exercise.link}
+                    name='link'
+                    onChange={handleChange}
+                  />
+                </div>
+              </form>
+              <input
+                className='submit'
+                type='submit'
+                value='Save Exercise'
+                onClick={ () => {
+                  handleSubmit();
+                  notify();
+                 }} />
+              <ToastContainer />
+            </Box>
+          </div>
         </div>
       </Popup>
     </div>

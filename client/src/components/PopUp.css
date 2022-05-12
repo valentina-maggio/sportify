@@ -1,0 +1,32 @@
+.popup-container {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+.popup-form {
+  display: flex;
+  width: 450px;
+  background-color: rgba(64, 154, 159, 0.5);
+  height: 450px;
+  padding-top: 40px;
+  border-radius: 25px;
+}
+
+.create-form {
+  width: 300px;
+  margin-top: 15px;
+  margin-left: 75px;
+  background-color: white;
+}
+
+.popup-form .submit {
+  margin-left: 75px;
+}
+
+.parent-popup {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  border-radius: 25px;
+}

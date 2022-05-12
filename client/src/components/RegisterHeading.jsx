@@ -2,10 +2,10 @@ import './RegisterHeading.css';
 
 function RegisterHeading() {
   return (
-    <div className='register-heading'>
+    <div>
       <h1>Sportifier, are you ready to change your life?</h1>
     </div>
-  )
+  );
 }
 
-export default RegisterHeading
+export default RegisterHeading;

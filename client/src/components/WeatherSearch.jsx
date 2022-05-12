@@ -24,7 +24,7 @@ function WeatherSearch({ searchCity }) {
       <label className='Search__label'>
         <input
           type='text'
-          placeholder='city'
+          placeholder='City'
           className='Search__input'
           value={currentCity}
           onChange={handleInputChange}

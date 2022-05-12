@@ -10,8 +10,12 @@ function ExercisesPageDetails() {
       <NavBarExercisesPage />
       <div className='schedule-parent-container'>
         <div className='left-container'>
-          <WorkoutDropdown />
-          <PopUpTest />
+          <div className='workout'>
+            <WorkoutDropdown />
+          </div>
+          <div className='popup'>
+            <PopUpTest />
+          </div>
         </div>
         <div className='right-container'>
           <Weather />

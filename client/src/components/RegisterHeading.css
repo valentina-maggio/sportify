@@ -1,6 +1,12 @@
 .register-heading {
-  color: rgba(64, 154, 159);
+  color: rgba(33, 33, 33, 0.8);
   text-align: center;
-  padding-top: 40px;
-  font-size: 22px;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-heading h1 {
+  margin-bottom: 40px;
 }
