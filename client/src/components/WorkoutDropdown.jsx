@@ -12,7 +12,7 @@ import Select from '@mui/material/Select';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { deepOrange } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 import './WorkoutDropdown.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './Toast.css';
@@ -93,7 +93,7 @@ function WorkoutDropdown() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: deepOrange[500],
+        main: blue[500],
       },
       secondary: {
         main: '#e65100',
