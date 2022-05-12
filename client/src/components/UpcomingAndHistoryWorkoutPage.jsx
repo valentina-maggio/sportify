@@ -80,7 +80,7 @@ function UpcomingAndHistoryWorkoutPage() {
       </div>
 
       <div className='right-panel-box'>
-        <h2>Workout History</h2>
+        <h2>Workout Stats</h2>
         <WorkoutChart />
       </div>
     </div>
