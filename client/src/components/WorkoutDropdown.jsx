@@ -9,10 +9,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-// import Button from '@mui/material/Button';
-
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { blue } from '@mui/material/colors';
 import './WorkoutDropdown.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './Toast.css';
 
 function WorkoutDropdown() {
   const state = sessionStorage.getItem('item_key');
@@ -39,17 +42,13 @@ function WorkoutDropdown() {
   const uniqueNames = [...new Set(names)];
   console.log(uniqueNames);
 
-  // const exerciseName = uniqueNames.map((el, index) => (
-  //   // eslint-disable-next-line react/no-array-index-key
-  //   <option key={index + 1} value={el}>
-  //     {el}
-  //   </option>
-  // )); // eslint-disable-line
+  console.log(listOfExercises);
 
   const [selectExercise, setSelectExercise] = useState({
-    workoutDate: '',
-    exerciseName: '',
+    date: new Date(),
+    name: '',
     duration: '',
+    category: '',
     username: state,
   });
 
@@ -57,7 +56,7 @@ function WorkoutDropdown() {
     if (typeof newValue.target === 'undefined') {
       setSelectExercise({
         ...selectExercise,
-        workoutDate: newValue,
+        date: newValue,
       });
     } else {
       setSelectExercise({
@@ -74,7 +73,34 @@ function WorkoutDropdown() {
       console.log('Exercise could not be saved.', error.message);
     }
   };
-  // const color = 'rgba(64, 154, 159, 0.5)';
+
+  const notify = () => {
+    toast.success('Workout scheduled!', {
+      // position: 'top-left',
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      padding: 10,
+      icon: '🔥'
+      });
+    }
+
+  // Change the colour for the date and time selection ball 
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: blue[500],
+      },
+      secondary: {
+        main: '#e65100',
+      },
+    },
+  });
+
   return (
     <div>
       <div className='Select-container'>
@@ -85,16 +111,18 @@ function WorkoutDropdown() {
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmitSelectExercise();
+                notify();
               }}
             >
+            <ThemeProvider theme={theme}>
               <div className='calendar' sx={{ minWidth: 120 }}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
                     <DateTimePicker
                       disablePast
-                      name='workoutDate'
+                      name='date'
                       label='Select Date & Time'
-                      value={selectExercise.workoutDate}
+                      value={selectExercise.date}
                       onChange={handleChange}
                       // eslint-disable-next-line react/jsx-props-no-spreading
                       renderInput={(params) => <TextField {...params} />}
@@ -102,6 +130,7 @@ function WorkoutDropdown() {
                   </Stack>
                 </LocalizationProvider>
               </div>
+            </ThemeProvider>
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
@@ -109,13 +138,13 @@ function WorkoutDropdown() {
                     <Select
                       className='name'
                       labelId='name-label'
-                      name='exerciseName'
+                      name='name'
                       label='Name'
-                      value={selectExercise.exerciseName}
+                      value={selectExercise.name}
                       onChange={handleChange}
                     >
-                      {uniqueNames.map((ex, i) => (
-                        <MenuItem value={i}>{ex}</MenuItem>
+                      {uniqueNames.map((ex) => (
+                        <MenuItem value={ex}>{ex}</MenuItem>
                       ))}
                     </Select>
                   </FormControl>
@@ -130,7 +159,7 @@ function WorkoutDropdown() {
                       className='category'
                       labelId='category-label'
                       label='category'
-                      value={selectExercise.name}
+                      value={selectExercise.category}
                       onChange={handleChange}
                       // sx={{
                       //   '& .MuiOutlinedInput-notchedOutline': { color },
@@ -152,7 +181,7 @@ function WorkoutDropdown() {
                       className='duration'
                       labelId='duration-label'
                       label='Duration'
-                      value={selectExercise.name}
+                      value={selectExercise.duration}
                       onChange={handleChange}
                     >
                       <MenuItem value='5 min'>5 min</MenuItem>
@@ -166,6 +195,7 @@ function WorkoutDropdown() {
                     </Select>
                   </FormControl>
                 </Box>
+                <ToastContainer />
               </div>
               <input className='submit' type='submit' value='Submit' />
             </form>

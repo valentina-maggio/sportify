@@ -1,55 +1,32 @@
-import React from "react";
-// import { useEffect, useState } from 'react';
-// import axios from 'axios';
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
 
-
-
-    const colors = ['#8884d8', '#9cacf1', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57']
-    
-    const data = [
-      {name: 'Yoga', value: 500, fill: colors[0],}, 
-      {name: 'HIIT', value: 300, fill: colors[1],},
-      {name: 'Cardio', value: 300, fill: colors[2]}, 
-      {name: 'Walking', value: 200, fill: colors[3]},
-      {name: 'Weights', value: 278, fill: colors[4]}, 
-      {name: 'Recovery', value: 189, fill: colors[5]},
-    ];
-    
-    
-    
-
-  
     function WorkoutChart() {
 
-      // const [workouts, setWorkouts] = useState([]);
+      const state = sessionStorage.getItem('item_key');
+      console.log(`State passed in Workout Dropdown ${state}`);
 
+      const [chartData, setChartData] = useState([]);
+
+      const requestChartData = async () => {
+        try {
+          const res = await axios.get('http://localhost:3001/workouts/history', {
+        params: { user: state },
+        });
+          console.log(res);
+          setChartData(res.data);
+          
+        } catch (error) {
+          console.log(`Workout.jxs Component: ${error}`);
+        }
+      };
+
+      useEffect(() => {
+        requestChartData();
+      }, []);
       
-      // const requestWorkouts = async () => {
-      //   try {
-      //     const res = await axios.get('http://localhost:3001/workouts')
-      //     .then((response) => console.log(res.data));
-      //     setWorkouts(res.data);
-      //   } catch (error) {
-      //     console.log(`Workout.jxs Component: ${error}`);
-      //   }
-      // };
-      
-      // useEffect(() => {
-      //   requestWorkouts();
-      // }, []);
-      
-      // console.log(workouts)
-      
-      // const data01 = []
-      //  for (let i = 0; i < workouts.length; i++) {
-      //     data01.push({
-      //       name: workouts.category,
-      //       value: workouts.duration,
-      //       fill: colors[i]
-      //     })
-      //   }
-      //   console.log(data01)
 
 
       return (
@@ -59,12 +36,41 @@ import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
             <Pie 
             
             isAnimationActive={false} 
-            data={data} 
+            data={chartData} 
             cx={240} 
             cy={200} 
-            outerRadius={180} 
+            outerRadius={160} 
             fill="#8884d8" 
-            label={data}/>
+            label={({
+              cx,
+              cy,
+              midAngle,
+              innerRadius,
+              outerRadius,
+              value,
+              index
+            }) => {
+              const RADIAN = Math.PI / 180;
+              // eslint-disable-next-line
+              const radius = 25 + innerRadius + (outerRadius - innerRadius);
+              // eslint-disable-next-line
+              const x = cx + radius * Math.cos(-midAngle * RADIAN);
+              // eslint-disable-next-line
+              const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    
+              return (
+                <text
+                  x={x}
+                  y={y}
+                  fill="#8884d8"
+                  textAnchor={x > cx ? "start" : "end"}
+                  dominantBaseline="central"
+                >
+                  {chartData[index].name}
+                </text>
+              );
+            }}
+            />
             
             
             <Tooltip/>

@@ -13,54 +13,54 @@ const db = mongoose.connection;
 
 const workouts = [
   {
-    date: '2022-06-01T18:00:00',
-    user: '62793903e1c164d22a98409d',
+    date: '2022-07-01T18:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 10,
     name: 'Light stretch',
     category: 'Low Impact',
   },
   {
-    date: '2022-06-01T20:00:00',
-    user: '62793903e1c164d22a98409d',
+    date: '2022-07-02T20:00:00',
+    user: '62796b282c551c0a9effa8f1',
     duration: 45,
     name: 'Summer circuits',
     category: 'HIIT',
   },
-  {
-    date: '2022-06-01T23:00:00',
-    user: '62793903e1c164d22a98409d',
-    duration: 60,
-    name: '10km run',
-    category: 'Cardio',
-  },
-  {
-    date: '2022-05-01T18:00:00',
-    user: '62793903e1c164d22a98409d',
-    duration: 30,
-    name: 'Yoga',
-    category: 'Low Impact',
-  },
-  {
-    date: '2022-04-01T18:00:00',
-    user: '62793903e1c164d22a98409d',
-    duration: 30,
-    name: 'Pilates',
-    category: 'Low Impact',
-  },
-  {
-    date: '2022-03-01T18:00:00',
-    user: '62793903e1c164d22a98409d',
-    duration: 30,
-    name: 'Calisthenics',
-    category: 'Medium Impact',
-  },
-  {
-    date: '2022-02-01T18:00:00',
-    user: '62793903e1c164d22a98409d',
-    duration: 45,
-    name: 'Time trial cycling',
-    category: 'Cardio',
-  },
+  // {
+  //   date: '2022-06-01T23:00:00',
+  //   user: '62796b282c551c0a9effa8f1',
+  //   duration: 60,
+  //   name: '10km run',
+  //   category: 'Cardio',
+  // },
+  // {
+  //   date: '2022-05-01T18:00:00',
+  //   user: '62796b282c551c0a9effa8f1',
+  //   duration: 30,
+  //   name: 'Yoga',
+  //   category: 'Low Impact',
+  // },
+  // {
+  //   date: '2022-04-01T18:00:00',
+  //   user: '62796b282c551c0a9effa8f1',
+  //   duration: 30,
+  //   name: 'Pilates',
+  //   category: 'Low Impact',
+  // },
+  // {
+  //   date: '2022-03-01T18:00:00',
+  //   user: '62796b282c551c0a9effa8f1',
+  //   duration: 30,
+  //   name: 'Calisthenics',
+  //   category: 'Medium Impact',
+  // },
+  // {
+  //   date: '2022-02-01T18:00:00',
+  //   user: '62796b282c551c0a9effa8f1',
+  //   duration: 45,
+  //   name: 'Time trial cycling',
+  //   category: 'Cardio',
+  // },
 ];
 
 workouts.forEach((workout) => {
