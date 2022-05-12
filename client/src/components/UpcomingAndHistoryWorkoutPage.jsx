@@ -71,7 +71,6 @@ function UpcomingAndHistoryWorkoutPage() {
           <WorkoutChart />
         </div>
       </div>
-    </div>
   );
 }
 
