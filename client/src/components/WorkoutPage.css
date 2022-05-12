@@ -1,20 +1,17 @@
 .content-container {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 700px;
+  grid-template-rows: 600px;
   grid-column-gap: 50px;
 }
 
 .left-panel-box {
   background: rgba(64, 154, 159, 0.5);
   overflow: scroll;
-  margin: 50px;
+  margin: 25px 50px 50px 50px;
   border-radius: 25px;
-}
-
-.right-panel-box {
-  /* background: #f3ecec; */
-  overflow: scroll;
+  height: 600px;
+  padding-top: 10px;
 }
 
 .box {
@@ -43,4 +40,10 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   padding: 10px;
+}
+
+.upcoming-heading h2 {
+  color: rgba(33, 33, 33, 0.8);
+  margin-left: 250px;
+  margin-top: 50px;
 }
