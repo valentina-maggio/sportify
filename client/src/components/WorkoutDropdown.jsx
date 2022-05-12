@@ -9,9 +9,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { blue } from '@mui/material/colors';
 import './WorkoutDropdown.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './Toast.css';
 
 function WorkoutDropdown() {
   const state = sessionStorage.getItem('item_key');
@@ -41,7 +45,7 @@ function WorkoutDropdown() {
   console.log(listOfExercises);
 
   const [selectExercise, setSelectExercise] = useState({
-    date: '',
+    date: new Date(),
     name: '',
     duration: '',
     category: '',
@@ -70,6 +74,33 @@ function WorkoutDropdown() {
     }
   };
 
+  const notify = () => {
+    toast.success('Workout scheduled!', {
+      // position: 'top-left',
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      padding: 10,
+      icon: '🔥'
+      });
+    }
+
+  // Change the colour for the date and time selection ball 
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: blue[500],
+      },
+      secondary: {
+        main: '#e65100',
+      },
+    },
+  });
+
   return (
     <div>
       <div className='Select-container'>
@@ -82,8 +113,10 @@ function WorkoutDropdown() {
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmitSelectExercise();
+                notify();
               }}
             >
+            <ThemeProvider theme={theme}>
               <div className='calendar' sx={{ minWidth: 120 }}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
@@ -99,6 +132,7 @@ function WorkoutDropdown() {
                   </Stack>
                 </LocalizationProvider>
               </div>
+            </ThemeProvider>
               <div>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
@@ -162,6 +196,7 @@ function WorkoutDropdown() {
                     </Select>
                   </FormControl>
                 </Box>
+                <ToastContainer />
               </div>
               <input className='submit' type='submit' value='Submit' />
             </form>
