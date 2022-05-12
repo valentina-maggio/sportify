@@ -5,30 +5,50 @@ dotenv.config();
 
 // add ATLAS_URI to connect to the database
 
-mongoose.connect(ATLAS_URI, {
+mongoose.connect(process.env.ATLAS_URI, {
   useNewUrlParser: true,
 });
 
 const exercises = [
   {
-    name: 'Stroll',
-    category: 'Walking',
-    intensity: 'Low Impact',
+    name: 'Walking',
+    category: 'Cardio',
+    intensity: 'Low',
   },
   {
-    name: 'Beginner Yoga',
-    category: 'Yoga',
-    intensity: 'Low Impact',
+    name: 'Yoga',
+    category: 'Stretching',
+    intensity: 'Low',
   },
   {
     name: 'Upper Body',
-    category: 'HIIT',
-    intensity: 'High Impact',
+    category: 'Strength',
+    intensity: 'Medium',
+  },
+  {
+    name: 'Core',
+    category: 'Strength',
+    intensity: 'Low',
   },
   {
     name: 'Lower Body',
-    category: 'Strength Training',
-    intensity: 'Medium Impact',
+    category: 'Strength',
+    intensity: 'Medium',
+  },
+  {
+    name: 'Cycling',
+    category: 'Cardio',
+    intensity: 'High',
+  },
+  {
+    name: 'Running',
+    category: 'Cardio',
+    intensity: 'High',
+  },
+  {
+    name: 'High Intensity Interval Training',
+    category: 'Interval',
+    intensity: 'High',
   },
 ];
 
