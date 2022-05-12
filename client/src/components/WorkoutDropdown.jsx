@@ -45,7 +45,7 @@ function WorkoutDropdown() {
   console.log(listOfExercises);
 
   const [selectExercise, setSelectExercise] = useState({
-    date: new Date(),
+    date: '',
     name: '',
     duration: '',
     category: '',
@@ -158,12 +158,10 @@ function WorkoutDropdown() {
                     <Select
                       className='category'
                       labelId='category-label'
+                      name='category'
                       label='category'
                       value={selectExercise.category}
                       onChange={handleChange}
-                      // sx={{
-                      //   '& .MuiOutlinedInput-notchedOutline': { color },
-                      // }}
                     >
                       <MenuItem value='Cardio'>Cardio</MenuItem>
                       <MenuItem value='Interval'>Interval</MenuItem>
@@ -180,6 +178,7 @@ function WorkoutDropdown() {
                     <Select
                       className='duration'
                       labelId='duration-label'
+                      name='duration'
                       label='Duration'
                       value={selectExercise.duration}
                       onChange={handleChange}
