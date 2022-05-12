@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ResponsiveContainer, PieChart, Pie, Tooltip } from 'recharts';
@@ -40,6 +41,7 @@ function WorkoutChart() {
             midAngle,
             innerRadius,
             outerRadius,
+            // eslint-disable-next-line no-unused-vars
             value,
             index,
           }) => {

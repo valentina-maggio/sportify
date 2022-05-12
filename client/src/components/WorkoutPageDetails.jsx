@@ -7,9 +7,7 @@ function WorkoutPageDetails() {
     <>
       <NavBarWorkoutPage />
       <UpcomingAndHistoryWorkoutPage />
-       
     </>
-      
   );
 }
 

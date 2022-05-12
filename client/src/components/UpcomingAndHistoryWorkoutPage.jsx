@@ -35,7 +35,7 @@ function UpcomingAndHistoryWorkoutPage() {
     const workoutToDelete = e.currentTarget.id;
 
     console.log(workoutToDelete);
-    
+
     await axios
       .delete(`http://localhost:3001/workouts/${workoutToDelete}`)
       .then((response) => {
@@ -49,28 +49,30 @@ function UpcomingAndHistoryWorkoutPage() {
   };
 
   return (
-      <div className='content-container'>
-        <div className='left-panel-box'>
-          <h2>Upcoming Workouts</h2>
-          {workouts.map((workout) => (
-            // eslint-disable-next-line
-            <div className='box' id={workout._id} onClick={deleteWorkout}>
-              <FontAwesomeIcon
-                  icon={faTimes}
-                  style={{ color: 'red', cursor: 'pointer' }}
-                />
-              <h3>{workout.name}</h3>
-              <h4>{workout.category}</h4>
-              <h4>{workout.duration} mins</h4>
-              <span>{format(new Date(workout.date), 'Pp')}</span>
-            </div>
-          ))}
-        </div>
-        <div className='right-panel-box'>
-          <h2>Workout History</h2>
-          <WorkoutChart />
-        </div>
+    <div className='content-container'>
+      <div className='left-panel-box'>
+        <h2>Upcoming Workouts</h2>
+        {workouts.map((workout) => (
+          // eslint-disable-next-line
+          <div className='box' id={workout._id} onClick={deleteWorkout}>
+            <FontAwesomeIcon
+              icon={faTimes}
+              style={{ color: 'red', cursor: 'pointer' }}
+            />
+            <h3>{workout.name}</h3>
+            <h4>{workout.category}</h4>
+            <h4>{workout.duration} mins</h4>
+            <span className='upcoming-date'>
+              {format(new Date(workout.date), 'Pp')}
+            </span>
+          </div>
+        ))}
       </div>
+      <div className='right-panel-box'>
+        <h2>Workout History</h2>
+        <WorkoutChart />
+      </div>
+    </div>
   );
 }
 
