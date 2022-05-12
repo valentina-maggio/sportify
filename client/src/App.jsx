@@ -4,7 +4,7 @@ import RegisterPageDetails from './components/RegisterPageDetails';
 import DashboardDetails from './components/DashboardDetails';
 import ExercisesPageDetails from './components/ExercisesPageDetails';
 import WorkoutPageDetails from './components/WorkoutPageDetails';
-import WorkoutChart from './components/WorkoutChart';
+// import WorkoutChart from './components/WorkoutChart';
 
 import './App.css';
 
